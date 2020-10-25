@@ -1,0 +1,15 @@
+***************
+pp-math-sb.zip
+***************
+
+Date: Jan 8, 2007 
+
+Package contains:
+eule.eps		: Logo of University
+titelblatt.sty		: Macros for the title page
+PPsample[1-5].tex	: Sample LaTeX sources for 1-5 (co-)author(s)
+PPsample[1-5].[dvi/pdf]	: DVI- and PDF-versions of the translated source files
+
+For questions and suggestions please contact:
+	preprint@math.uni-sb.de
+

@@ -1,0 +1,62 @@
+\begin{theorem}[Local comparison of classical solutions]
+			\label{smooth_loc} 
+			Consider the open domain $ \Omega \coloneqq \left( 0, T \right) \times B_R(z_0) $ and let $ u $, $ v \in C^{1}(\Omega) \cap C(\overline{\Omega}) $ be respectively sub-and supersolutions of some PDE of the form
+			
+			\begin{equation*}
+				-u_t + H(t, x, -D_x u) = 0 \ .
+			\end{equation*}
+			If $ H : \Omega \times \mathbb{R}^{N} \to \mathbb{R} $ is $ C $-Lipschitz continuous w.r.t the gradient variable, that is if $ H $ satisfies
+			
+			\begin{equation}
+				\tag{H1}
+				\lvert H(t, x, p) - H(t, x, q) \rvert \leq C \lvert p - q \rvert
+				\label{eqn:H1}
+			\end{equation}
+			then $ w \coloneqq u - v $ satisfies
+			
+			\begin{equation}
+				\label{diff-PDE}
+				-w_t - C \lvert D_x w \rvert \leq 0 \ .
+			\end{equation}
+			If additionally the subsolution $ u $ is lesser or equal to the supersolution $ v $ on $ \{ T \} \times \overline{B_R(z_0)} $, then the same applies to the whole cone $ \mathcal{C}_{z_0, R} $.
+			
+			\begin{proof}
+				We begin the proof by showing that the difference $ w $ satisfies \ref{diff-PDE}. Since $ u $ and $ v $ are respectively sub-and supersolutions, we have by definition
+				
+				\begin{equation*}
+					-u_t + H(t, x, -D_x u) \leq 0 \leq -v_t + H(t, x, -D_x v) .
+				\end{equation*}
+				
+				Reordering the Hamiltonians on the right-hand-side, and the derivatives on the left one, yields
+				
+				\begin{equation*}
+					-w_t \leq \lvert H(t, x, -D_x u) - H(t, x, -D_x v) \rvert \ .
+				\end{equation*}
+				
+				The Lipschitz-continuity w.r.t the gradient variable \eqref{eqn:H1} immediately gives
+				
+				\begin{equation*}
+					-w_t \leq C \lvert D_x w \rvert \ ,
+				\end{equation*}
+				
+				which is obviously equivalent to inequality \ref{diff-PDE}.
+				
+				To conclude $ u \leq v $, i.e $ w \leq 0 $ on $ \mathcal{C}_{x_0, R} $, compare $ w $ with strict supersolutions 
+				
+				\begin{align*}
+				\phi_{\delta} : \left[ t_{\delta}, T \right] \times \overline{B_R(z_0)} &\to \mathbb{R} \\
+				(t, x) &\mapsto \chi_{\delta} \left( \lvert x - x_0 \rvert + C(T - t) \right) + \delta (T - t)
+				\end{align*}
+				of \ref{diff-PDE}, where $ t_{\delta} \coloneqq T - \frac{R - \delta}{C} $ and $ \chi_{\delta} $ is some smooth function, with
+				
+				\begin{align*}
+					\chi_{\delta}(y) = \begin{cases}
+					0 &\hbox{, if } y \leq R - \delta \\
+					\max\limits_{\left[0, T\right] \times \overline{B_z(x_0)}} w &\hbox{, if }y \geq R
+					\end{cases}
+				\end{align*}
+				
+				as described in \cite[p.~73]{barles}. An explicit computation of the difference quotients of $ \phi_{\delta} $ w.r.t the state variables, shows that $ \phi_{\delta} $ is indeed a smooth, strict supersolution of \ref{diff-PDE} in $ \left(t_{\delta}, T \right) \times B_R(z_0) $, and that $ D \phi_{\delta} $ continuously extends to $ \left[t_{\delta}, T \right) \times B_R(z_0) $. In view of the conflicting sub-and supersolution conditions of $ w $ and $ \phi_{\delta} $ in combination with lemma \ref{extension lemma}, the continuous function $ w - \phi_{\delta} $ attains its global maximum over the compact set $ \left[t_{\delta}, T \right] \times \overline{B_R(z_0)} $, in $ \left[t_{\delta}, T \right] \times \partial B_R(z_0) $. By construction of $ \phi_{\delta} $, we have $ w \leq \phi_{\delta} $, i.e $ w - \phi_{\delta} \leq 0 $ in $ \left[t_{\delta}, T \right] \times \partial B_R(z_0) $, and therefore $ w - \phi_{\delta} \leq 0 $ on the whole domain $ \left[ t_{\delta}, T \right] \times \overline{B_R(z_0)} $.
+				Now observe that $ \phi_{\delta} \leq 0 $ in $ \mathcal{C}_{z_0, R - \delta} $ by construction, and since $ w \leq \phi_{\delta} $, the same applies to $ w $. Taking the limit $ \delta \searrow 0 $, completes the proof.
+			\end{proof}
+		\end{theorem}

@@ -1,0 +1,30 @@
+
+\section{From functional to differential equation}
+
+As mentioned in the title, we aim to derive a differential equation satisfied by the value function, starting from the DPP \ref{dpp_general}, which is in fact a functional equation. Before doing so, we want to make some assumptions ensuring the well-definedness of the objects appearing in our control problem. We impose:
+
+	\begin{itemize}
+		\item
+		$ \mathcal{A} $ to be a metric space.
+		
+		\item The functions $ f $, $ b $ and $ h $ to be uniformly continuous. Let $ \psi $ be a placeholder for latter functions. We additionally require:
+		
+		\begin{equation}
+			\label{Lipschitz}
+			\lvert \psi(t, x, a) - \psi(t, x_0, a) \rvert \leq L \lvert x - x_0 \rvert \ ,
+		\end{equation}
+		
+		for every fixed $ t \in \left[0, T \right] $ and $ a \in \mathcal{A} $, and for every $ x $, $ x_0 \in  \mathbb{R}^N $, as well as 
+		
+		\begin{equation}
+			\label{bounded}
+			\lvert \psi(t, 0, a) \rvert \leq L \ .
+		\end{equation}
+		
+	\end{itemize}
+
+Under these conditions, the prerequisites for  Caratheodory's existence and uniqueness theorem (cf. \cite[Theorem 1.45 p.~25]{roubivcek}) are satisfied, and therefore any control indeed induces a unique, absolutely continuous, state trajectory. Furthermore, it is ensured, that the running costs along a given trajectory are integrable over a finite time span. Finally, the value function is known to be finite valued and at least locally Lipschitz-continuous (cf. \cite[Inequality (2.68) from Theorem 2.5 p.~165]{zhou}). Latter assertion relies on Gronwall-type-arguments, applied to a given controlled trajectory.
+
+As the DPP \ref{dpp_general} relates the function values of $ v $ along controlled trajectories, we want to study the variations of $ v $ along those. Provided the problem parameters do not exhibit variations too volatile, and more importantly, provided that $ v $ is smooth, our analysis reveals the value  function to be a solution to some boundary value problem.
+
+	\subimport{./}{DiffEq}

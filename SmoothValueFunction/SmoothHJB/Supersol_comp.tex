@@ -1,0 +1,96 @@
+\begin{lemma}
+			\label{extension lemma}
+			Let $ \Omega^{\prime} \subset \mathbb{R}^{N-1} $ be an open domain. Set $ \Omega \coloneqq \left( a, b \right) \times \Omega^{\prime} $. Suppose $ w \in C^{1}\left( \Omega \right) \cap C (\overline{\Omega})$ satisfies
+			
+			\begin{equation*}
+				F(t, x, w, Dw) \leq 0
+			\end{equation*}
+			for all $ (t, x) \in \Omega $, where $ F : \left[ a, b \right) \times \Omega^{\prime} \times \mathbb{R} \times \mathbb{R}^{N} \to \mathbb{R} $ is a continuous function, and the mapping
+			
+			\begin{equation*}
+				 s \mapsto F(t, x, r, s, p_1, \ldots, p_{N-1})
+			\end{equation*}
+			is non-increasing for every $ (t, x, r, p_1, \ldots, p_{N-1}) $. Let $ \phi \in C^{1} \left( \Omega \right) $, s.t. its total differential continuously extends to $ \left[a, b\right) \times \Omega^{\prime} $.
+			
+			If $ w - \phi $ attains a local maximum in some point $ (\overline{t}, \overline{x}) \in \left[a, b\right) \times \Omega^{\prime} $, then
+			
+			\begin{equation*}
+				F(\overline{t}, \overline{x}, w(\overline{t}, \overline{x}), D\phi(\overline{t}, \overline{x}))) \leq 0.
+			\end{equation*}
+			
+			\begin{proof}
+				The proof is analogous to the one given in \cite[p.~41]{bardi2008optimal}. As discussed above, the claim is an immediate consequence of Fermat's rule, if $ (\overline{t}, \overline{x}) $ is an interior extrema.
+				
+				Now for the critical case, in which $ (\overline{t}, \overline{x}) = (a, \overline{x}) $ is a local maximum of $ w - \phi $ with respect to some neighbourhood $ \left( a, a + r \right] \times B_r(\overline{x}) \subset \subset \left[ a, b \right) \times \Omega^{\prime} $. 
+				
+				Add the penalty term $ - \frac{1}{n(t-a)} $ to $ w - \phi $, i.e consider the functions
+				
+				\begin{equation*}
+					\psi_n(t, x) = ( w(t, x) - \phi(t, x)) - \frac{1}{n(t-a)} \ .
+				\end{equation*}
+				
+				Since $ w - \phi $ is bounded from above by $ w(a, \overline{x}) - \phi(a, \overline{x}) $ when restricted to $ \left( a, a + r \right] \times B_r(\overline{x}) $,
+				
+				\begin{equation*}
+					\lim\limits_{t \searrow a} \psi_n(t, x) = - \infty
+				\end{equation*}
+				
+				\emph{uniformly} with respect to $ x \in B_r(\overline{x}) $, and $ \psi_n $ is known to admit a local maximizer $ (t_n, x_n) \in \left( a, a + r \right] \times B_r(\overline{x}) $.
+				
+				After taking a subsequence if necessary, $ (t_n, x_n)_{n \in \mathbb{N}} $ converges to some point $ (t^{*}, x^{*}) \in \left[a, a +r \right] \times \overline{B_r(\overline{x}}) $. The goal is to show that $ (t_n, x_n)_{n \in \mathbb{N}} $ actually converges to $ (a, \overline{x}) $. For this purpose assume $ (a, \overline{x}) $ was a \emph{strict} local maximum. Otherwise replace $ \phi $ by
+				
+				\begin{equation*}
+					(t, x) \mapsto \phi(t, x) - \frac{\lVert (t, x) - (a, \overline{x}) \rVert^2}{2},
+				\end{equation*}
+				
+				which leaves the total derivative of $ \phi $ in $ (a, \overline{x}) $ unchanged. 
+				
+				Observe that $ (\psi_n(t_n, x_n))_{n \in \mathbb{N}} $ is a non-decreasing sequence bounded from above; consequently converging to some limit $ l $. Firstly, note 
+				
+				\begin{equation*}
+					\psi_n(t_n, x_n) \leq (w- \phi)(t_n, x_n) \to (w-\phi)(t^{*}, x^{*})
+				\end{equation*}, 
+				
+				and therefore $ l \leq (w-\phi)(t^{*}, x^{*}) $. Secondly, consider the sequence $ (s_n, z_n) $, defined by
+				
+				\begin{equation*}
+					(s_n, z_n) \coloneqq  \left( a + \frac{1}{\sqrt{n}}, \overline{x}_1, \ldots, \overline{x}_{N-1} \right) .
+				\end{equation*}
+				Using that
+				\begin{equation*}
+					\psi_n(t_n, x_n) \geq \psi_n(s_n, z_n) = (w - \phi)(s_n, z_n) -\frac{\sqrt{n}}{n}
+				\end{equation*}
+				
+				conclude that $ l \geq (w- \phi)(a, \overline{x}) $ by taking the limit $ n \to \infty $. Altogether we obtain that $ (w - \phi)(a, \overline{x}) \leq (w - \phi)(t^{*}, x^{*}) $. Since $ (a, \overline{x}) $ was supposed to be a \emph{strict} maximum, we know that $ (t^{*}, x^{*}) = (a, \overline{x}) $.
+				
+				To complete the proof, note that $ (t_n, x_n) $ is an \emph{interior} local maximum of $ \psi_n $, and therefore the total derivative of $ w $ in $ (t_n, x_n) $ equals the total derivative of the mapping 
+				
+				\begin{equation*}
+					(t, x) \mapsto \phi(t, x) + \frac{1}{n(t-a)}
+				\end{equation*}
+				
+				in $ (t_n, x_n) $, i.e
+				
+				\begin{equation*}
+					Dw(t_n, x_n) = \left( \phi_t(t_n, x_n) - \frac{1}{n(t-a)^2}, D_x \phi(t_n, x_n) \right) .
+				\end{equation*}
+				Since $ w $ is a subsolution, we have
+				
+				\begin{equation*}
+					F \left(t_n, x_n, w(t_n, x_n), \phi_t(t_n, x_n) - \frac{1}{n(t-a)^2}, D_x \phi(t_n, x_n) \right) \leq 0 \ ,
+				\end{equation*}
+				and the monotonicity of
+				
+				\begin{equation*}
+					s \mapsto F( t_n, x_n, w(t_n, x_n), s, D_x \phi(t_n, x_n ) )
+				\end{equation*}
+				
+				yields 
+				
+				\begin{equation*}
+					F(t_n, x_n, w(t_n, x_n), \phi_t(t_n, x_n), D_x \phi(t_n, x_n) ) \leq 0 \ .
+				\end{equation*}
+				
+				Taking the limit $ n \to \infty $  proves the claim.
+			\end{proof}
+		\end{lemma}

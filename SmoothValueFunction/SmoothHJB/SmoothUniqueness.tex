@@ -1,0 +1,44 @@
+
+\section{Uniqueness among classical solutions}
+
+	\paragraph{On the importance of uniqueness results}
+	
+	While the question of whether or not the boundary value problem, consisting of PDE \ref{HJB}  and boundary condition \ref{boundary}, admits a unique continuously differentiable solution, might seem natural for a seasoned specialist in PDEs, it is actually also of practical interest. Although we have not explicitly computed the value function yet, we know at the very least, that it satisfies some boundary value problem, whenever smooth. Now suppose we somehow computed a solution of the boundary value problem. Without any uniqueness result, we are left wondering whether or not the computed solution is also the sought value function. We immediately want to make up for this inconvenience lest the more practically inclined reader quit reading with a deprecating smile.
+
+	\subsection{A local comparison result}
+	
+		Comparison results are often the key relation when showing the uniqueness of a given boundary value problem. This case is no different. Given a subsolution $ u $ and a supersolution $ v $, satisfying $ u \leq v $ on the boundary $ \{ T \} \times \mathbb{R}^N $, we extend latter relationship on some closed region. In order to do so, we examine the difference $ w \coloneqq u - v $, to find out that $ w $ is a subsolution to some other PDE described by $ F $, that is
+		
+		\begin{equation*}
+			F(t, x, Dw) \leq 0
+		\end{equation*}
+		for all $ (t, x) \in \left(0, T \right) \times \mathbb{R}^N $.
+		To conclude $ u \leq v $, i.e $ w \leq 0 $ on mentioned region, we locally compare $ w $ to a strict supersolution $ \phi : \left[ t_{\phi}, T \right] \times \overline{\Omega^{\prime}} \to \mathbb{R} $ of $ F $, meaning
+		
+		\begin{equation*}
+			F(t, x, D\phi) > 0
+		\end{equation*}
+		
+		for all $ (t, x) \in \left( t_{\phi}, T \right) \times\Omega^{\prime} $. More precisely, we exclude the possibility of $ w -\phi $ attaining a global maximum in $ \left[ t_{\phi}, T \right) \times \Omega^{\prime} $. Excluding local extrema in ${ \left( t_{\phi}, T \right) \times \Omega^{\prime} }$ is an immediate consequence of the conflicting sub-and supersolution inequalities of $ w $ and $ \phi $ together with Fermat's rule, which yields $ Dw = D\phi $ for \emph{interior} extrema of $ w - \phi $. Unfortunately Fermat's rule does not necessarily apply to extrema of the form $ (t_{\phi}, x^{*}) $ located in $ \{t_{\phi} \}\times \Omega^{\prime}  $ and another strategy is needed to derive the contradiction $ F(t_{\phi}, x^{*}, D\phi(t_\phi, x^{*})) \leq 0 $ . This is achieved by the means of the following, more general lemma.
+		
+		\subimport{./}{Supersol_comp}
+	
+		Having laid the technical groundwork to compare sub-and supersolutions, the proof of the following comparison result boils down to derive an appropriate PDE for  $ w $ and construct suitable strict supersolutions. The closed regions to which will apply the theorem, are the closed cones
+		
+		\begin{equation*}
+			\mathcal{C}_{z_0, R} \coloneqq \Bigg\{ (t, x) \in \left[ T - \frac{R}{C}, T \right]: \lvert x - z_0 \rvert + C(T-t) \leq R \Bigg\} \ .
+		\end{equation*}
+		
+		\subimport{./}{Smooth_local_comp}
+	
+	\subsection{From local to global}
+		In this section we want to extend our local comparison result, namely theorem \ref{smooth_loc}, to a global one. Using the Lipschitz-conditions imposed onto our problem-parameters, we can easily verify
+		
+		\begin{equation}
+			\label{varying_Lipschitz}
+			\lvert H(t, x, p) - H(t, x, q) \rvert \leq L \left(1 + \lvert x \rvert \right) \lvert p - q \rvert \ ,
+		\end{equation}
+		for all $ x \in \mathbb{R}^{N} $, as stated in \cite[p.~167]{zhou}. The most obvious Lipschitz-constant from inequality \eqref{eqn:H1} is now given by $ C = L (1 + \lvert z_0 \lvert + R) $, when considering the domain $ \left(0, T \right) \times B_R(z_0) $. The time interval spanned by the cone $ \mathcal{C}_{z_0, R} $ is consequently tending towards zero with increasing $ \lvert z_0 \rvert $, if the choice of the radius $ R $ is left to be constant. The proof of the following corollary essentially consists in choosing a suitable radius $ R $ for each $ z_0 $, in order to cover the whole domain.
+		
+		\subimport{./}{Global_comp}
+		

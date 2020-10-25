@@ -1,0 +1,237 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Dateiname: titelblatt_neu.sty
+%%  Datum:     19.07.2000
+%%  Änderungen:01.08.2000 (Umstellung auf "FR 6.1" und Längenanpassungen 
+%%  Autoren:   Holger Cröni, Ralf Kirsch
+%%  E-Post:    holger@math.uni-sb.de, kirsch@num.uni-sb.de
+%%
+%%  Lesen Sie bitte unbedingt die Datei 'pp_muster.tex'!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{epsfig}
+
+\def\PPanzahl{1} % Standardwert
+
+\newcommand{\Panzahl}[1]  { \def\PPanzahl{#1} }
+
+\newcommand{\Ptitel}[1]   { \def\PPtitel    {#1} }
+\newcommand{\Pjahr}[1]    { \def\PPjahr     {#1} }
+\newcommand{\Pnummer}[1]  { \def\PPnummer   {#1} }
+\newcommand{\Pdatum}[1]   { \def\PPdatum    {#1} }
+\newcommand{\Pvonby}[1]   { \def\PPvonby    {#1} }  
+%% 1.& und 2.AutorIn
+\newcommand{\Pautor}[1]         { \def\PPautor       {#1} }
+\newcommand{\Pcoautor}[1]       { \def\PPcoautor     {#1} }
+
+\newcommand{\Panschrift}[1]     { \def\PPanschrift   {#1} }
+\newcommand{\Pcoanschrift}[1]   { \def\PPcoanschrift {#1} }
+
+\newcommand{\Pepost}[1]         { \def\PPepost       {#1} }
+\newcommand{\Pcoepost}[1]       { \def\PPcoepost     {#1} }
+
+
+%% 3.& und 4.AutorIn
+\newcommand{\qPautor}[1]         { \def\qPPautor       {#1} }
+\newcommand{\qPcoautor}[1]       { \def\qPPcoautor     {#1} }
+
+\newcommand{\qPanschrift}[1]     { \def\qPPanschrift   {#1} }
+\newcommand{\qPcoanschrift}[1]   { \def\qPPcoanschrift {#1} }
+
+\newcommand{\qPepost}[1]         { \def\qPPepost       {#1} }
+\newcommand{\qPcoepost}[1]       { \def\qPPcoepost     {#1} }
+
+%% 5. AutorIn
+\newcommand{\qqPautor}[1]         { \def\qqPPautor       {#1} }
+
+\newcommand{\qqPanschrift}[1]     { \def\qqPPanschrift   {#1} }
+
+\newcommand{\qqPepost}[1]         { \def\qqPPepost       {#1} }
+
+
+%%%%%%% Hier kommen die Prädefinitionen für 1 bis 4 AutorInnen %%%%%%%%
+
+\newcommand{\Ptitelseite}{%% Das Kommando ist der Rest der Datei
+
+%  %%%%%%% AutorInnen :  1 %%%%%%%%%%%%%%%%%%%
+\ifnum\PPanzahl=1
+  \def\pAutor     {\PPautor}
+  \def\pAnschrift {
+    ~\vspace{2.5cm}
+    \begin{center}
+      {\large 
+      { \textit{\bf \PPautor} \\[2mm]}
+      { \PPanschrift \\
+        \texttt{\PPepost}} }
+     \end{center}
+    }
+\fi
+
+
+
+%  %%%%%%% AutorInnen :  2 %%%%%%%%%%%%%%%%%%%
+\ifnum\PPanzahl=2
+  \def\pAutor     {\PPautor\ and\ \PPcoautor}
+  \def\pAnschrift {
+     ~\vspace{1.5cm}
+    \begin{center}
+      { \textit{\bf \PPautor} \\[2mm]}
+      { \PPanschrift \\
+        \texttt{\PPepost}} \\[3.0cm]
+      { \textit{\bf\PPcoautor} \\[2mm]}
+      { \PPcoanschrift \\
+         \texttt{\PPcoepost}} \\[0.9cm]
+     \end{center}
+    }
+\fi
+%
+%  %%%%%%% AutorInnen :  3 %%%%%%%%%%%%%%%%%%%
+\ifnum\PPanzahl=3
+  \def\pAutor     {\PPautor, \PPcoautor\ and \qPPautor}
+  \def\pAnschrift {
+       ~\vspace{1.0cm}
+    \begin{center}
+         { \textit{\bf \PPautor} \\}
+      { \PPanschrift \\
+        \texttt{\PPepost}} \\[1.0cm]
+      { \textit{\bf\PPcoautor} \\}
+      { \PPcoanschrift \\
+         \texttt{\PPcoepost}} \\[1.0cm]
+      { \textit{\bf\qPPautor} \\}
+      { \qPPanschrift \\
+        \texttt{\qPPepost}}
+
+   \end{center}
+    }
+\fi
+%
+%  %%%%%%% AutorInnen :  4 %%%%%%%%%%
+\ifnum\PPanzahl=4
+  \def\pAutor     {\PPautor, \PPcoautor,\\ \qPPautor\ and\ \qPPcoautor}
+  \def\pAnschrift {
+    \begin{center}
+    
+     { \textit{\bf \PPautor} \\}
+     { \PPanschrift \\
+     \texttt{\PPepost}} \\[0.4cm]
+     { \textit{\bf\PPcoautor} \\}
+     { \PPcoanschrift \\
+     \texttt{\PPcoepost}} \\[0.4cm]
+     { \textit{\bf\qPPautor} \\}
+     { \qPPanschrift \\
+     \texttt{\qPPepost}}\\[0.4cm]
+   { \textit{\bf \qPPcoautor} \\}
+     { \qPPcoanschrift \\
+    \texttt{\qPPcoepost}}
+  
+ \end{center}
+    }
+\fi
+
+%  %%%%%%% AutorInnen :  5 %%%%%%%%%%
+\ifnum\PPanzahl=5
+  \def\pAutor     {\PPautor, \PPcoautor, \qPPautor,\\ \qPPcoautor\ and
+  \qqPPautor} 
+  \def\pAnschrift {
+    \begin{center}
+    {\small
+     { \textit{\bf \PPautor} \\}
+     { \PPanschrift \\
+     \texttt{\PPepost}} \\[0.2cm]
+   { \textit{\bf\PPcoautor} \\}
+   { \PPcoanschrift \\
+     \texttt{\PPcoepost}} \\[0.2cm]
+   { \textit{\bf\qPPautor} \\}
+   { \qPPanschrift \\
+     \texttt{\qPPepost}}\\[0.2cm]
+   { \textit{\bf \qPPcoautor} \\}
+   { \qPPcoanschrift \\
+     \texttt{\qPPcoepost}}\\[0.2cm]
+   { \textit{\bf \qqPPautor} \\}
+     { \qqPPanschrift \\
+    \texttt{\qqPPepost}}}
+ \end{center}\vspace*{-1ex}
+    }
+\fi
+
+
+
+%%%%%%%%%%%%% 1.Seite %%%%%%%%%%%%%%%
+
+\parindent=0pt
+\thispagestyle{empty}
+\begin{center}
+{ \Huge  \sf  Universit\"at des Saarlandes}\\[6mm]
+
+\begin{figure}[htb]
+  \begin{center}
+    \includegraphics[width=3cm]{./Bilder/eule.eps}
+  \end{center}
+\end{figure}
+{\Huge \sf Fachrichtung 6.1 -- Mathematik }\\[2cm]
+
+{\Large Preprint Nr. \PPnummer \hfill} \\[1.5cm]
+
+{ \Large  \bf \PPtitel} \\[1cm]
+
+{ \Large \pAutor }\\[5.2cm]
+
+{\Large Saarbr\"ucken \PPjahr} 
+
+\end{center}
+
+%%%%%%%%%%%%% 2.Seite %%%%%%%%%%%%%%%
+\newpage
+\thispagestyle{empty}
+\ 
+
+%%%%%%%%%%%%% 3. Seite %%%%%%%%%%%%%%%%%
+
+\newpage
+\thispagestyle{empty}
+% \ifnum\PPanzahl>2      %% Falls mehr als 2 AutorInnen vorkommen
+%   \quad\vspace*{-3.5cm}   %% reicht eine Seite nicht ganz, deswegen 'nach oben
+%   %% ziehen' 
+% \fi
+\newpage
+\begin{center}
+{\sf Fachrichtung 6.1 -- Mathematik \hfill Preprint No. \PPnummer}\\ 
+{\sf Universit\"at des Saarlandes \hfill submitted: \PPdatum}\\ 
+\hrulefill\\[2ex]
+{ \Large \bf \PPtitel}\\[4mm]
+\pAnschrift
+% \vfill
+% \hrulefill\\[1mm]
+% submitted: \PPdatum \\[1mm]
+% \textbf{Preprint No. \PPnummer}\\[1mm] 
+% Saarbr\"ucken \PPjahr
+\end{center}
+
+%%%%%%%%%%%%% 4. Seite %%%%%%%%%%%%%%%%
+\newpage
+\thispagestyle{empty}
+~
+\vfill
+Edited by \\
+FR 6.1 -- Mathematik \\
+Universit\"at des Saarlandes\\
+Postfach 15 11 50\\
+66041 Saarbr\"ucken \\
+Germany \\[1cm]
+
+\begin{tabbing}
+Fax:     \hspace{7mm} \= + 49 681 302 4443 \\
+e-Mail:   \> preprint@math.uni-sb.de \\
+WWW:      \> http://www.math.uni-sb.de/
+\end{tabbing}
+~
+\newpage
+\pagenumbering{arabic}
+}
+%%%%%%%%%%%%%% Ende der Datei 'titelblatt.sty' %%%%%%%%%%%%
+
+
+
+
+
+
+
+

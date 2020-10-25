@@ -1,0 +1,95 @@
+\chapter{A very brief introduction to control problems}
+
+	\paragraph{}
+	Control problems arise every time a system has to be manipulated in order to satisfy a particular objective. Naturally, they find numerous applications across a broad range of domains, going from finance and economics to actual rocket science. Aside from being a powerful toolbox for the pragmatic engineer, the diverse intersections with the different areas of mathematics also offer an aesthetic landscape for the dreamiest mathematician in his quest for intellectual distraction.
+	
+	\section{Finite-time control problems}
+	
+	We describe, rather informally, the specific type of control problems we will deal with. Consider a system starting in state $ x_0 \in \mathbb{R}^N $ at time $ t_0 \geq 0 $. At each point of time $ t \geq t_0 $, we can manipulate the current state of the system $ x(t) \in \mathbb{R}^N $, by executing an external control $ \alpha(t) \in \mathcal{A} $, where $ \mathcal{A} $ denotes the topological space of all possible controls. The resulting trajectory of the system $ x^{\alpha}_{x_0} $ is described by the dynamics $ b : \left[ 0 , T \right] \times \mathbb{R}^N \times \mathcal{A} \to \mathbb{R} $, meaning $ x^{\alpha}_{x_0} $ is the unique, absolutely continuous solution to the IVP
+	
+	\begin{align*}
+	x(t_0) &= x_0 \\
+	\dot{x}(t) &= b(t, x(t), \alpha(t)) \ .
+	\end{align*}
+	
+	A manipulation of the system at time $ t $ in state $ x(t) $ with control $ \alpha(t) $, is penalized with costs $ f(t, x(t), \alpha(t)) \in \mathbb{R} $. The system is observed during a finite, fixed time span $ \left[t_0, T \right] $. The final state of the system, $ x^{\alpha}_{x_0}(T) $ is then penalized with another costs $ h(x^{\alpha}_{x_0}(T)) \in \mathbb{R} $, which results in totals costs of
+	
+	\begin{equation*}
+	J(t_0, x_0, \alpha) \coloneqq \pathint{\alpha}{t_0}{T} + h(x^{\alpha}_{x_0}(T)) \ .
+	\end{equation*}
+	
+	Our objective is now to minimize the total costs over all measurable controls $ \alpha : \left[t_0, T \right] \to \mathcal{A} $, denoting latter set by $ \controlspace[t_0] $.
+	
+	We remark at this point, that our problem model is not the only, and certainly not, the most general model. Suppose for example, we wanted to regulate a rocket's fuel consumption on its way to mars. As the amount of fuel injected affects the rocket's velocity, it affects the time needed to reach our destination. The time span, over which we consider our control problem, can therefore depend on the chosen control. Still, we forsake generality for a concise presentation of the principle ideas.
+	
+	\section{The Dynamic Programming Principle (DPP)}
+	
+	We make in this section a quite intuitive but, nonetheless, fundamental observation which relates the control problems with different starting points and initial states to each other.
+	
+	We consider a system with initial state $ x_0 \in \mathbb{R}^N $ at time $ t_0 \geq 0 $. Following the standard procedure in optimization, we derive necessary conditions for a control $ \alpha \in \controlspace[t_0] $ to be optimal. 
+	
+	Assume $ \alpha^{*} \in \controlspace[t_0] $ is an optimal control, and let $ x^{\alpha^{*}}_{x_0} : \left[t_0, T \right] \to \mathbb{R}^N $ be its resulting trajectory. That is, if we define
+	
+	\begin{equation*}
+		v(t_0, x_0) \coloneqq \inf\limits_{\alpha \in \controlspace[t_0]} J(t_0, x_0, \alpha) \ ,
+	\end{equation*}
+	
+	we have $ v(t_0, x_0) = J(t_0, x_0, \alpha^{*}) $ . As  $ \alpha^{*} $ transfers the system to state $ x^{\alpha^{*}}_{x_0}(t_0 + h) $ at a latter point of time $ t_0 + h \geq t_0 $, we differentiate between the costs arisen over the time span $ \left[t_0, t_0 + h\right) $, and those arisen over $ \left[ t_0 + h, T \right] $. Doing so, yields that
+	
+	\begin{equation*}
+		\begin{split}
+		J(t_0, x_0, \alpha^{*})& = \pathint{\alpha^{*}}{t_0}{t_0 + h} \\
+		 &+ \pathint{\alpha^{*}}{t_0 + h}{T} + h(x^{\alpha^{*}}_{x_0}(T)) 
+		\end{split}
+	\end{equation*}
+	
+	which leads to the interesting equation:
+	
+	\begin{equation}
+		\label{subproblem}
+		J(t_0, x_0, \alpha^{*}) = \pathint{\alpha^{*}}{t_0}{t_0 + h} + J(t_0 + h, x^{\alpha^{*}}_{x_0}(t_0 + h), \alpha^{*}_{|\left[t_0 + h, T\right]}) \ .
+	\end{equation}
+	
+	It is natural to ask whether $ \alpha^{*}_{|\left[t_0 + h, T\right]} $, can be used to solve the control problem starting $ t_0 + h $ in state $ x^{\alpha^{*}}_{x_0}(t_0 + h) $, i.e whether
+	
+	\begin{equation*}
+		J(t_0 + h, x^{\alpha^{*}}_{x_0}(t_0 + h), \alpha^{*}_{|\left[t_0 + h, T\right]}) =  v(t_0 + h, x^{\alpha^{*}}_{x_0}(t_0 + h)) \ .
+	\end{equation*}
+	
+	A simple exchange argument gives a positive answer to that question. Suppose the contrary, meaning
+	
+	\begin{equation*}
+		J(t_0 + h, x^{\alpha^{*}}_{x_0}(t_0 + h), \alpha^{*}_{|\left[t_0 + h, T\right]}) >  v(t_0 + h, x^{\alpha^{*}}_{x_0}(t_0 + h)) \ .
+	\end{equation*}
+	
+	In this case there exists a control $ \beta \in \controlspace[t_0 + h]$, s.t.
+	
+	\begin{equation*}
+		J(t_0 + h, x^{\alpha^{*}}_{x_0}(t_0 + h), \alpha^{*}_{|\left[t_0 + h, T\right]}) > J(t_0 + h, x^{\alpha^{*}}_{x_0}(t_0 + h), \beta) \ .
+	\end{equation*}
+	
+	But then we can concatenate the controls $ \alpha^{*}_{\left[t_0, t_0 + h \right]} $ and $ \beta $ to obtain a control in $ \controlspace[t_0] $ that beats $ \alpha^{*} $ over the whole time span $ \left[t_0, T \right] $, which is of course a contradiction.
+	
+	The function $ v : \left[ 0, T \right] \times \mathbb{R}^N \to  \mathbb{R}$, the so-called \emph{value function} associated with our family of problems, consequently satisfies the functional equation
+	
+	\begin{equation}
+		\label{dpp}
+		v(t_0, x_0) = \pathint{\alpha^{*}}{t_0}{t_0 + h} + v(t_0 + h, x^{\alpha^{*}}_{x_0}(t_0 + h)) \ ,
+	\end{equation}
+	
+	which exactly describes the so-called \emph{Dynamic Programming Principle}, commonly abbreviated by \textbf{DPP}. The DPP is an idea that was first introduced by Richard Bellmann in a discrete-time setting \cite{bellmandiscrete}, he then later extended to problems in continuous time \cite{bellmancontinuous}. Zhou and Jiongming captured the DPP quite well in their concise statement: 
+	
+	\begin{center}
+		\say{globally optimal $ \implies $ locally optimal} .
+	\end{center}
+
+	As our functional equation \ref{dpp} satisfied by $ v $ relies on the existence of an optimal control, we try to rewrite \ref{dpp} as
+	\begin{equation}
+	\label{dpp_general}
+	v(t_0, x_0) = \inf\limits_{\alpha \in \controlspace} \bigg\{ \pathint{\alpha}{t_0}{t_0 + h} + v(t_0 + h, x^{\alpha}_{x_0}(t_0 + h)) \bigg\} \ .
+	\end{equation}
+	
+	An exchange argument, similar to the one used to justify \ref{dpp}, shows \ref{dpp_general} holds, even if an optimal control does not exist.
+	
+	What seems promising at the first glance, is quite unsatisfactory, as \say{[the dynamic programming equation] is very difficult to handle, since the operation involved on the right-hand side [...] is too complicated.}, Zhou and Jiongming confirm in \cite[p. ~160]{zhou}.
+	Instead of directly solving \ref{dpp_general}, we consider its implications for $ v $.

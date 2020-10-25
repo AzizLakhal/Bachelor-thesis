@@ -1,0 +1,107 @@
+\begin{lemma}
+		 	\label{doubling device}
+		 	Let $ (\overline{t}, \overline{x}, \overline{s}, \overline{y}) = (\overline{t}, \overline{x}, \overline{s}, \overline{y})_{\epsilon, \alpha} $ be a global maximizer of the continuous function $ \Phi_{\epsilon, \alpha} $, defined on the compact set $ \overline{B}_R(t_0, x_0)^2 $. Then:
+		 	
+		 	\begin{enumerate}[(i)]
+		 		\item 
+		 		\label{distance convergence}
+		 		\begin{align*}
+		 		\lvert \overline{x} - \overline{y} \rvert &\to 0 \hbox{ as } \epsilon \searrow 0, \hbox{ uniformly w.r.t } \  \alpha \\
+		 		\lvert \overline{t} - \overline{s} \rvert &\to 0 \hbox{ as } \alpha \searrow 0, \hbox{ uniformly w.r.t } \ \epsilon 
+		 		\end{align*}
+		 		
+		 		\item
+		 		\label{maximizer convergence} 
+		 		$ (u - \phi)(\overline{t}, \overline{x}) - v(\overline{s}, \overline{y}) \to (w - \phi)(t_0, x_0) $ and the components $ (\overline{t}, \overline{x}) $ and $ (\overline{s}, \overline{y}) $ of the maximizers converge towards $ (t_0, x_0) $ as $ \epsilon, \alpha \searrow 0 $ for some subnet of $ (\overline{t}, \overline{x}, \overline{s}, \overline{y})_{\epsilon, \alpha} $. 
+		 		For the same subnet, the vectors $ p $ and $ q $, with
+		 		
+		 		\begin{align*}
+		 			p &= \left( \frac{\overline{t} - \overline{s}}{\alpha}, \frac{\overline{x} - \overline{y}}{\epsilon} \right) + D\phi(\overline{t}, \overline{x}) \\
+		 			q &= \left( \frac{\overline{t} - \overline{s}}{\alpha}, \frac{\overline{x} - \overline{y}}{\epsilon} \right)
+		 		\end{align*}
+		 		
+		 		respectively belong to $ D^{+}u(\overline{t}, \overline{x}) $ and $ D^{-}v(\overline{s}, \overline{y}) $, for sufficiently small $ \epsilon $ and $ \alpha $.
+		 		
+		 		\item
+		 		\label{fast convergence}
+		 		For the subnet mentioned in claim (\ref{maximizer convergence}), we even have that
+		 		\begin{align*}
+		 			\frac{\lvert \overline{x} - \overline{y} \rvert^2}{\epsilon} &\to 0 \\
+		 			\frac{\lvert \overline{t} - \overline{s} \rvert^2}{\alpha} &\to 0 
+		 		\end{align*} 
+		 		as $ \epsilon, \alpha \searrow 0 $.
+		 	\end{enumerate}
+	 	
+	 	\begin{proof}
+	 		We adapt the proof of Lemma 5.2 in \cite[p.~69]{barles}.
+	 		
+	 		Note that modifying $ \phi $ by an additive constant neither changes the location of its extrema nor its total derivative. We might therefore assume in the following that $ M \coloneqq (w - \phi)(t_0, x_0)  $ is strictly positive.
+	 		
+	 		To show claim (\ref{distance convergence}), use that
+	 		
+	 		\begin{equation}
+	 			\label{larger maximum}
+	 			\Phi(\overline{t}, \overline{x}, \overline{s}, \overline{y}) \geq \Phi(t_0, x_0, t_0, x_0) = M > 0
+	 		\end{equation}
+	 		
+	 		implies that
+	 		
+	 		\begin{equation*}
+	 			\frac{\lvert x - y \rvert^2 }{2 \epsilon} + \frac{\lvert t - s \rvert^2}{2 \alpha} \leq u(\overline{t}, \overline{x}) - \phi(\overline{t}, \overline{x}) - v(\overline{s}, \overline{y})
+	 		\end{equation*}
+	 		
+	 		and since the right-hand side is bounded by the suprema of $ u $, $ v $ and $ \phi $ over the compact set $ \overline{B}_{R / 2}(t_0, x_0) $, we get that
+	 		
+	 		\begin{align*}
+	 			\lvert \overline{t} - \overline{s} \rvert &\leq \sqrt{2 K} \alpha \\
+	 			\lvert \overline{x} - \overline{y} \rvert &\leq \sqrt{2 K} \epsilon
+	 		\end{align*}
+	 		
+	 		for some constant $ K \geq 0 $.
+	 		
+	 		We continue with claim (\ref{maximizer convergence}). Note that
+	 		
+	 		\begin{equation}
+	 		\label{remove penalty}
+	 			\Phi(\overline{t}, \overline{x}, \overline{s}, \overline{y}) \leq
+	 			(u - \phi)(\overline{t}, \overline{x}) - v(\overline{s}, \overline{y}) 
+	 		\end{equation}
+	 		
+	 		by stripping the non-negative penalty terms off $ \Phi(\overline{t}, \overline{x}, \overline{s}, \overline{y}) $. By combining inequalities \ref{larger maximum} and \ref{remove penalty}, deduce
+	 		
+	 		\begin{equation}
+	 			\label{maximum convergence}
+	 			(u - \phi)(\overline{t}, \overline{x}) - v(\overline{s}, \overline{y}) \geq M > 0 \ .
+	 		\end{equation}
+	 		
+	 		Since $ (\overline{t}, \overline{x}, \overline{s}, \overline{y}) $ is contained in the compact set $ \overline{B}_{R /2}(t_0, x_0) $, it admits a convergent subnet. In view of claim (\ref{distance convergence}), its limit point is of the form $ (t^{*}, x^{*}, t^{*}, x^{*})  $. As $ \epsilon $ and  $ \alpha $ tend towards zero, the left-hand-side of inequality \ref{maximum convergence} converges to $ (w - \phi)(t^{*}, x^{*}) $, and therefore
+	 		
+	 		\begin{equation*}
+	 			(w - \phi)(t^{*}, x^{*}) \geq M \ .
+	 		\end{equation*}
+	 		
+	 		Since $ (t_0, x_0) $ is a strict local maximum, we have that $ (t^{*}, x^{*})  = (t_0, x_0) $ which proves
+	 		
+	 		\begin{align*}
+	 			(u - \phi)(\overline{t}, \overline{x}) - v(\overline{s}, \overline{y}) &\to (w - \phi)(t_0, x_0) \\
+	 			(\overline{t}, \overline{x}), \ (\overline{s}, \overline{y}) &\to (t_0, x_0) \ .
+	 		\end{align*}
+	 		
+	 		To see that the vectors $ p $ and $ q $ are indeed sub-and superdifferentials,  note that $ (\overline{t}, \overline{x}) $ and $ (\overline{s}, \overline{y}) $ are interior points of $ \overline{B}_{R / 2}(t_0, x_0) $ for sufficiently small $ \epsilon $ and $ \alpha $, since $ (\overline{t}, \overline{x}) $ and $ (\overline{s}, \overline{y}) $ converge to $ (t_0, x_0) $. The mappings $ \Phi(\cdot, \cdot, \overline{s}, \overline{y}) = u - \phi_1 $ and $ \Phi(\overline{t}, \overline{x}, \cdot, \cdot) =  v - \phi_2 : \left( 0, T \right) \times \mathbb{R}^N \to \mathbb{R} $, where
+	 		
+	 		\begin{align*}
+	 			\phi_1(t, x)  &\coloneqq \phi(t, x) + \frac{\lvert x - \overline{y} \rvert^2}{2 \epsilon} + \frac{\lvert t - \overline{s} \rvert^2}{2 \alpha} + v(\overline{s}, \overline{y}) \\
+	 			\phi_2(s, y) &\coloneqq - \frac{\lvert \overline{x} - y \rvert^2}{2 \epsilon} - \frac{\lvert \overline{x} - s \rvert^2}{2 \alpha} + u(\overline{t}, \overline{x}) + \phi(\overline{t}, \overline{x}) \ ,
+	 		\end{align*}
+	 		
+	 		therefore respectively attain a local maximum in $ (\overline{t}, \overline{x}) $ and a local minimum in $ (\overline{s}, \overline{y}) $. Observing that $ p = D\phi_1(\overline{t}, \overline{x}) $ and $ q = D\phi_2(\overline{s}, \overline{y}) $ completes the proof of claim (\ref{maximizer convergence}).
+	 		
+	 		Prove claim (\ref{fast convergence}) by using inequality (\ref{larger maximum}), which implies that
+	 		
+	 		\begin{equation*}
+	 			 \frac{\lvert \overline{x} - \overline{y} \rvert^2}{2 \epsilon} + \frac{\lvert \overline{t} - \overline{s} \rvert^2}{2 \alpha} \leq \left[(u - \phi)(\overline{t}, \overline{x}) - v(\overline{s}, \overline{y}) \right] - M \ .
+	 		\end{equation*}
+	 		
+	 		For the subnet mentioned in claim (\ref{maximizer convergence}), the right-hand-side converges to zero, as $ \epsilon, \alpha $ tend towards zero. Therefore claim (\ref{fast convergence}) holds, and lemma \ref{doubling device} is proven.
+	\end{proof}
+\end{lemma}

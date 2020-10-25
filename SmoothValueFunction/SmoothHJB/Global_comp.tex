@@ -1,0 +1,28 @@
+\begin{corollary}
+			\label{Smooth Uniqueness}
+			Let $ u $ and $ v \in C^{1}(\left(0, T \right) \times \mathbb{R}^N) \cap C(\left[ 0, T \right] \times \mathbb{R}^{N}) $ be respectively sub-and supersolutions of some PDE of the form
+			
+			\begin{equation*}
+				-u_t + H(t, x, -D_x u) = 0
+			\end{equation*}
+			where $ H $ satisfies \ref{varying_Lipschitz}.
+			
+			If the subsolution $ u $ is lesser or equal to the supersolution $ v $ in $ \{ T \} \times \mathbb{R}^{N} $, then the same applies to the whole domain $ \left[ 0, T \right] \times \mathbb{R}^{N} $.
+			
+			\begin{proof}
+				We want to choose for every $ x_0 \in \mathbb{R}^{N} $, a radius $ R(z_0) > 0 $, such that the time interval spanned by the cone $ \mathcal{C}_{z_0, R(z_0)} $ covers the whole interval $ \left[0, T \right] $. By the definition of $ \mathcal{C}_{z_0, R} $, with $ C = L (1 + \lvert z_0 \lvert + R) $, this is nothing else than solving the equation
+				
+				\begin{equation}
+				\label{radius_eq}
+					\frac{R}{L(1 + |z_0| + R)} = T \ .
+				\end{equation}
+				Note that we may assume w.l.o.g that $ T < 1 / L $, since we could otherwise partition the interval $ \left[ 0, T \right] $ accordingly, and iterate the following argument.
+				If $ T $ is strictly less than $ 1 / L $, equation \ref{radius_eq} admits exactly one positive solution, $ R(z_0) $, given by
+				
+				\begin{equation*}
+					R(z_0) = \frac{LT(1 + \lvert z_0 \rvert)}{(1 - LT)} \ .
+				\end{equation*}
+				
+				Choosing $ R(z_0) $ this way, yields $ \left[0, T\right] \times \mathbb{R}^{N} = \bigcup\limits_{z_0 \in \mathbb{R}^{N}} \mathcal{C}_{z_0, R(z_0)} $. Applying theorem \ref{smooth_loc} to the domains $ \left[ 0, T \right] \times \overline{B}_{R(z_0)}(z_0)$ completes the proof.
+			\end{proof}
+		\end{corollary}

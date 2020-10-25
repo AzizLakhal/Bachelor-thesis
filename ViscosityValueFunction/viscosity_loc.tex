@@ -1,0 +1,54 @@
+\begin{theorem}
+	\label{viscosity_loc}
+		  	Theorem \ref{smooth_loc} still holds in the viscosity sense, if the given Hamiltonian $ H $ is continuous and additionally satisfies \eqref{eqn:H2}.
+		  	\begin{proof}
+		  		We show that $ w $ is a viscosity subsolution of \ref{diff-PDE}, namely:
+		  		
+		  		\begin{equation*}
+		  			-w_t - C \lvert D_x w \rvert \leq 0 \ .
+		  		\end{equation*}
+		  		
+		  		For this purpose, consider an arbitrary point $ (t_0, x_0) \in \left( 0, T \right) \times B_R(z_0) $, and let $ \phi : \left( 0, T \right) \times B_R(z_0) \to \mathbb{R} $ be a smooth function, s.t. $ w - \phi $ admits a local maximum in $ (t_0, x_0) $. Let $ (\overline{t}, \overline{x}) $ and $ (\overline{s}, \overline{y}) $ denote the points constructed in lemma \ref{doubling device}. According to claim (\ref{maximizer convergence}) from latter lemma, the same points $ (\overline{t}, \overline{x}) $ and $ (\overline{s}, \overline{y}) $ respectively admit the super-and subdifferentials
+		  		
+		  		\begin{align*}
+		  				p &= \left( \frac{\overline{t} - \overline{s}}{\alpha}, \frac{\overline{x} - \overline{y}}{\epsilon} \right) + D\phi(\overline{t}, \overline{x}) \\
+		  			q &= \left( \frac{\overline{t} - \overline{s}}{\alpha}, \frac{\overline{x} - \overline{y}}{\epsilon} \right)
+		  		\end{align*}
+		  		
+		  		with respect to the functions $ u $ and $ v. $ Add the sub-and supersolutions inequalities satisfied by $ u $ and $ v $ to obtain the inequality:
+		  		
+		  		\begin{equation*}
+		  			- \phi_t(\overline{t}, \overline{x}) 
+		  			\leq \left\lvert H \left( \overline{t}, \overline{x}, - \left( \frac{\overline{x} - \overline{y}}{\epsilon} + D_x \phi(\overline{t}, \overline{x}) \right)  \right)
+		  			- H \left( \overline{s}, \overline{y}, - \left( \frac{\overline{x} - \overline{y}}{\epsilon} \right) \right) \right\rvert \ .
+		  		\end{equation*}
+		  		
+		  		Apply inequality \ref{idea} with the concrete values of $ p $ and $ q $, to deduce that
+		  		
+		  		\begin{equation}
+		  		\label{final step}
+		  			\begin{split}
+		  				- \phi_t(\overline{t}, \overline{x}) \leq
+		  				&\lvert H(\overline{t}, \overline{x}, -p_x) - H(\overline{s}, \overline{x}, -p_x) \rvert \\
+		  				+&\lvert H(\overline{s}, \overline{x}, -p_x) - H(\overline{s}, \overline{y}, -p_x) \rvert \\
+		  				+& C \lvert D_x \phi(\overline{t}, \overline{x}) \rvert \ .
+		  			\end{split}
+		  		\end{equation}
+		  		
+		  		Since $ (\overline{t}, \overline{x}) $ and $ (\overline{s}, \overline{y}) $ converge to $ (t_0, x_0) $, as $ \epsilon $ and $ \alpha $ tend to zero, the points $ (\overline{t}, \overline{x}) $ and $ (\overline{s}, \overline{y}) $ are bounded for sufficiently small $ \epsilon $ and $ \alpha $, and then so is $ D_x \phi(\overline{t}, \overline{x}) $.
+		  		
+		  		For fixed $ \epsilon $, the arguments of $ H $, appearing in the first difference $ \lvert H(\overline{t}, \overline{x}, -p_x) - H(\overline{s}, \overline{x}, -p_x) \rvert $ of inequality \ref{final step}, 
+		  		are bounded. Use the uniform continuity of $ H $ on bounded sets, and the uniform convergence of $ \lvert \overline{t} - \overline{s} \rvert $ stated in lemma \ref{doubling device} (\ref{distance convergence}) to reduce the first difference to less than some arbitrarily small quantity $ \delta / 2 $, by further decreasing $ \alpha $ as necessary.
+		  		
+		  		Since $ D_x \phi(\overline{t}, \overline{x}) $ is bounded, use assumption \eqref{eqn:H2} and claim (\ref{fast convergence}) from lemma \ref{doubling device} to reduce the second difference $ \lvert H(\overline{s}, \overline{x}, -p_x) - H(\overline{s}, \overline{y}, -p_x) \rvert $ to less then $ \delta / 2 $.
+		  		
+		  		We therefore have that $ -\phi_t(\overline{t}, \overline{x}) \leq \delta + C \lvert D_x \phi(\overline{t}, \overline{x}) \rvert $ for sufficiently small $ \epsilon $ and $ \alpha $. Since the quantity $ \delta $ can be chosen arbitrarily small, conclude 
+		  		
+		  		\begin{equation*}
+		  			- \phi(t_0, x_0) \leq C \lvert D_x \phi(t_0, x_0) \rvert
+		  		\end{equation*}
+		  		by letting $ \epsilon $ and $ \alpha $ tend towards zero. Since $ (t_0, x_0) $ and $ \phi $ were arbitrary, we conclude that $ w $ is indeed a subsolution of \ref{diff-PDE}.
+		  		
+		  		Proceed as in the proof of theorem \ref{smooth_loc} to locally compare the subsolution $ u $ with the supersolution $ v $.
+		  	\end{proof}
+		  \end{theorem}

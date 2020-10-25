@@ -1,0 +1,40 @@
+
+	\section{A quick reality check}
+	
+	\label{non-smooth}
+	
+	We want to put the practicability of our results to the test. More precisely, we want to check whether or not it is sensible to assume the value function being smooth. We therefore consider the very simple control problem, starting in $ (t_0, x_0) \in \left[ 0 , T \right] \times \mathbb{R}^N $, with elementary dynamics
+	
+	\begin{equation*}
+		\dot{x} = \alpha
+	\end{equation*}
+	
+	for measurable controls $ \alpha : \left[ t_0, T \right] \to \left[-1, 1\right] $, having zero running costs, and terminal costs $ h = \lvert \cdot \rvert $. This means our objective is to minimize $ h(x^{\alpha}_{x_0}(T)) $ over all possible controls $ \alpha $.
+	
+	It is quite natural to perceive the considered control problem, as to move the system's state as close as possible to the zero state with only limited velocity. Intuitively, we would transform the system with maximal velocity, and abruptly stop as soon as we reach the desired state. We formalize this procedure by defining the control
+	
+	\begin{equation*}
+		\alpha^{*} : t \mapsto \begin{cases}
+		\text{sign}(x_0) \quad &\text{ if } \lvert x_0 \rvert \geq t - t_0 \\
+		0 \quad &\text{ otherwise } \ .
+		\end{cases}
+	\end{equation*}
+	Indeed our intuition is not misleading and we can explicitly compute the value function in $ (t_0, x_0) $, which gives:
+	
+	\begin{align*}
+		v(t_0, x_0) &= \begin{cases}
+		0, \quad &\text{ if } |x_0| \leq T - t_0 \\
+		|x_0| - (T - t_0), \quad &\text{ otherwise }
+		\end{cases} \\
+		&= \max(0, |x_0| - (T - t_0)) \ .
+	\end{align*}
+	
+	The value function is obviously not smooth. As our assumption already fails on such a simple example, we must weaken our notion of solution.
+	
+	Recall that under the assumptions imposed onto our problem parameters, the value function is at least known to be locally Lipschitz-continuous, and consequently differentiable almost everywhere by Rademacher's theorem, found in \cite{evans}. We are therefore tempted to interpret \ref{HJB} in the so-called \emph{generalized sense}, which means we require solutions to be locally Lipschitz-continuous and to satisfy \ref{HJB} almost everywhere. Our simple example still reveals itself problematic in this case, as the associated PDE \ref{HJB}, now given by
+	
+	\begin{equation*}
+		-u_t + \lvert u_x \rvert = 0 \ ,
+	\end{equation*}
+	
+	admits the functions $ v $ and $ (t_0, x_0) \mapsto \lvert x_0 \rvert - (T - t_0) $ as generalized solutions, both satisfying the boundary condition $ u(T, \cdot) = h $, as noted by Barles in \cite{barles}. Another sense of solution is therefore needed, if we insist on characterizing the value function as the unique solution of the considered boundary problem.

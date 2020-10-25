@@ -1,0 +1,192 @@
+
+\chapter{Merely continuous value functions}
+
+	\section{Generalizing the total derivative}
+	
+	The example from section \ref{non-smooth} shows that it is impractical to assume the smoothness of the value function. We therefore extract the essential properties of its classical total derivative, used to derive the HJB-equation \ref{HJB} and the subsequent comparison results in the smooth case. Lemma \ref{extension lemma}, the key to our previous comparison and uniqueness results, proves itself particularly helpful in our quest.
+	
+	Given a smooth subsolution $ w $ of
+	
+	\begin{equation}
+		\label{general diff}
+		F(t, x, w, Dw) \leq 0 \ ,
+	\end{equation}
+	
+	the proof of lemma \ref{extension lemma} was based on the fact, that for every smooth function $ \phi $, the inequality 
+	
+	\begin{equation*}
+		F(t_0, x_0, w(x_0, x_0), D\phi(t_0, x_0)) \leq 0
+	\end{equation*}
+	
+	is satisfied, whenever $ w - \phi $ attains an interior local maximum in $ (t_0, x_0) $. That is, we can replace the classical total derivative of $ w $ in \ref{general diff}, by the derivative of $ \phi $, in local maxima of $ w - \phi $. In view of this observation, the following generalization seems sensible.
+	
+	\begin{definition}
+		Let $ \Omega \subset \mathbb{R}^N $ be an open domain. A real-valued continuous function $ u : \Omega \to \mathbb{R} $ is called a \emph{viscosity subsolution} of $ F : \Omega \times \mathbb{R} \times \mathbb{R}^N \to \mathbb{R} $, if for any smooth function $ \phi \in C^1(\Omega) $, we have that
+		
+		\begin{equation}
+			\label{def viscosity subsolution}
+			F(x_0, u(x_0), Du(x_0)) \leq 0 \ ,
+		\end{equation}
+		whenever $ u - \phi $ attains a local \emph{maximum} in $ x_0 \in \Omega $.
+		
+		We respectively call $ u $ a \emph{viscosity supersolution} of $ F $, if
+		
+		\begin{equation}
+			\label{def viscosity supersolution}
+			F(x_0, u(x_0), Du(x_0)) \geq 0
+		\end{equation}
+		whenever $ u - \phi $ attains local \emph{minimum} in $ x_0 \in \Omega $. 
+		
+		We finally call $ u $ a \emph{viscosity solution} of $ F $, if it is a viscosity sub-and supersolution of $ F $.
+	\end{definition}
+
+	Of course the notion of viscosity solution is only of interest, if the value function is a viscosity solution of \ref{HJB}.
+	
+	\begin{theorem}
+		\label{viscosity solution HJB}
+		Suppose the same assumptions as in theorem \ref{classical solution HJB}, except for the smoothness of the value function $ v $, hold. Then $ v $ is a viscosity solution of \ref{HJB}.
+		
+		\begin{proof}
+			The proof of theorem \ref{classical solution HJB} only requires minor modifications.
+			
+			We have already stated that $ v $ is known to be locally Lipschitz-continuous, and consequently continuous, under the given assumptions.
+			
+			In order to show that $ v $ is a viscosity subsolution of \ref{HJB}, note that
+			
+			\begin{equation*}
+				\phi(t, x) - \phi(t_0, x_0) \geq v(t, x) - v(t_0, x_0) \ ,
+			\end{equation*}
+			
+			in a sufficiently small neighbourhood of $ (t_0, x_0) $, whenever $ v - \phi $ attains a local maximum in $ (t_0, x_0) $.
+			The left-hand-side of \ref{diff_quotient_sub}, can therefore be replaced by
+			
+			\begin{equation*}
+				\frac{\phi(t_0 + h, x^{\overline{a}}_{x_0}(t_0 + h)) - \phi(t_0, x_0)}{h} \ .
+			\end{equation*}
+			Now proceed as in theorem \ref{classical solution HJB} to show that $ v $ is viscosity subsolution of \ref{HJB}.
+			
+			Showing that $ v $ is a supersolution of \ref{HJB} can be done in an analogous manner.
+		\end{proof}
+	\end{theorem}
+
+	Up to now, the notion of viscosity solutions, first introduced in \cite{viscositydefinition} by M.G. Crandall and P.L. Lions, seems to fit our needs. Of course we still have to check whether the comparison and uniqueness results proven in the smooth case still remain valid, if replaced by viscosity solutions.
+	
+	\section{From classical solutions to viscosity solutions}
+	Our goal is to transfer the results proven for classical solutions, namely lemma \ref{extension lemma}, theorem \ref{smooth_loc} and corollary \ref{Smooth Uniqueness} to viscosity solutions. We start with lemma \ref{extension lemma}.
+	
+	\begin{lemma}
+		\label{extension lemma viscosity}
+		Lemma \ref{extension lemma} still holds for merely continuous viscosity subsolutions.
+		
+		\begin{proof}
+			The claim holds immediately for interior extrema by the definition of viscosity subsolutions, which replaces the use of Fermat's rule in the smooth case. For boundary points, proceed exactly as for smooth subsolutions.
+		\end{proof}
+	\end{lemma}
+
+	Now for theorem \ref{smooth_loc}. The proof given consisted of exactly two steps: firstly showing that the difference $ w $ is a subsolution to equation \ref{diff-PDE}, namely
+	
+	\begin{equation*}
+		-w_t - C \lvert D_x w \rvert \leq 0 \ ,
+	\end{equation*}
+	
+	and secondly comparing $ w $ to some supersolutions of the same equation. Latter step simply relies on lemma \ref{extension lemma} which has already been further generalized to continuous viscosity subsolutions in lemma \ref{extension lemma viscosity}. In contrast, the generalization of the first step proves itself trickier. 
+
+	\subsection{A naive approach}
+		\label{naive}
+		
+		We want to deduce that $ w \coloneqq u - v $ is a viscosity subsolution of \ref{diff-PDE}, provided that $ u $ and $ v $ are respectively viscosity sub-and supersolutions of
+		
+		\begin{equation*}
+				-u_t + H(t, x, -D_x u) = 0 \ .
+		\end{equation*}
+		
+		For this purpose, suppose we are given an arbitrary subdifferential in some point $ (t_0, x_0) $. We could naively try to decompose this subdifferential of $ w $ as the difference of a subdifferential of $ u $ and a superdifferential of $ v $ in the \emph{same} point $ (t_0, x_0) $, and proceed exactly as in the smooth case. This approach reveals itself being too optimistic, as we consider the continuous function
+		
+		\begin{align*}
+			u : \mathbb{R} &\to \mathbb{R} \\
+			r &\mapsto \begin{cases}
+			\lvert r \rvert^{1/2} \sin(\frac{1}{r^2}), &\hbox{ if } r \neq 0 \\
+			0 &\hbox{ if } r = 0  \ ,
+			\end{cases}
+		\end{align*}
+		
+		taken from \cite[p.~32, exercise 1.5]{bardi2008optimal}. Suppose for the sake of contradiction, that $ Du^{+}(0) $ was not empty. Then there exists a function $ \phi \in C^1(\mathbb{R}) $, such that $ f - \phi $ attains a local maximum in zero, i.e
+		
+		\begin{equation*}
+			f(0) - f(0 + h) \geq \phi(0) - \phi(0 + h) 
+		\end{equation*}
+		for small $ h $. For strictly positive $ h $, we additionally get
+		
+		\begin{equation*}
+			\frac{f( 0 + h) - f(0)}{h} \leq \frac{\phi(0 + h) - \phi(0)}{h} \ ,
+		\end{equation*}
+		
+		and consequently 
+		
+		\begin{equation*}
+			\limsup\limits_{h \searrow 0} \frac{f( 0 + h) - f(0)}{h} \leq \limsup\limits_{h \searrow 0} \frac{\phi(0 + h) - \phi(0)}{h} \ .
+		\end{equation*}
+		
+		But 
+		
+		\begin{equation*}
+			\limsup\limits_{h \searrow 0} \frac{f( 0 + h) - f(0)}{h} = \infty \ ,
+		\end{equation*}
+		
+		contradicting the differentiability of $ \phi $ in zero. An analogous argument shows that also $ D^{-}u(0) $ must be empty.
+		
+		On the other hand, the function $ u - u = \hat{0} $ admits a superdifferential in zero, namely its classical derivative.
+		
+		The next subsection shows a way to circumvent this problem.
+		
+	\subsection{A fundamental technique}
+	
+		 \subimport{doubling_device/}{doubling_motivation}
+		 
+		 \subimport{doubling_device/}{doubling_lemma}
+		 
+		 This method of \emph{doubling the variables} goes back to Kru\v{z}kov who employed a similar function in \cite{kruvzkov}. It is this technique which also lies at the heart of Lions' and Crandall's uniqueness results for viscosity solutions, first introduced in \cite{lions}.
+		 
+		 We come back to our task of showing that $ w $ is a viscosity subsolution of \ref{diff-PDE}. We considered inequality \ref{idea} to determine suitable candidates for superdifferentials $ p $ of $ u $, and subdifferentials $ q $ of $ v $, which we have now generated using lemma \ref{doubling device} (\ref{maximizer convergence}). After plugging the corresponding values for $ p $ and $ q $ into inequality \ref{idea}, the first summand $ \lvert H(\overline{t}, \overline{x}, -p_x) - H(\overline{s}, \overline{x}, -p_x) \rvert $, on its right-hand-side, becomes
+		 
+		 \begin{equation*}
+		 	\left\lvert H \left( \overline{t}, \overline{x}, - \left( \frac{\overline{x} - \overline{y}}{\epsilon} + D_x \phi (\overline{t}, \overline{x}) \right) \right) - H \left( \overline{s}, \overline{x}, - \left( \frac{\overline{x} - \overline{y}}{\epsilon} + D_x \phi (\overline{t}, \overline{x}) \right) \right) \right\rvert \,
+		 \end{equation*}
+		  
+		  and the second summand $ \lvert H(\overline{s}, \overline{x}, -p_x) - H(\overline{s}, \overline{y}, -p_x) \rvert $, becomes
+		  
+		  \begin{equation*}
+		  	\left\lvert H \left( \overline{s}, \overline{x}, - \left( \frac{\overline{x} - \overline{y}}{\epsilon} + D_x \phi (\overline{t}, \overline{x}) \right) \right) - H \left( \overline{s}, \overline{y}, - \left( \frac{\overline{x} - \overline{y}}{\epsilon} + D_x \phi (\overline{t}, \overline{x}) \right) \right) \right\rvert \ . 
+		  \end{equation*}
+		 
+		  As opposed to the first difference, reducing the second difference to an arbitrarily small quantity, by choosing $ \epsilon $ and $ \alpha $  sufficiently small, proves itself trickier, since claim (\ref{fast convergence}) only provides that
+		  
+		  \begin{equation*}
+		  	\frac{\lvert \overline{x} - \overline{y} \rvert^2}{\epsilon} \to 0
+		  \end{equation*}
+		  
+		  as $ \epsilon $ and $ \alpha $ tend towards zero, but does not say anything about the convergence of $ \overline{x} - \overline{y} / \epsilon $. The slower convergence of $ \lvert \overline{x} - \overline{y} \rvert $, provided by claim (\ref{fast convergence}), becomes sufficient, if the Hamiltonian $ H $ additionally satisfies
+		  
+		  \begin{equation}
+		  	\tag{H2}
+		  	\lvert H(t, x, p) - H(t, y, p) \rvert \leq \omega(R, \lvert x - y \rvert (1 + \lvert p \rvert)) \hbox{ for all } \ x, y \in B_R(0) \ ,
+		  	\label{eqn:H2}
+		  \end{equation}
+		  
+		  where $ \omega : \left[0, \infty \right)^2 \to \left[0, \infty \right) $ describes some modulus of continuity. As assumption \eqref{eqn:H2} 
+		  might seem far-fetched, note that the Hamiltonian, corresponding to our considered control problem, satisfies \eqref{eqn:H2} on account of the Lipschitz-conditions imposed onto the problem parameters (cf. \cite[p.~167]{zhou}). We are now ready to adapt theorem \ref{smooth_loc} to the case of viscosity solutions.
+		  
+		  \subimport{./}{viscosity_loc}
+		  
+		  We can now simply transfer our global comparison result for classical solutions from corollary \ref{Smooth Uniqueness}, by additionally assuming the Hamiltonian satisfies \eqref{eqn:H2}, and is continuous.
+		  
+		  \begin{corollary}
+		  	Corollary \ref{Smooth Uniqueness} also applies to viscosity sub-and supersolutions, if the Hamiltonian $ H : \left[ 0, T \right] \times \mathbb{R}^{N} \times \mathbb{R}^{N+1} $ is continuous and satisfies \eqref{eqn:H2}.
+		  	
+		  	\begin{proof}
+		  		The proof of corollary \ref{Smooth Uniqueness} only relied on the local comparison of sub-and supersolutions provided by theorem \ref{smooth_loc}. 
+		  		
+		  		According to theorem \ref{viscosity_loc}, theorem \ref{smooth_loc} still applies in the viscosity sense under the additional assumptions. Consequently, the proof of corollary \ref{Smooth Uniqueness} can be repeated verbatim.
+		  	\end{proof}
+		  \end{corollary}
+		  

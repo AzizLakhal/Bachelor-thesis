@@ -1,0 +1,90 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Dateiname: preprint_sample.tex
+%%  Datum:     24.04.2003
+%%  Autor:     H. Cr"oni, M. Bebendorf, R. Kirsch. J. Weickert
+%%  E-Post:    holger@math.uni-sb.de & kirsch@num.uni-sb.de
+%%
+%%  Sie brauchen zusaetzlich die Datei 'titelblatt.sty'
+%%  und 'eule.ps'. Dann koennen sie 'latex PPsample[1-5].tex'
+%%  eintippen und die ersten Seiten eines Mustervorabdrucks
+%%  sollten entstehen. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass{report}
+
+\usepackage[T1]{fontenc}
+\usepackage{enumerate}
+
+\usepackage{epsfig}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{dirtytalk}
+\usepackage{import}
+\usepackage{hyperref}
+\usepackage{titelblatt}
+\usepackage{url}
+\usepackage{ragged2e}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\newcommand{\pathint}[3]{\int\limits^{{#3}}_{{#2}} f(t, x^{#1}_{x_0}(t), #1(t))dt}
+
+\newcommand{\controlspace}[1][0]{\mathcal{V}\left[ {#1}, T \right]}
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%% Hier wird der Titel erstellt %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\Panzahl    {1}                   %% number of authors (up to 5 authors supp.)
+\Pautor     {Mohamed Aziz Lakhal}       %% name of 1st author
+
+%% address of 1st author
+\Panschrift {Saarland University \\ Department of Mathematics \\
+             P.O. Box 15 11 50   \\ 66041 Saarbr\"ucken \\
+             Germany}
+\Pepost     {s8molakh@stud.uni-saarland.de}     %% email of 1st author 
+
+
+\Ptitel     {Viscosity solutions of HJB-PDE's arising in control problems}  %% title
+
+
+\Pjahr      {2020}               %% year of publ.
+\Pnummer    {???}                 %% preprint no. (ask "Preprintbeauftragten")
+
+\Pdatum     {\today}             %% date of submission to journal, default: today 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\Ptitelseite                 %% generates the title pages 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\import{ControlProblems/}{ControlProblems}
+
+\import{SmoothValueFunction/}{SmoothValueFunction}
+
+\import{MotivationViscosity/}{MotivationViscosity}
+
+\import{ViscosityValueFunction/}{ViscosityValueFunction}
+
+\bibliographystyle{plain}
+
+\bibliography{./bibliography.bib}
+
+\end{document}
