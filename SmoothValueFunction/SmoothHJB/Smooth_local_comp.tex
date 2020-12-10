@@ -18,10 +18,10 @@
 				\label{diff-PDE}
 				-w_t - C \lvert D_x w \rvert \leq 0 \ .
 			\end{equation}
-			If additionally the subsolution $ u $ is lesser or equal to the supersolution $ v $ on $ \{ T \} \times \overline{B_R(z_0)} $, then the same applies to the whole cone $ \mathcal{C}_{z_0, R} $.
+			If additionally the subsolution $ u $ is lesser or equal to the supersolution $ v $ on $ \{ T \} \times \overline{B}_R (z_0) $, then the same applies to the whole region $ \mathcal{C}_{z_0, R} $.
 			
 			\begin{proof}
-				We begin the proof by showing that the difference $ w $ satisfies \ref{diff-PDE}. Since $ u $ and $ v $ are respectively sub-and supersolutions, we have by definition
+				We begin the proof by showing that the difference $ w $ satisfies \eqref{diff-PDE}. Since $ u $ and $ v $ are respectively sub-and supersolutions, we have by definition
 				
 				\begin{equation*}
 					-u_t + H(t, x, -D_x u) \leq 0 \leq -v_t + H(t, x, -D_x v) .
@@ -39,24 +39,34 @@
 					-w_t \leq C \lvert D_x w \rvert \ ,
 				\end{equation*}
 				
-				which is obviously equivalent to inequality \ref{diff-PDE}.
+				which is obviously equivalent to inequality \eqref{diff-PDE}.
 				
-				To conclude $ u \leq v $, i.e $ w \leq 0 $ on $ \mathcal{C}_{x_0, R} $, compare $ w $ with strict supersolutions 
+				To conclude $ u \leq v $, i.e $ w \leq 0 $ on $ \mathcal{C}_{z_0, R} $, compare $ w $ with strict supersolutions 
 				
 				\begin{align*}
-				\phi_{\delta} : \left[ t_{\delta}, T \right] \times \overline{B_R(z_0)} &\to \mathbb{R} \\
-				(t, x) &\mapsto \chi_{\delta} \left( \lvert x - x_0 \rvert + C(T - t) \right) + \delta (T - t)
+				\varphi_{\delta} : \left[ t_{\delta}, T \right] \times \overline{B}_R (z_0) &\to \mathbb{R} \\
+				(t, x) &\mapsto \chi_{\delta} \left( \lvert x - z_0 \rvert + C(T - t) \right) + \delta (T - t)
 				\end{align*}
-				of \ref{diff-PDE}, where $ t_{\delta} \coloneqq T - \frac{R - \delta}{C} $ and $ \chi_{\delta} $ is some smooth function, with
+				of \eqref{diff-PDE}, where $ t_{\delta} \coloneqq T - \frac{R - \delta}{C} $ and $ \chi_{\delta} $ is some smooth, non-decreasing function, with
 				
 				\begin{align*}
 					\chi_{\delta}(y) = \begin{cases}
 					0 &\hbox{, if } y \leq R - \delta \\
-					\max\limits_{\left[0, T\right] \times \overline{B_z(x_0)}} w &\hbox{, if }y \geq R
+					M \coloneqq \max\limits_{\left[0, T\right] \times \overline{B}_R (z_0)} w &\hbox{, if }y \geq R
 					\end{cases}
 				\end{align*}
 				
-				as described in \cite[p.~73]{barles}. An explicit computation of the difference quotients of $ \phi_{\delta} $ w.r.t the state variables, shows that $ \phi_{\delta} $ is indeed a smooth, strict supersolution of \ref{diff-PDE} in $ \left(t_{\delta}, T \right) \times B_R(z_0) $, and that $ D \phi_{\delta} $ continuously extends to $ \left[t_{\delta}, T \right) \times B_R(z_0) $. In view of the conflicting sub-and supersolution conditions of $ w $ and $ \phi_{\delta} $ in combination with lemma \ref{extension lemma}, the continuous function $ w - \phi_{\delta} $ attains its global maximum over the compact set $ \left[t_{\delta}, T \right] \times \overline{B_R(z_0)} $, in $ \left[t_{\delta}, T \right] \times \partial B_R(z_0) $. By construction of $ \phi_{\delta} $, we have $ w \leq \phi_{\delta} $, i.e $ w - \phi_{\delta} \leq 0 $ in $ \left[t_{\delta}, T \right] \times \partial B_R(z_0) $, and therefore $ w - \phi_{\delta} \leq 0 $ on the whole domain $ \left[ t_{\delta}, T \right] \times \overline{B_R(z_0)} $.
-				Now observe that $ \phi_{\delta} \leq 0 $ in $ \mathcal{C}_{z_0, R - \delta} $ by construction, and since $ w \leq \phi_{\delta} $, the same applies to $ w $. Taking the limit $ \delta \searrow 0 $, completes the proof.
+				as described in \cite[p.~73]{barles}. As shown in \ref{smoothness_supersolutions}, the function $ \varphi_{\delta} $ is indeed a smooth, strict supersolution of \eqref{diff-PDE} in $ \left(t_{\delta}, T \right) \times B_R(z_0) $, and its differential $ D \varphi_{\delta} $ continuously extends to $ \left[t_{\delta}, T \right) \times B_R(z_0) $ while maintaining the respective supersolution condition. We are now in a position to invoke lemma \ref{extension lemma}, in order to exclude the possibility of $ w - \phi_{\delta} $ attaining a local maximum in $ \left[t_{\delta}, T \right) \times B_R (z_0) $. Suppose for the sake of contradiction, the function $ w - \phi_{\delta} $ attained a local maximum in $ (t^{*}, x^{*}) \in \left[t_{\delta}, T \right) \times B_R (z_0) $. This would imply by \ref{extension lemma} that
+				\begin{equation*}
+					-(\varphi_{\delta})_t(t^*, x^*) - \lvert D_x \varphi_{\delta}(t^*, x^*) \rvert \leq 0 \ ,
+				\end{equation*}
+				contradicting the fact, that $ \varphi_{\delta} $ is \emph{strict} supersolution of \eqref{diff-PDE} over $ \left[t_{\delta}, T \right) \times B_R (z_0) $.
+				Consequently, a local maximum of $ w - \varphi_{\delta} $ can only be attained over $ \{T\} \times \overline{B}_R (z_0) \cup \left[t_{\delta}, T\right] \times \partial B_R(z_0) $. In the first case, we use that $ \varphi_{\delta} \geq 0 $, as $ \chi_{\delta} $ is non-decreasing, while the boundary condition gives $ w \leq 0 $ and therefore $ w - \varphi_{\delta} $ can only attain non-postive local maximum. In the second case, the function $ \varphi_{\delta} $ constantly evaluates to $ M $, which again implies that $ w - \varphi_{\delta} $ can only attain a non-postive local maximum. As a global, and therefore local, maximum has to be attained over the compact set $ \left[t_{\delta}, T\right] \times \overline{B}_R (z_0)$, we conclude $ w - \varphi_{\delta} \leq 0$, i.e. $ w \leq \varphi_{\delta} $, on the whole domain $ \left[t_{\delta}, T\right] \times \overline{B}_R (z_0) $.
+				
+				We finally observe $ \varphi_{\delta}(t, x) = 0 $ holds any point $ (t, x) \in \left[t_{\delta}, T\right] \times \overline{B}_R(z_0)$, which satisfies the inequality
+				\begin{equation*}
+					\lvert x - z_0 \rvert + C(T - t) \leq (R - \delta) \ .
+				\end{equation*}
+				Letting $ \delta $ tend to zero completes the proof.
 			\end{proof}
 		\end{theorem}

@@ -1,0 +1,67 @@
+\section{Regularity of the supersolutions constructed in theorem \ref{smooth_loc}}
+\label{smoothness_supersolutions}
+
+We verify the regularity of the supersolutions $ \varphi_{\delta} $, constructed in theorem \ref{smooth_loc}. There, we have defined for fixed center $ z_0 \in \mathbb{R}^N $, fixed radius $ R > 0 $ and fixed $ \delta > 0 $, the time-interval $ \left[t_{\delta}, T \right] $ and the function
+
+\begin{align*}
+\varphi_{\delta} : \left[t_{\delta}, T \right] \times \overline{B}_{R}(z_0) &\to \mathbb{R} \\ 
+(t, x) &\mapsto \chi_{\delta}(\lvert x - z_0 \rvert + C (T - t)) + \delta(T - t) \ ,
+\end{align*}
+
+where
+
+\begin{equation*}
+	t_{\delta} \coloneqq T - \frac{R - \delta}{C} \ ,
+\end{equation*}
+
+using a non-decreasing, continuously differentiable function $ \chi_{\delta} : \mathbb{R} \to \mathbb{R} $, such that
+
+\begin{align*}
+\chi_{\delta}(y) = \begin{cases}
+0 &\hbox{, if } y \leq R - \delta \\
+M &\hbox{, if }y \geq R \ ,
+\end{cases} 
+\end{align*}
+
+for some constant $ M $. As the euclidian norm is known to be smooth in $ \mathbb{R}^N \setminus \{ 0 \} $, the function $ \varphi_{\delta} $ is smooth in every point $ (t_0, x_0) \in \left(t_{\delta}, T \right) \times B_R(z_0) $, given $ x_0 \neq z_0 $. Its total derivative in $ (t_0, x_0) $ is then given by
+\begin{equation*}
+	D \varphi_{\delta}(t_0, x_0) = \chi_{\delta}^{\prime}\left(\lvert x_0 - z_0 \rvert + C(T - t_0)\right)\left(- C, \frac{x_0 - z_0}{\lvert x_0 - z_0 \rvert}\right) - \left(\delta, 0 \right) \ .
+\end{equation*}
+
+We now consider the particular case $ x_0 = z_0 $. In order to prove that $ \varphi_{\delta} $ is continuously differentiable in $ (t_0, z_0) $, it is sufficient to show the continuous differentiability of $ \varphi_{\delta} $ w.r.t. to the state variables $ x_i $, where $ i = 1, \ldots, N $. Computing the respective difference quotient gives
+\begin{equation*}
+	\frac{\varphi_{\delta}(t_0, z_0 + h e_i) - \varphi_{\delta}(t_0, z_0)}{h} = \frac{\chi_{\delta}(\lvert h \rvert + C(T - t_0)) - \chi_{\delta}(C(T - t_0))}{h} \ .
+\end{equation*}
+
+As $ t_0 > t_{\delta} $, the argument $ C(T - t_0) $ is strictly smaller then $ R - \delta $. The same applies to $ \lvert h \rvert + C(T - t_0) $ for sufficiently small $ h $, and consequently the difference quotient evaluates to zero, by definition of $ \chi_{\delta} $. We conclude that $ \varphi_{\delta} $ is also differentiable in every point $ (t_0, z_0) \in \left(t_{\delta}, T \right) \times B_R (z_0) $.
+
+It remains to show that $ \varphi_{\delta} $ is even \emph{continuously} differentiable in $ (t_0, z_0) $. Note that for $ (t, x)  \in \left(t_{\delta}, T\right) \times B_R (z_0) $, with $ x \neq z_0 $, the total derivative of $ \varphi_{\delta} $ in $ (t, x) $ rewrites to
+\begin{equation*}
+	D \varphi_{\delta} (t, x) = \chi_{\delta}^{\prime}(g(t, x))f(x) - \left(\delta, 0 \right)
+\end{equation*}
+
+using the continuous function
+
+\begin{align*}
+	g : \mathbb{R} \times \mathbb{R}^N &\to \mathbb{R} \\
+	(t, x) &\mapsto \lvert x - z_0 \rvert + C(T - t)
+\end{align*}
+
+and the bounded function
+
+\begin{align*}
+	f : \mathbb{R}^N \setminus \{ z_0 \} &\to \mathbb{R}^{N + 1} \\
+	x &\mapsto \left(-C, \frac{x - z_0}{\lvert x - z_0 \rvert}\right) \ .
+\end{align*}
+
+As $ \chi_{\delta} $ is constant over the open interval $ \left(- \infty, R - \delta \right) $, its derivative is constantly zero on latter interval. Additionally, we have $ g(t_0, z_0) < R - \delta $ for $ t_0 > t_{\delta} $, the preimage $ g^{-1}((-\infty, R - \delta)) $ being open, as $ g $ is continuous. Finally, the function $ f $ is bounded, and therefore
+\begin{equation*}
+	\lim\limits_{(t, x) \to (t_0, z_0), \ x \neq z_0} D \varphi_{\delta}(t, x) = \chi_{\delta}^{\prime}(g(t, x))f(x) \to \left(\delta, 0 \right) = D \varphi_{\delta}(t_0, z_0) \ .
+\end{equation*}
+
+Consequently, the function $ \varphi_{\delta} $ is continuously differentiable in all points $ (t_0, z_0) $, with $ t_0 \in \left(t_{\delta}, T \right) $. We have already discussed the continuous differentiability of $ \varphi_{\delta} $ in points $ (t_0, x_0) \in \left(t_{\delta}, T \right) \times B_R (z_0) $ with $ x_0 \neq z_0 $. We therefore conclude that $ \varphi_{\delta} $ is continuously differentiable over the whole domain $ \left(t_{\delta}, T \right) \times B_R (z_0) $. By the same argument we get that $ D \varphi_{\delta} $ continuously extends to $ \left[t_{\delta}, T \right) \times B_R (z_0) $, with
+
+\begin{gather*}
+	D \varphi_{\delta}(t_{\delta}, z_0) = \left(- \delta, 0 \right) \\
+	D \varphi_{\delta}(t_{\delta}, x) = \chi_{\delta}^{\prime}\left(\lvert x - z_0 \rvert + C(T - t_{\delta})\right)\left(- C, \frac{x - z_0}{\lvert x - z_0 \rvert}\right) - \left(\delta, 0 \right) \text{ for } x \neq z_0 \ .
+\end{gather*}

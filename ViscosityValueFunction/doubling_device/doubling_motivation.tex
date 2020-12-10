@@ -1,4 +1,4 @@
-The example from subsection \ref{naive} deters us from decomposing a superdifferential of $ w = u - v $ in $ (t_0, x_0) $, using super-and subdifferentials of $ u $ and $ v $ in the same point $ (t_0, x_0) $, since $ D^{+}u(t_0, x_0) $ or $ D^{-}v(t_0, x_0) $ might be empty. Suppose we only required to find some $ (t, x) $ in an arbitrarily small vicinity $ B_R(t_0, x_0) $ of $ (t_0, x_0) $, s.t $ D^{+}u(t, x) $ is not empty. For any smooth function $ \phi $, we are sure that $ u - \phi $ achieves a global maximum over $ \overline{B}_R(t_0, x_0) $ in some point $ (t, x) $. But since $ (t, x) $ might lie on the boundary of $ \overline{B}_R(t, x) $, it is not clear whether $ (t, x) $ is also a local maximizer with respect to the whole domain $ \left( 0, T \right) \times \mathbb{R}^{N} $. To avoid this phenomena, construct $ \phi $ in a way which penalizes the distance from $ (t_0, x_0) $. To make this idea more concrete, consider the proof of the following theorem.
+The example from subsection \ref{naive} deters us from decomposing a superdifferential of $ w = u - v $ in $ (t_0, x_0) $, using super-and subdifferentials of $ u $ and $ v $ in the same point $ (t_0, x_0) $, since $ D^{+}u(t_0, x_0) $ or $ D^{-}v(t_0, x_0) $ might be empty. Suppose we only required to find some $ (t, x) $ in an arbitrarily small vicinity $ B_R(t_0, x_0) $ of $ (t_0, x_0) $, s.t $ D^{+}u(t, x) $ is not empty. For any smooth function $ \varphi $, we are sure that $ u - \varphi $ achieves a global maximum over $ \overline{B}_R(t_0, x_0) $ in some point $ (t, x) $. But since $ (t, x) $ might lie on the boundary of $ \overline{B}_R(t, x) $, it is not clear whether $ (t, x) $ is also a local maximizer with respect to the whole domain $ \left( 0, T \right) \times \mathbb{R}^{N} $. To avoid this phenomena, construct $ \varphi $ in a way which penalizes the distance from $ (t_0, x_0) $. To make this idea more concrete, consider the proof of the following theorem.
 		
 		\begin{theorem}
 			\label{density}
@@ -11,78 +11,25 @@ The example from subsection \ref{naive} deters us from decomposing a superdiffer
 			is dense in $ \Omega $. The same applies when $ D^{+}u(x) $ is replaced by $ D^{-}u(x) $.
 			
 			\begin{proof}
-				We restate the proof of Lemma 1.8 in \cite[p.~30]{bardi2008optimal}. Let $ \overline{x} \in \Omega $ and consider the smooth function $ \phi_{\epsilon}(x) = \lvert x - \overline{x} \rvert^2 /  \epsilon $. For any $ \epsilon > 0 $, the function $ u - \phi_{\epsilon} $ attains its maximum over $ \overline{B} = \overline{B}_R(\overline{x}) $, in some point $ x_{\epsilon} $. From the inequality
+				We restate the proof of Lemma 1.8 in \cite[p.~30]{bardi2008optimal}. Let $ \overline{x} \in \Omega $ and consider the smooth function $ \varphi_{\varepsilon}(x) = \lvert x - \overline{x} \rvert^2 /  \varepsilon $. For any $ \varepsilon > 0 $, the function $ u - \varphi_{\varepsilon} $ attains its maximum over $ \overline{B} = \overline{B}_R(\overline{x}) $, in some point $ x_{\varepsilon} $. From the inequality
 				
 				\begin{equation*}
-					\phi_{\epsilon}(x_{\epsilon}) \geq \phi_{\epsilon}(\overline{x}) = u(\overline{x})
+					\varphi_{\varepsilon}(x_{\varepsilon}) \geq \varphi_{\varepsilon}(\overline{x}) = u(\overline{x})
 				\end{equation*}
 				
-				we get, for all $ \epsilon > 0 $, that
+				we get, for all $ \varepsilon > 0 $, that
 				
 				\begin{equation*}
-					\lvert x_{\epsilon} - \overline{x} \rvert^2 \leq 2 \epsilon \sup\limits_{x \in \overline{B}} \lvert u(x) \rvert .
+					\lvert x_{\varepsilon} - \overline{x} \rvert^2 \leq 2 \varepsilon \sup\limits_{x \in \overline{B}} \lvert u(x) \rvert .
 				\end{equation*}
 				
-				Thus $ x_{\epsilon} $ does not lie on the boundary of $ \overline{B} $ for $ \epsilon $ small enough, and $ D\phi(x_{\epsilon}) = 2(x_{\epsilon} - \overline{x}) / \epsilon $ belongs to $ D^{+}u(x_{\epsilon}) $. Similar arguments prove the claim for subdifferentials.
+				Thus $ x_{\varepsilon} $ does not lie on the boundary of $ \overline{B} $ for $ \varepsilon $ small enough, and $ D\varphi(x_{\varepsilon}) = 2(x_{\varepsilon} - \overline{x}) / \varepsilon $ belongs to $ D^{+}u(x_{\varepsilon}) $. Similar arguments prove the claim for subdifferentials.
 			\end{proof}
 		\end{theorem}
 	
 	\begin{remark}
 		\label{special_differentials}
-		The proof of theorem \ref{density} actually shows that in any vicinity of $ \overline{x} $, there is a point $ x_{\epsilon} $, which admits a sub-(super)differential of the form $ \lvert x_{\epsilon} - \overline{x} \rvert / \epsilon $.
+		The proof of theorem \ref{density} actually shows that in any vicinity of $ \overline{x} $, there is a point $ x_{\varepsilon} $, which admits a sub-(super)differential of the form $ \lvert x_{\varepsilon} - \overline{x} \rvert / \varepsilon $.
 	\end{remark}
 	
-		We now elaborate how to modify our first, simplistic attempt. Note that owing to theorem \ref{density}, we can choose points $ (\overline{t}, \overline{x}) $ and $ (\overline{s}, \overline{y}) $ in some arbitrarily small vicinity of $ (t_0, x_0) $, s.t. $ D^{+}u(\overline{t}, \overline{x}) $ and $ D^{-}v(\overline{s}, \overline{y}) $ are non-empty. Select a superdifferential $ p = p(\overline{t}, \overline{x}) $ from $D^{+}u(\overline{t}, \overline{x}) $ and a subdifferential $ q = q(\overline{s}, \overline{y}) $ from $ D^{-}v(\overline{s}, \overline{y}) $. Use the sub-and supersolution inequalities of $ u $ and $ v $ as in the smooth case to derive that
 		
-		\begin{equation*}
-			-(p_t - q_s) \leq \lvert H(\overline{t}, \overline{x}, -p_x) - H(\overline{s}, \overline{y}, -q_y) \rvert \ .
-		\end{equation*}
-		In order to benefit from the Lipschitz-condition \eqref{eqn:H1} satisfied by $ H $, vary the arguments of $ H $ on the right-hand-side in an iterative manner and apply the triangle inequality to obtain the estimate:
-		
-		\begin{equation*}
-			\begin{split}
-			\lvert H(\overline{t}, \overline{x}, -p_x) - H(\overline{s}, \overline{y}, -q_y) \rvert \leq \
-			&\lvert H(\overline{t}, \overline{x}, -p_x) - H(\overline{s}, \overline{x}, -p_x) \rvert \\
-			+&\lvert H(\overline{s}, \overline{x}, -p_x) - H(\overline{s}, \overline{y}, -p_x) \rvert \\
-			+&\lvert H(\overline{s}, \overline{y}, -p_x) - H(\overline{s}, \overline{y}, -q_y) \rvert \ .
-			\end{split} 
-		\end{equation*}
-		In view of assumption \eqref{eqn:H1}, the last summand can be replaced by $ C \lvert p_x - q_y \rvert $, and we conclude that
-		
-		\begin{equation}
-			\label{idea}
-			\begin{split}
-			\lvert H(\overline{t}, \overline{x}, -p_x) - H(\overline{s}, \overline{y}, -q_y) \rvert \leq \
-			&\lvert H(\overline{t}, \overline{x}, -p_x) - H(\overline{s}, \overline{x}, -p_x) \rvert \\
-			+&\lvert H(\overline{s}, \overline{x}, -p_x) - H(\overline{s}, \overline{y}, -p_x) \rvert \\
-			+& C \lvert p_x - q_s \rvert \ .
-			\end{split}
-		\end{equation}
-		
-		Equation \ref{idea} suggests that we should select $ p $ and $ q $ in way which ensures that $ p $ and $ q $ both tend towards the given superdifferential of $ w $, as $ (\overline{t}, \overline{x}) $ and $ (\overline{s}, \overline{y}) $ approach $ (t_0, x_0) $. According to exercise 2.4 c) in \cite[p.~49]{bardi2008optimal} we have
-		
-		\begin{equation*}
-			D^{+}(u - \phi)(\overline{t}, \overline{x}) = D^{+}u(\overline{t}, \overline{x}) - D\phi(\overline{t}, \overline{x}) \ ,
-		\end{equation*}
-		 for any $ (\overline{t}, \overline{x}) $. Applying remark \ref{special_differentials} to $ u - \phi $ and $ v $, we could find for sufficiently small $ \epsilon > 0 $, points $ (\overline{t}, \overline{x}) = (\overline{t}, \overline{x})_{\epsilon} $ and $ (\overline{s}, \overline{y}) = (\overline{s}, \overline{y})_{\epsilon} $ respectively admitting super-and subdifferentials
-		 
-		 \begin{align*}
-		 	p &= D\phi(\overline{t}, \overline{x}) +  \frac{(\overline{t}, \overline{x}) - (t_0, x_0)}{\epsilon} \\
-		 	q &= \frac{(\overline{s}, \overline{y}) - (t_0, x_0)}{\epsilon} \ ,
-		 \end{align*}
-		 
-		 with respect to $ u $ and $ v $. Unfortunately, it is not clear whether or not 
-		 
-		 \begin{equation*}
-		 	\frac{(\overline{t}, \overline{x}) - (\overline{s}, \overline{y})}{\epsilon}
-		 \end{equation*}
-		 
-		 and consequently $ \lvert p - q \rvert $ respectively converge to zero and the given subdifferential of $ w $, as $ \epsilon $ tends towards zero. Seeking to proceed with  $ u - \phi $ and $ v $ as described in the proof of theorem \ref{density} while penalizing the distance between $ (\overline{t}, \overline{x}) $ and $ (\overline{s}, \overline{x}) $, we assume that $ w - \phi $ attains a local maximum in $ (t_0, x_0) $ w.r.t the neighbourhood $ B_R(t_0, x_0) \subset \subset \left( 0, T \right) \times \mathbb{R}^N $ and consider the continuous function
-		 
-		 \begin{align*}
-		 	\Phi = \Phi_{\epsilon, \alpha} :\overline{B} _{R / 2}(t_0, x_0)^2 &\to \mathbb{R} \\
-		 	(t, x, s, y) &\mapsto (u(t, x) - \phi(t, x)) - v(s, y) - \frac{\lvert x - y \rvert^2 }{2 \epsilon} - \frac{\lvert t - s \rvert^2}{2 \alpha} \ .
-		 \end{align*}
-		 
-		 The purpose of the additional parameter $ \alpha > 0 $ will reveal itself, once we study the convergence of the right-hand-side of inequality \ref{idea} with respect to $ \epsilon $ and $ \alpha $. 
-		 If we additionally assume w.l.o.g that $ (t_0, x_0) $ is even a \emph{strict} local maximizer, the functions $ \Phi_{\epsilon, \alpha} $ implicitly penalize the distance to $ (t_0, x_0) $, as the penalty for $ (t, x) $ and $ (s, y) $ gets harsher and harsher with $ \epsilon $ and $ \alpha $ tending towards zero. As the next lemma confirms, we can indeed generate points $ (\overline{t}, \overline{x}) $ and $ (\overline{s}, \overline{y}) $ with the desired features, by maximizing the functions $ \Phi_{\epsilon, \alpha} $ .

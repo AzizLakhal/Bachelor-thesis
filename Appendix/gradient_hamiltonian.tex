@@ -1,0 +1,62 @@
+\section{Variations of the Hamiltonian w.r.t. the gradient variable}
+\label{Hamiltonian gradient}
+
+We extended the local comparison result \ref{smooth_loc} to a global one, using an additional assumption about the Hamiltonian. More precisely, we have assumed inequality \eqref{varying_Lipschitz}, namely
+\begin{equation*}
+	\lvert H(t, x, p) - H(t, x, q) \rvert \leq L \left(1 + \lvert x \rvert \right) \lvert p - q \rvert \ ,
+\end{equation*}
+holds, to show corollary \ref{Smooth Uniqueness}. In the following, we explicitly derive \eqref{varying_Lipschitz} for the Hamiltonians associated with our considered control problems. 
+
+Fix a point of time $ t \in [0, T] $ and a state $ x \in \mathbb{R}^N $. Consider two \say{gradients} $ p, q \in \mathbb{R}^N $. Recall the definitions of
+
+\begin{equation*}
+	H^{a}(t, x, p) \coloneqq p^{T} b(t, x, a) - f(t, x, a) \ ,
+\end{equation*} 
+
+for fixed external input $ a \in A $, and 
+
+\begin{equation*}
+	H(t, x, p) \coloneqq \sup\limits_{a \in A} H^{a}(t, x, p) \ ,
+\end{equation*}
+
+the pointwise supremum over all such possible inputs.
+
+For fixed input $ a \in A $, we immediately get
+
+\begin{equation*}
+	\lvert H^{a}(t, x, p) - H^{a}(t, x, q) \lvert \leq \lvert p - q \rvert \cdot \lvert b(t, x, a) \rvert \ ,
+\end{equation*}
+using the Cauchy-Schwarz-inequality. The Lipschitz-condition \eqref{Lipschitz} yields
+
+\begin{equation*}
+	\lvert b(t, x, a) - b(t, 0, a) \rvert \leq L \lvert x \rvert \ ,
+\end{equation*}
+while $ \lvert b(t, 0, a)  \rvert \leq L $, because of \eqref{bounded}. Altogether we get $ \lvert b(t, x, a) \rvert \leq (1 + \lvert x \rvert) L $ and therefore
+\begin{equation}
+	\label{index ineq}
+	\lvert H^{a}(t, x, p) - H^{a}(t, x, q) \lvert \leq (1 + \lvert x \rvert) \lvert p - q \rvert \ .
+\end{equation}
+
+We now justify the passage to the respective suprema. We think of $ \{H^a(t, x, p)\}_{a \in A} $ and $ \{H^{a}(t, x, q)\}_{a \in A} $ as two non-empty sets $ A = (a_i)_{i \in I} $ and $ B = (b_i)_{i \in I} $, parametrized over a common index set $ I $. In view of inequality \eqref{index ineq}, we have that
+\begin{equation}
+	\label{general index ineq}
+	\lvert a_i  - b_i \rvert \leq K \ 
+\end{equation}
+holds for every $ i \in I $, where $ K $ is some real, non-negative constant. The sets $ A $ and $ B $ both admit a supremum in the real sense, namely $ H(t, x, p) $ and $ H(t, x, q) $, which we respectively denote by
+$ s_A $ and $ s_B $. It is our goal to show
+\begin{equation*}
+\lvert s_A - s_B \rvert \leq K \ ,
+\end{equation*}
+that is to extend \ref{general index ineq} to the suprema of $ A $ and $ B $. For $ \varepsilon > 0 $, there is some $ i = i(\varepsilon) $, s.t.
+\begin{equation*}
+	s_A - s_B \leq (a_i + s_B) + \varepsilon \leq (a_i - b_i) + \varepsilon \ ,
+\end{equation*}
+and consequently,
+\begin{equation*}
+	s_A - s_B \leq K + \varepsilon 
+\end{equation*}
+holds. In a similar way, we obtain $ s_B - s_A \leq K + \varepsilon $, and therefore 
+\begin{equation*}
+	\lvert s_A - s_B \rvert \leq K + \varepsilon \ .
+\end{equation*}
+Since $ \varepsilon $ was arbitrary, we conclude $ \lvert s_A - s_B \rvert \leq K $, which completes the proof.

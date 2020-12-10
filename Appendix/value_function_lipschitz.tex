@@ -1,0 +1,82 @@
+\section{Lipschitz-continuity of the value function}
+\label{value lipschitz}
+
+Solely relying on assumptions \eqref{Lipschitz} and \eqref{bounded}, we argue that the value function $ v $ is locally Lipschitz-continuous. More precisely, we derive inequality (2.36) from Theorem 2.5 in \cite[p.~165]{zhou}, namely
+
+\begin{equation}
+	\label{loc lipschitz}
+	\normof{v(t_0, x_0)- v(\xi, \eta)} \leq K \left[\normof{\eta - x_0} + (1 + \max(\normof{x_0}, \normof{\eta})) \cdot \normof{\xi - t_0} \right] \ ,
+\end{equation}
+for some constant $ K > 0 $. 
+
+First, we provide an upper bound for the difference of two trajectories, which on the one hand have possibly different starting conditions, but on the other, are induced by some common control $ \alpha $. That is, for two trajectories $ \trajectory{t_0}{x_0} $, $ \trajectory{\xi}{\eta} $ with respective starting conditions $ \trajectory{t_0}{x_0}(t_0) = x_0 $, $ \trajectory{\xi}{\eta}(\xi) = \eta $, we have
+\begin{equation}
+	\label{general gronwall}
+	\normof{\trajectory{t_0}{x_0}(t) - \trajectory{\xi}{\eta}(t)} \leq K \left[\normof{\eta - x_0} + (1 + \max(\normof{x_0}, \normof{\eta})) \cdot \normof{\xi - t_0} \right] \ ,
+\end{equation}
+for some constant $ K > 0 $, and all $ t \in \left[0, T\right] $.
+
+Recall the trajectories are both described by the dynamics $ b(\cdot, \cdot, \alpha(\cdot)) $, and consequently
+\begin{align*}
+	\trajectory{t_0}{x_0}(t) &= x_0 + \dynint{t_0}{t}{\trajectory{t_0}{x_0}} \\
+	\trajectory{\xi}{\eta}(t) &= \eta + \dynint{\xi}{t}{\trajectory{\xi}{\eta}} \ .
+\end{align*}
+
+Suppose w.l.o.g. $ t_0 \leq \xi $, otherwise interchange $ (t_0, x_0) $ with $ (\xi, \eta) $. Split the integral describing $ \trajectory{t_0}{x_0}(t) $ w.r.t. to the time intervals $ \left[t_0, \xi \right] $ and $ \left[\xi, t\right] $. When doing so, the triangle inequality gives
+
+\begin{equation*}
+	\begin{split}
+	\normof{\trajectory{t_0}{x_0}(t) - \trajectory{\xi}{\eta}(t)} &\leq \normof{x_0 - \eta } \\
+	&+ \normedint{\xi}{t}{b(s, \trajectory{t_0}{x_0}(s), \alpha(s)) - b(s, \trajectory{\xi}{\eta}(s), \alpha(s))} \\
+	&+ \normof{\dynint{t_0}{\xi}{\trajectory{t_0}{x_0}}}\ .
+	\end{split}
+\end{equation*}
+
+Owing to \eqref{Lipschitz}, the second summand can be bounded from above by
+\begin{equation*}
+	\int\limits_{\xi}^{t} L \normof{\trajectory{t_0}{x_0}(s) - \trajectory{\xi}{\eta}(s)} \ ds \ .
+\end{equation*}
+
+The third summand rewrites to
+
+\begin{equation*}
+	\normof{\dynint{t_0}{\xi}{\trajectory{t_0}{x_0}}} = \normof{\trajectory{t_0}{x_0}(\xi) - \trajectory{t_0}{x_0}(t_0)} \ .
+\end{equation*}
+
+On account of \eqref{trajectory equicontinuous}, the third summand can be therefore bounded from above by
+
+\begin{equation*}
+	L \exp(LT) \left(1 + \normof{x_0} \right) (\xi - t_0) \ .
+\end{equation*}
+
+We finally get
+
+\begin{equation*}
+	\begin{split}
+	\normof{\trajectory{t_0}{x_0}(t) - \trajectory{\xi}{\eta}(t)} &\leq \normof{x_0 - \eta } \\
+	&+ L \exp(LT) \left(1 + \normof{x_0} \right) (\xi - t_0) \\
+	&+ 	\int\limits_{\xi}^{t} L \normof{\trajectory{t_0}{x_0}(s) - \trajectory{\xi}{\eta}(s)} \ ds \ ,
+	\end{split}
+\end{equation*}
+
+and the Gronwall-type-inequality (2.36), found in \cite[p.~42]{teschl2012ordinary}, implies
+
+\begin{multline*}
+	\normof{\trajectory{t_0}{x_0}(t) - \trajectory{\xi}{\eta}(t)} \leq \left[ \normof{\eta - x_0} + L \exp(LT) \left(1 + \normof{x_0} \right) (\xi - t_0) \right] \exp(LT) \ .
+\end{multline*}
+
+Set $ K \coloneqq \max \left(\exp(LT), L \exp^2(LT) \right) $ to obtain \eqref{general gronwall}, the desired inequality.
+
+We now derive the estimate \eqref{loc lipschitz}. With this end in view, we compare the total costs associated with the trajectories $ \trajectory{t_0}{x_0} $ and $ \trajectory{\xi}{\eta} $, in other words, we consider
+
+\begin{equation*}
+	\normof{J(t_0, x_0, \alpha) - J(\xi, \eta, \alpha)} \ .
+\end{equation*}
+
+The estimate \eqref{Lipschitz}, satisfied by both, the running costs $ f $ and terminal costs $ h $, yields
+
+\begin{equation*}
+	\normof{J(t_0, x_0, \alpha) - J(\xi, \eta, \alpha)} \leq K \left[\normof{\eta - x_0} + (1 + \max(\normof{x_0}, \normof{\eta})) \cdot \normof{\xi - t_0} \right] \ .
+\end{equation*}
+
+We justify the passage to the infimum over all admissible controls in a similar manner, as we have justified the passage to the supremum in the proof of \ref{Hamiltonian gradient}. Doing so, we immediately obtain \eqref{loc lipschitz}, which completes the proof.

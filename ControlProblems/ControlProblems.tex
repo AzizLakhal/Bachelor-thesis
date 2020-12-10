@@ -5,14 +5,14 @@
 	
 	\section{Finite-time control problems}
 	
-	We describe, rather informally, the specific type of control problems we will deal with. Consider a system starting in state $ x_0 \in \mathbb{R}^N $ at time $ t_0 \geq 0 $. At each point of time $ t \geq t_0 $, we can manipulate the current state of the system $ x(t) \in \mathbb{R}^N $, by executing an external control $ \alpha(t) \in \mathcal{A} $, where $ \mathcal{A} $ denotes the topological space of all possible controls. The resulting trajectory of the system $ x^{\alpha}_{x_0} $ is described by the dynamics $ b : \left[ 0 , T \right] \times \mathbb{R}^N \times \mathcal{A} \to \mathbb{R} $, meaning $ x^{\alpha}_{x_0} $ is the unique, absolutely continuous solution to the IVP
+	We describe, rather informally, the specific type of control problems we will deal with. Consider a system starting in state $ x_0 \in \mathbb{R}^N $ at time $ t_0 \geq 0 $. At each point of time $ t \geq t_0 $, we can manipulate the current state of the system $ x(t) \in \mathbb{R}^N $, by feeding in an external input $ \alpha(t) \in \mathcal{A} $, where $ \mathcal{A} $ denotes the topological space of all possible controls. The resulting trajectory of the system $ x^{\alpha}_{x_0} $ is described by the dynamics $ b : \left[ 0 , T \right] \times \mathbb{R}^N \times \mathcal{A} \to \mathbb{R} $, meaning $ x^{\alpha}_{x_0} $ is the unique, absolutely continuous solution to the IVP
 	
 	\begin{align*}
 	x(t_0) &= x_0 \\
 	\dot{x}(t) &= b(t, x(t), \alpha(t)) \ .
 	\end{align*}
 	
-	A manipulation of the system at time $ t $ in state $ x(t) $ with control $ \alpha(t) $, is penalized with costs $ f(t, x(t), \alpha(t)) \in \mathbb{R} $. The system is observed during a finite, fixed time span $ \left[t_0, T \right] $. The final state of the system, $ x^{\alpha}_{x_0}(T) $ is then penalized with another costs $ h(x^{\alpha}_{x_0}(T)) \in \mathbb{R} $, which results in totals costs of
+	A manipulation of the system at time $ t $ in state $ x(t) $ with input $ \alpha(t) $, is penalized with costs $ f(t, x(t), \alpha(t)) \in \mathbb{R} $. The system is observed during a finite, fixed time span $ \left[t_0, T \right] $. The final state of the system, $ x^{\alpha}_{x_0}(T) $ is then penalized with another costs $ h(x^{\alpha}_{x_0}(T)) \in \mathbb{R} $, which results in totals costs of
 	
 	\begin{equation*}
 	J(t_0, x_0, \alpha) \coloneqq \pathint{\alpha}{t_0}{T} + h(x^{\alpha}_{x_0}(T)) \ .
@@ -77,19 +77,19 @@
 		v(t_0, x_0) = \pathint{\alpha^{*}}{t_0}{t_0 + h} + v(t_0 + h, x^{\alpha^{*}}_{x_0}(t_0 + h)) \ ,
 	\end{equation}
 	
-	which exactly describes the so-called \emph{Dynamic Programming Principle}, commonly abbreviated by \textbf{DPP}. The DPP is an idea that was first introduced by Richard Bellmann in a discrete-time setting \cite{bellmandiscrete}, he then later extended to problems in continuous time \cite{bellmancontinuous}. Zhou and Jiongming captured the DPP quite well in their concise statement: 
+	which exactly describes the so-called \emph{Dynamic Programming Principle}, commonly abbreviated by \textbf{DPP}. The DPP is an idea that was first introduced by Richard Bellmann in a discrete-time setting \cite{bellmandiscrete}, he then later extended to problems in continuous time \cite{bellmancontinuous}. Zhou and Yong captured the DPP quite well in their concise statement \cite[p. ~160]{zhou}: 
 	
 	\begin{center}
 		\say{globally optimal $ \implies $ locally optimal} .
 	\end{center}
 
-	As our functional equation \ref{dpp} satisfied by $ v $ relies on the existence of an optimal control, we try to rewrite \ref{dpp} as
+	As our functional equation \eqref{dpp} satisfied by $ v $ relies on the existence of an optimal control, we try to rewrite \eqref{dpp} as
 	\begin{equation}
 	\label{dpp_general}
 	v(t_0, x_0) = \inf\limits_{\alpha \in \controlspace} \bigg\{ \pathint{\alpha}{t_0}{t_0 + h} + v(t_0 + h, x^{\alpha}_{x_0}(t_0 + h)) \bigg\} \ .
 	\end{equation}
 	
-	An exchange argument, similar to the one used to justify \ref{dpp}, shows \ref{dpp_general} holds, even if an optimal control does not exist.
+	An exchange argument, similar to the one used to justify \eqref{dpp}, shows \eqref{dpp_general} holds, even if an optimal control does not exist.
 	
-	What seems promising at the first glance, is quite unsatisfactory, as \say{[the dynamic programming equation] is very difficult to handle, since the operation involved on the right-hand side [...] is too complicated.}, Zhou and Jiongming confirm in \cite[p. ~160]{zhou}.
-	Instead of directly solving \ref{dpp_general}, we consider its implications for $ v $.
+	What seems promising at the first glance, is quite unsatisfactory, as \say{[the dynamic programming equation] is very difficult to handle, since the operation involved on the right-hand side [...] is too complicated.}, Zhou and Yong confirm in \cite[p. ~160]{zhou}.
+	Instead of directly solving \eqref{dpp_general}, we consider its implications for $ v $.

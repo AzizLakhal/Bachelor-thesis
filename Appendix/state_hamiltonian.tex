@@ -1,0 +1,35 @@
+\section{Variations of the Hamiltonian w.r.t. to the state variable}
+\label{state hamiltonian}
+
+Recall that the proof of theorem \ref{viscosity_loc} relied on assumption \eqref{eqn:H2}, namely,
+
+\begin{equation*}
+	\lvert H(t, x, p) - H(t, y, p) \rvert \leq \omega(R, \lvert x - y \rvert (1 + \lvert p \rvert)) \hbox{ for all } \ x, y \in B_R(0) \ ,
+\end{equation*}
+
+in order to control the Hamiltonian's variations w.r.t. the state variable. To justify \eqref{eqn:H2}, we prove the Hamiltonians, related to our class of control problems, to satisfy \eqref{eqn:H2}. With this end in view, we employ the same approach as in \ref{Hamiltonian gradient}. That is, we fix some arbitrary external input $ a \in A $ and consider the variations of
+$ H^{a}(t, \cdot, p) $, w.r.t. to the state variable. As
+
+\begin{equation*}
+	H^{a}(t, \cdot, p) \coloneqq p^{T} b(t, \cdot, a) - f(t, \cdot, a) \ ,
+\end{equation*}
+
+the triangle-and Cauchy-Schwarz-inequalities give,
+
+\begin{equation*}
+	\normof{H^{a}(t, x, p) - H^{a}(t, y, p) } \leq \normof{p} \cdot \normof{b(t, x, p) - b(t, y, p)} + \normof{f(t, x, p) - f(t, y, p)} \ .
+\end{equation*}
+
+Now the assumption \eqref{Lipschitz}, imposed upon our dynamics $ b $ and running costs $ f $, yields
+\begin{equation*}
+	\normof{H^{a}(t, x, p) - H^{a}(t, y, p) } \leq L \normof{x - y} \cdot \left(1 + \normof{p }\right) \ .
+\end{equation*}
+
+Using the same argument as in \ref{Hamiltonian gradient} we pass to the supremum and obtain
+
+\begin{equation*}
+	\normof{H(t, x, p) - H(t, y, p) } \leq L \normof{x - y} \cdot \left(1 + \normof{p }\right) \ .
+\end{equation*}
+
+Clearly, the variations of $ H(t, \cdot, p) $ are bounded by some modulus of continuity, as initially stated.
+

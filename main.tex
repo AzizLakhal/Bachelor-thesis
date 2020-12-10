@@ -23,6 +23,7 @@
 \usepackage{mathtools}
 \usepackage{dirtytalk}
 \usepackage{import}
+\usepackage{appendix}
 \usepackage{hyperref}
 \usepackage{titelblatt}
 \usepackage{url}
@@ -42,7 +43,17 @@
 
 \newcommand{\pathint}[3]{\int\limits^{{#3}}_{{#2}} f(t, x^{#1}_{x_0}(t), #1(t))dt}
 
+\newcommand{\dynint}[3]{\int\limits_{#1}^{#2} b(s, #3(s), \alpha(s)) \ ds}
+
+\newcommand{\normof}[1]{\left\lvert {#1} \right\rvert}
+
+\newcommand{\normedint}[3]{\int\limits_{#1}^{#2} \normof{#3} \ ds}
+
 \newcommand{\controlspace}[1][0]{\mathcal{V}\left[ {#1}, T \right]}
+
+\newcommand{\trajectory}[2]{x_{#1, #2}^{\alpha}}
+
+\newcommand{\overlinedPair}[2]{\left(\overline{#1}, \overline{#2}\right)}
 
 \begin{document}
 
@@ -59,7 +70,7 @@
 \Pepost     {s8molakh@stud.uni-saarland.de}     %% email of 1st author 
 
 
-\Ptitel     {Viscosity solutions of Hamilton-Jacobi-Bellman-equations arising in the control of ordinary differential equation control problems}  %% title
+\Ptitel     {Viscosity solutions of Hamilton-Jacobi-Bellman equations arising in control of ordinary differential equations}  %% title
 
 
 \Pjahr      {2020}               %% year of publ.
@@ -75,6 +86,8 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\tableofcontents
+
 \import{ControlProblems/}{ControlProblems}
 
 \import{SmoothValueFunction/}{SmoothValueFunction}
@@ -82,6 +95,8 @@
 \import{MotivationViscosity/}{MotivationViscosity}
 
 \import{ViscosityValueFunction/}{ViscosityValueFunction}
+
+\import{Appendix/}{appendix}
 
 \bibliographystyle{plain}
 
