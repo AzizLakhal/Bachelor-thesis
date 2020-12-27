@@ -13,15 +13,15 @@ Fix a point of time $ t \in [0, T] $ and a state $ x \in \mathbb{R}^N $. Conside
 	H^{a}(t, x, p) \coloneqq p^{T} b(t, x, a) - f(t, x, a) \ ,
 \end{equation*} 
 
-for fixed external input $ a \in A $, and 
+for fixed external input $ a \in \mathcal{A} $, and 
 
 \begin{equation*}
-	H(t, x, p) \coloneqq \sup\limits_{a \in A} H^{a}(t, x, p) \ ,
+	H(t, x, p) \coloneqq \sup\limits_{a \in \mathcal{A}} H^{a}(t, x, p) \ ,
 \end{equation*}
 
 the pointwise supremum over all such possible inputs.
 
-For fixed input $ a \in A $, we immediately get
+For fixed input $ a \in \mathcal{A} $, we immediately get
 
 \begin{equation*}
 	\lvert H^{a}(t, x, p) - H^{a}(t, x, q) \lvert \leq \lvert p - q \rvert \cdot \lvert b(t, x, a) \rvert \ ,
@@ -37,7 +37,8 @@ while $ \lvert b(t, 0, a)  \rvert \leq L $, because of \eqref{bounded}. Altogeth
 	\lvert H^{a}(t, x, p) - H^{a}(t, x, q) \lvert \leq (1 + \lvert x \rvert) \lvert p - q \rvert \ .
 \end{equation}
 
-We now justify the passage to the respective suprema. We think of $ \{H^a(t, x, p)\}_{a \in A} $ and $ \{H^{a}(t, x, q)\}_{a \in A} $ as two non-empty sets $ A = (a_i)_{i \in I} $ and $ B = (b_i)_{i \in I} $, parametrized over a common index set $ I $. In view of inequality \eqref{index ineq}, we have that
+We now justify the passage to the respective suprema. We think of $ \{H^a(t, x, p)\}_{a \in A
+\mathcal{A}} $ and $ \{H^{a}(t, x, q)\}_{a \in \mathcal{A}} $ as two non-empty sets $ A = (a_i)_{i \in I} $ and $ B = (b_i)_{i \in I} $, parametrized over a common index set $ I $. In view of inequality \eqref{index ineq}, we have that
 \begin{equation}
 	\label{general index ineq}
 	\lvert a_i  - b_i \rvert \leq K \ 

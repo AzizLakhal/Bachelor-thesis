@@ -28,6 +28,7 @@
 \usepackage{titelblatt}
 \usepackage{url}
 \usepackage{ragged2e}
+\usepackage{ellipsis}
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
@@ -40,6 +41,8 @@
 \newtheorem{proposition}{Proposition}[section]
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
 
 \newcommand{\pathint}[3]{\int\limits^{{#3}}_{{#2}} f(t, x^{#1}_{x_0}(t), #1(t))dt}
 
@@ -54,6 +57,10 @@
 \newcommand{\trajectory}[2]{x_{#1, #2}^{\alpha}}
 
 \newcommand{\overlinedPair}[2]{\left(\overline{#1}, \overline{#2}\right)}
+
+\newcommand{\closedInterval}[2]{\left[ #1, #2 \right]}
+
+\newcommand{\openInterval}[2]{\left(#1, #2\right)}
 
 \begin{document}
 
@@ -88,6 +95,8 @@
 
 \tableofcontents
 
+\import{Outline/}{outline}
+
 \import{ControlProblems/}{ControlProblems}
 
 \import{SmoothValueFunction/}{SmoothValueFunction}
@@ -95,6 +104,8 @@
 \import{MotivationViscosity/}{MotivationViscosity}
 
 \import{ViscosityValueFunction/}{ViscosityValueFunction}
+
+\import{Outlook/}{outlook}
 
 \import{Appendix/}{appendix}
 

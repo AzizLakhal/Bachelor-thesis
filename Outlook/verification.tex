@@ -1,0 +1,13 @@
+\section{Verification techniques}
+
+As our efforts seem to have been in vain, we present another class of sufficient optimality conditions, known as \emph{verification techiques}, which immediately transfer to merely continuous functions.
+
+Consider a control $ \alpha \in \controlspace[t_0] $ and a viscosity subsolution $ u $ of \eqref{HJB} which underestimates the terminal costs. If $ J(t_0, x_0, \alpha) \leq u(t_0, x_0) $ holds for some $ x_0 \in \mathbb{R}^N $, the comparison result \ref{Viscosity Uniqueness} yields
+
+\begin{equation*}
+	J(t_0, x_0, \alpha) \leq u(t_0, x_0) \leq v(t_0, x_0) \leq J(t_0, x_0, \alpha) \ ,
+\end{equation*}
+
+and the control $ \alpha $ is optimal for the problem starting at $ t_0 $ in state $ x_0 $.
+
+We remark that the value function is itself a viscosity subsolution of \eqref{HJB}. Conversely, there exists for any optimal control $ \alpha $, a subsolution $ u $ (namely the value function), s.t. $ J(t_0, x_0, \alpha) \leq u(t_0, x_0) $ holds.
