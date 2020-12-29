@@ -31,10 +31,10 @@
 	
 	The value function is obviously not smooth. As our assumption already fails on such a simple example, we must weaken our notion of solution.
 	
-	Recall that under the assumptions imposed onto our problem parameters, the value function is at least known to be locally Lipschitz-continuous, and consequently differentiable almost everywhere by Rademacher's theorem, found in \cite{evans}. We are therefore tempted to interpret \ref{HJB} in the so-called \emph{generalized sense}, which means we require solutions to be locally Lipschitz-continuous and to satisfy \ref{HJB} almost everywhere. Our simple example still reveals itself problematic in this case, as the associated PDE \ref{HJB}, now given by
+	Recall that under the assumptions imposed upon our problem parameters, the value function is at least known to be locally Lipschitz-continuous, and consequently differentiable almost everywhere by Rademacher's theorem, found in \cite{evans}. We are therefore tempted to interpret \ref{HJB} in the so-called \emph{generalized sense}, which means we require solutions to be locally Lipschitz-continuous and to satisfy \ref{HJB} almost everywhere. Our simple example still reveals itself problematic in this case, as the associated PDE \ref{HJB}, now given by
 	
 	\begin{equation*}
 		-u_t + \lvert u_x \rvert = 0 \ ,
 	\end{equation*}
 	
-	admits the functions $ v $ and $ (t_0, x_0) \mapsto \lvert x_0 \rvert - (T - t_0) $ as generalized solutions, both satisfying the boundary condition $ u(T, \cdot) = h $, as noted by Barles in \cite{barles}. Another sense of solution is therefore needed, if we insist on characterizing the value function as the unique solution of the considered boundary problem.
+	admits the functions $ v $ and $ (t_0, x_0) \mapsto \lvert x_0 \rvert - (T - t_0) $ as generalized solutions, both satisfying the boundary condition $ u(T, \cdot) = h $, as noted by Barles \cite{barles}. Another sense of solution is therefore needed, if we insist on characterizing the value function as the unique solution of the considered terminal value problem.
