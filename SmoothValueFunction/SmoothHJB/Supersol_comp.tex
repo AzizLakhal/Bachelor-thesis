@@ -23,7 +23,7 @@
 				
 				Now for the critical case, in which $ (\overline{t}, \overline{x}) = (a, \overline{x}) $ is a local maximum of $ w - \varphi $ with respect to some neighbourhood $ \left( a, a + r \right] \times B_r(\overline{x}) \subset \subset \left[ a, b \right) \times \Omega^{\prime} $. 
 				
-				Add the penalty term $ - \frac{1}{n(t-a)} $ to $ w - \varphi $, i.e consider the functions
+				Add the penalty term $ - \frac{1}{n(t-a)} $ to $ w - \varphi $, i.e. consider the functions
 				
 				\begin{equation*}
 					\psi_n(t, x) = ( w(t, x) - \varphi(t, x)) - \frac{1}{n(t-a)} \ .
@@ -35,9 +35,9 @@
 					\lim\limits_{t \searrow a} \psi_n(t, x) = - \infty
 				\end{equation*}
 				
-				\emph{uniformly} with respect to $ x \in B_r(\overline{x}) $, and $ \psi_n $ is known to admit a local maximizer $ (t_n, x_n) \in \left( a, a + r \right] \times B_r(\overline{x}) $.
+				\emph{uniformly} with respect to $ x \in B_r(\overline{x}) $, and therefore $ \psi_n $ admits a local maximizer $ (t_n, x_n) \in \left( a, a + r \right] \times B_r(\overline{x}) $.
 				
-				After taking a subsequence if necessary, $ (t_n, x_n)_{n \in \mathbb{N}} $ converges to some point $ (t^{*}, x^{*}) \in \left[a, a +r \right] \times \overline{B_r(\overline{x}}) $. The goal is to show that $ (t_n, x_n)_{n \in \mathbb{N}} $ actually converges to $ (a, \overline{x}) $. For this purpose assume $ (a, \overline{x}) $ was a \emph{strict} local maximum. Otherwise replace $ \varphi $ by
+				After taking a subsequence if necessary, $ (t_n, x_n)_{n \in \mathbb{N}} $ converges to some point $ (t^{*}, x^{*}) \in \left[a, a +r \right] \times \overline{B_r(\overline{x}}) $. The first goal is to show that $ (t_n, x_n)_{n \in \mathbb{N}} $ actually converges to $ (a, \overline{x}) $. To this end, assume $ (a, \overline{x}) $ was a \emph{strict} local maximum. Otherwise replace $ \varphi $ by
 				
 				\begin{equation*}
 					(t, x) \mapsto \varphi(t, x) - \frac{\lVert (t, x) - (a, \overline{x}) \rVert^2}{2},
@@ -61,7 +61,7 @@
 					\psi_n(t_n, x_n) \geq \psi_n(s_n, z_n) = (w - \varphi)(s_n, z_n) -\frac{\sqrt{n}}{n}
 				\end{equation*}
 				
-				conclude that $ l \geq (w- \varphi)(a, \overline{x}) $ by taking the limit $ n \to \infty $. Altogether we obtain that $ (w - \varphi)(a, \overline{x}) \leq (w - \varphi)(t^{*}, x^{*}) $. Since $ (a, \overline{x}) $ was supposed to be a \emph{strict} maximum, we know that $ (t^{*}, x^{*}) = (a, \overline{x}) $.
+				conclude that $ l \geq (w- \varphi)(a, \overline{x}) $ by taking the limit $ n \to \infty $. Altogether we obtain that $ (w - \varphi)(a, \overline{x}) \leq l \leq (w - \varphi)(t^{*}, x^{*}) $. Since $ (a, \overline{x}) $ was supposed to be a \emph{strict} maximum, we know that $ (t^{*}, x^{*}) = (a, \overline{x}) $.
 				
 				To complete the proof, note that $ (t_n, x_n) $ is an \emph{interior} local maximum of $ \psi_n $, and therefore the total derivative of $ w $ in $ (t_n, x_n) $ equals the total derivative of the mapping 
 				
@@ -69,7 +69,7 @@
 					(t, x) \mapsto \varphi(t, x) + \frac{1}{n(t-a)}
 				\end{equation*}
 				
-				in $ (t_n, x_n) $, i.e
+				in $ (t_n, x_n) $, i.e.
 				
 				\begin{equation*}
 					Dw(t_n, x_n) = \left( \varphi_t(t_n, x_n) - \frac{1}{n(t-a)^2}, D_x \varphi(t_n, x_n) \right) .

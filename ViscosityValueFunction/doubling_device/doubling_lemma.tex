@@ -1,7 +1,12 @@
 \begin{lemma}
 		 	\label{doubling device}
-		 	Let $ \Omega^{\prime} \subset \mathbb{R}^N $ be an open set and $ \Omega \coloneqq \left[0, T\right] \times \Omega^{\prime} $. Let $ u, v \in C(\Omega) $, and set $ w \coloneqq u - v $. 
-		 	Let $ \varphi \in C^{1}(\Omega) $, and suppose $ w - \varphi $ admits a \emph{strict} local maximum in $ (t_0, x_0) \in \Omega $, w.r.t. the neighbourhood $ B_R(t_0, x_0) \subset \subset \Omega $. Consider for $ \varepsilon, \alpha > 0 $, the continuous function
+		 	Let $ \Omega^{\prime} \subset \mathbb{R}^N $ be an open set and $ \Omega \coloneqq \left[0, T\right] \times \Omega^{\prime} $. 
+		 	
+		 	Denote by $ u $ and $ v : \Omega \to \mathbb{R} $ continuous functions, and set $ w \coloneqq u - v $.
+		 	 
+		 	Let $ \varphi \in C^{1}(\Omega) $, and suppose $ w - \varphi $ admits a \emph{strict} local maximum in 
+		 	
+		 	$ (t_0, x_0) \in \Omega $ with respect to the neighbourhood $ B_R(t_0, x_0) \subset \subset \Omega $. Consider for $ \varepsilon, \alpha > 0 $, the continuous function
 		 	
 		 	\begin{align*}
 		 	\Phi = \Phi_{\varepsilon, \alpha} :\overline{B} _{R / 2}(t_0, x_0)^2 &\to \mathbb{R} \\
@@ -41,7 +46,7 @@
 		 	\end{enumerate}
 	 	
 	 	\begin{proof}
-	 		We adapt the proof of Lemma 5.2 in \cite[p.~69]{barles}.
+	 		We follow Barles' proof of Lemma 5.2 in \cite[p.~69]{barles}.
 	 		
 	 		Note that modifying $ \varphi $ by an additive constant neither changes the location of its extrema nor its total derivative. We might therefore assume in the following that $ M \coloneqq (w - \varphi)(t_0, x_0)  $ is strictly positive.
 	 		
@@ -67,7 +72,7 @@
 	 		
 	 		for some constant $ K \geq 0 $.
 	 		
-	 		We continue with claim (\ref{maximizer convergence}). Note that
+	 		Now for claim (\ref{maximizer convergence}). Note that
 	 		
 	 		\begin{equation}
 	 		\label{remove penalty}
@@ -75,14 +80,14 @@
 	 			(u - \varphi)\overlinedPair{t}{x} - v\overlinedPair{s}{y} 
 	 		\end{equation}
 	 		
-	 		by stripping the non-negative penalty terms off $ \Phi(\overline{t}, \overline{x}, \overline{s}, \overline{y}) $. By combining inequalities \eqref{larger maximum} and \eqref{remove penalty}, deduce
+	 		by removing the non-negative penalty terms from $ \Phi(\overline{t}, \overline{x}, \overline{s}, \overline{y}) $. Deduce from the inequalities \eqref{larger maximum} and \eqref{remove penalty} that
 	 		
 	 		\begin{equation}
 	 			\label{maximum convergence}
 	 			(u - \varphi)\overlinedPair{t}{x} - v\overlinedPair{s}{y} \geq M > 0 \ .
 	 		\end{equation}
 	 		
-	 		Since $ (\overline{t}, \overline{x}, \overline{s}, \overline{y}) $ is contained in the compact set $ \overline{B}_{R /2}(t_0, x_0) $, it admits a convergent subnet. In view of claim (\ref{distance convergence}), its limit point is of the form $ (t^{*}, x^{*}, t^{*}, x^{*})  $. As $ \varepsilon $ and  $ \alpha $ tend towards zero, the left-hand-side of inequality \eqref{maximum convergence} converges to $ (w - \varphi)(t^{*}, x^{*}) $, and therefore
+	 		Since $ (\overline{t}, \overline{x}, \overline{s}, \overline{y}) $ is contained in the compact set $ \overline{B}_{R /2}(t_0, x_0) $, it admits a convergent subnet. In view of claim (\ref{distance convergence}), its limit point is of the form $ (t^{*}, x^{*}, t^{*}, x^{*})  $. As $ \varepsilon $ and  $ \alpha $ both tend to zero, the left-hand-side of inequality \eqref{maximum convergence} converges to $ (w - \varphi)(t^{*}, x^{*}) $, and therefore
 	 		
 	 		\begin{equation*}
 	 			(w - \varphi)(t^{*}, x^{*}) \geq M \ .
@@ -95,14 +100,14 @@
 	 			\overlinedPair{t}{x}, \ \overlinedPair{s}{y} &\to (t_0, x_0) \ .
 	 		\end{align*}
 	 		
-	 		To see that the vectors $ p $ and $ q $ are indeed sub-and superdifferentials,  note that $ \overlinedPair{t}{x} $ and $ \overlinedPair{s}{y} $ are interior points of $ \overline{B}_{R / 2}(t_0, x_0) $ for sufficiently small $ \varepsilon $ and $ \alpha $, since $ \overlinedPair{t}{x} $ and $ \overlinedPair{s}{y} $ converge to $ (t_0, x_0) $. The mappings $ \Phi(\cdot, \cdot, \overline{s}, \overline{y}) = u - \varphi_1 $ and $ \Phi(\overline{t}, \overline{x}, \cdot, \cdot) =  v - \varphi_2 : \left( 0, T \right) \times \mathbb{R}^N \to \mathbb{R} $, where
+	 		We argue that the vectors $ p $ and $ q $ are sub-and superdifferentials. Note $ \overlinedPair{t}{x} $ and $ \overlinedPair{s}{y} $ are interior points of $ \overline{B}_{R / 2}(t_0, x_0) $ for sufficiently small $ \varepsilon $ and $ \alpha $, since $ \overlinedPair{t}{x} $ and $ \overlinedPair{s}{y} $ converge to $ (t_0, x_0) $. The mappings $ \Phi(\cdot, \cdot, \overline{s}, \overline{y}) = u - \varphi_1 $ and $ \Phi(\overline{t}, \overline{x}, \cdot, \cdot) =  v - \varphi_2 $ defined over $ \openInterval{0}{T} \times \mathbb{R}^N $, where
 	 		
 	 		\begin{align*}
 	 			\varphi_1(t, x)  &\coloneqq \varphi(t, x) + \frac{\lvert x - \overline{y} \rvert^2}{2 \varepsilon} + \frac{\lvert t - \overline{s} \rvert^2}{2 \alpha} + v\overlinedPair{s}{y} \\
 	 			\varphi_2(s, y) &\coloneqq - \frac{\lvert \overline{x} - y \rvert^2}{2 \varepsilon} - \frac{\lvert \overline{x} - s \rvert^2}{2 \alpha} + u\overlinedPair{t}{x} - \varphi\overlinedPair{t}{x} \ ,
 	 		\end{align*}
 	 		
-	 		therefore respectively attain a local maximum in $ \overlinedPair{t}{x} $ and a local minimum in $ \overlinedPair{s}{y} $. Observing that $ p = D\varphi_1\overlinedPair{t}{x} $ and $ q = D\varphi_2\overlinedPair{s}{y} $ completes the proof of claim (\ref{maximizer convergence}).
+	 		therefore attain a local maximum in $ \overlinedPair{t}{x} $ and a local minimum in $ \overlinedPair{s}{y} $, respectively. Observing that $ p = D\varphi_1\overlinedPair{t}{x} $ and $ q = D\varphi_2\overlinedPair{s}{y} $ completes the proof of claim (\ref{maximizer convergence}).
 	 		
 	 		Prove claim (\ref{fast convergence}) by using inequality \eqref{larger maximum}, which implies that
 	 		
@@ -110,6 +115,6 @@
 	 			 \frac{\lvert \overline{x} - \overline{y} \rvert^2}{2 \varepsilon} + \frac{\lvert \overline{t} - \overline{s} \rvert^2}{2 \alpha} \leq \left[(u - \varphi)\overlinedPair{t}{x} - v\overlinedPair{s}{y} \right] - M \ .
 	 		\end{equation*}
 	 		
-	 		For the subnet mentioned in claim (\ref{maximizer convergence}), the right-hand-side converges to zero, as $ \varepsilon, \alpha $ tend towards zero. Therefore claim (\ref{fast convergence}) holds, and lemma \ref{doubling device} is proved.
+	 		For the subnet mentioned in claim (\ref{maximizer convergence}), the right-hand-side converges to zero, as $ \varepsilon, \alpha $ tend towards zero. Hence, claim (\ref{fast convergence}) holds which completes the proof.
 	\end{proof}
 \end{lemma}

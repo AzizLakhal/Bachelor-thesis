@@ -1,4 +1,4 @@
-The example from subsection \ref{naive} deters us from decomposing a superdifferential of $ w = u - v $ in $ (t_0, x_0) $, using super-and subdifferentials of $ u $ and $ v $ in the same point $ (t_0, x_0) $, since $ D^{+}u(t_0, x_0) $ or $ D^{-}v(t_0, x_0) $ might be empty. Suppose we only required to find some $ (t, x) $ in an arbitrarily small vicinity $ B_R(t_0, x_0) $ of $ (t_0, x_0) $, s.t $ D^{+}u(t, x) $ is not empty. For any smooth function $ \varphi $, we are sure that $ u - \varphi $ achieves a global maximum over $ \overline{B}_R(t_0, x_0) $ in some point $ (t, x) $. But since $ (t, x) $ might lie on the boundary of $ \overline{B}_R(t, x) $, it is not clear whether $ (t, x) $ is also a local maximizer with respect to the whole domain $ \left( 0, T \right) \times \mathbb{R}^{N} $. To avoid this phenomena, construct $ \varphi $ in a way which penalizes the distance from $ (t_0, x_0) $. To make this idea more concrete, consider the proof of the following theorem.
+The example in subsection \ref{naive} deters us from decomposing a superdifferential of $ w = u - v $ in $ (t_0, x_0) $, using super-and subdifferentials of $ u $ and $ v $ in the same point $ (t_0, x_0) $, as $ D^{+}u(t_0, x_0) $ or $ D^{-}v(t_0, x_0) $ might be empty. Suppose we contented ourselves with points $ (t, x) $ in any arbitrarily small vicinity $ B_R(t_0, x_0) $ of $ (t_0, x_0) $, s.t. $ D^{+}u(t, x) $ is non-empty. For any smooth function $ \varphi $, we are sure that $ u - \varphi $ attains a global maximum over $ \overline{B}_R(t_0, x_0) $ in some point $ (t, x) $. But since $ (t, x) $ might lie on the boundary of $ \overline{B}_R(t, x) $, it is not clear whether $ (t, x) $ is also a local maximizer with respect to the whole domain $ \left( 0, T \right) \times \mathbb{R}^{N} $. To avoid this phenomena, construct $ \varphi $ in a way which penalizes the distance from $ (t_0, x_0) $. To make this idea more concrete, consider the proof of the following theorem.
 		
 		\begin{theorem}
 			\label{density}
@@ -17,13 +17,13 @@ The example from subsection \ref{naive} deters us from decomposing a superdiffer
 					\varphi_{\varepsilon}(x_{\varepsilon}) \geq \varphi_{\varepsilon}(\overline{x}) = u(\overline{x})
 				\end{equation*}
 				
-				we get, for all $ \varepsilon > 0 $, that
+				we get that
 				
 				\begin{equation*}
-					\lvert x_{\varepsilon} - \overline{x} \rvert^2 \leq 2 \varepsilon \sup\limits_{x \in \overline{B}} \lvert u(x) \rvert .
+					\lvert x_{\varepsilon} - \overline{x} \rvert^2 \leq 2 \varepsilon \sup\limits_{x \in \overline{B}} \lvert u(x) \rvert 
 				\end{equation*}
 				
-				Thus $ x_{\varepsilon} $ does not lie on the boundary of $ \overline{B} $ for $ \varepsilon $ small enough, and $ D\varphi(x_{\varepsilon}) = 2(x_{\varepsilon} - \overline{x}) / \varepsilon $ belongs to $ D^{+}u(x_{\varepsilon}) $. Similar arguments prove the claim for subdifferentials.
+				for all $ \varepsilon > 0 $. Thus $ x_{\varepsilon} $ does not lie on the boundary of $ \overline{B} $ for $ \varepsilon $ small enough, and $ D\varphi(x_{\varepsilon}) = 2(x_{\varepsilon} - \overline{x}) / \varepsilon $ belongs to $ D^{+}u(x_{\varepsilon}) $. Similar arguments prove the claim for subdifferentials.
 			\end{proof}
 		\end{theorem}
 	

@@ -18,7 +18,7 @@
 	
 	where $ H $ denotes the Hamiltonian of the control problem, given by the mapping $ (t, x, p) \mapsto \sup\limits_{a \in \mathcal{A}} \bigg\{ p^{T} b(t, x, a) - f(t, x, a) \bigg\} $.
 	\begin{proof}
-		Proceed in two steps, respectively showing that $ v $ is a sub-and supersolution of \eqref{HJB}, which means that $ v $ satisfies the inequalities:
+		Proceed in two steps, showing that $ v $ is a sub-and supersolution of \eqref{HJB} respectively. That is, $ v $ satisfies the inequalities:
 		\begin{equation}
 			\label{value_subsolution}
 			-v_t + H(t, x, -D_x v) \leq 0 \ ,
@@ -28,7 +28,7 @@
 			\label{value_supersolution}
 			-v_t + H(t, x, - D_x v) \geq 0 \ .
 		\end{equation}
-		For the sake of suggestive notation, define for any control $ \alpha \in \controlspace $ and $ x_0 \in \mathbb{R}^N $, the map
+		For the sake of notation, define for any control $ \alpha \in \controlspace $ and $ x_0 \in \mathbb{R}^N $, the map
 		
 		\begin{equation*}
 			v^{\alpha}_{x_0} : \left( 0 , T \right) \to \mathbb{R}, \ t \mapsto v(t, x^{\alpha}_{x_0}(t)) \ ,
@@ -38,7 +38,7 @@
 		\begin{equation*}
 			H^{a} : \left[ 0, T \right] \times \mathbb{R}^{N} \times \mathbb{R}^N \to \mathbb{R}, \ (t, x, p) \mapsto p^{T} b(t, x, a) - f(t, x, a) \ ,
 		\end{equation*}
-		such that $ H = \sup\limits_{a \in \mathcal{A}} H^{a} $.
+		such that $ H $ rewrites to the pointwise supremum of all $ H^{a} $.
 		
 		In order to show \eqref{value_subsolution}, fix an arbitrary point $ (t_0, x_0) $ and consider the constant control $ \overline{a} \equiv a $, for some arbitrary input $ a \in \mathcal{A} $.
 		According to the DPP \eqref{dpp_general}, we have that
@@ -54,7 +54,7 @@
 			\frac{v(t_0 + h, x^{\overline{a}}_{x_0}(t_0 + h)) - v(t_0, x_0)}{h} \geq - \frac{1}{h} \pathint{\overline{a}}{t_0}{t_0 + h} \ ,
 		\end{equation}
 		
-		which, using the definition of $ v^{\overline{a}}_{x_0} $, can be rewritten as:
+		which, using the definition of $ v^{\overline{a}}_{x_0} $, can be rewritten to:
 		
 		\begin{equation*}
 			\frac{v^{\overline{a}}_{x_0}(t_0 + h) - v^{\overline{a}}_{x_0}(t_0)}{h} \geq \frac{1}{h} \pathint{\overline{a}}{t_0}{t_0 + h} \ .
@@ -99,14 +99,14 @@
 			\frac{v^{\alpha}_{x_0}(t_0 + h) - v^{\alpha}_{x_0}(t_0)}{h} \leq - \frac{1}{h} \pathint{\alpha}{t_0}{t_0 + h} + \epsilon \ .
 		\end{equation}
 		
-		Note that the considered control $ \alpha $ depends on $ h $, while the relationship between the different controls is unknown. In view of the circumstances, showing the uniform convergence of the appearing difference quotients w.r.t $ \alpha $ as $ h \searrow 0 $, seems rather intimidating. Instead, we want to resolve the dependency from $ \alpha $. To this purpose, apply the fundamental theorem of calculus to the left-hand-side of \eqref{problematic} and subtract the resulting integral from both sides to obtain that
+		Note that the considered control $ \alpha $ depends on $ h $, while the relationship between different controls is unknown. In view of these discouraging circumstances, we avoid the question of whether the present difference quotients converge uniformly as $ h $ tends to zero. Instead, we want to resolve the dependency from $ \alpha $. To this end, apply the fundamental theorem of calculus to the left-hand-side of \eqref{problematic} and subtract the resulting integral from both sides to obtain that
 		
 		\begin{equation}
 			\label{resolve}
-			- \epsilon \leq \frac{1}{h} \int\limits^{t_0 + h}_{t_0} g(t, x^{\alpha}_{x_0}(t), \alpha(t)) dt \ ,
+			- \epsilon \leq \frac{1}{h} \int\limits^{t_0 + h}_{t_0} g(t, x^{\alpha}_{x_0}(t), \alpha(t)) \ dt \ ,
 		\end{equation}
 		
-		where $ g $, defined by $ g(t, x, a) = - v_t(t, x) + H^{a}(t, x, -D_x v(t, x)) $, is continuous, as $ b $ and $ f $ are uniformly continuous. It is easy to deduce the equicontinuity of $ \{ H^{a} \}_{a \in \mathcal{A}}  $ from the uniform continuity of $ f $ and $ b $ and condition \eqref{Lipschitz} imposed upon them. Consequently $ H $ and the function $ \hat{g} $, defined by
+		where $ g $, defined by $ g(t, x, a) = - v_t(t, x) + H^{a}(t, x, -D_x v(t, x)) $, is continuous, as $ b $ and $ f $ are uniformly continuous. It is easy to deduce the equicontinuity of $ \{ H^{a} \}_{a \in \mathcal{A}}  $ from the uniform continuity of $ f $ and $ b $ and condition \eqref{Lipschitz}, imposed upon them. Consequently $ H $ and the function $ \hat{g} $, defined by
 		
 		\begin{equation*}
 			\hat{g}(t, x) \coloneqq \sup\limits_{a \in \mathcal{A}} g(t, x, a) = -v_t(t, x) + H(t, x, -D_x v(t, x)) \ ,
@@ -117,12 +117,12 @@
 		Taking the supremum over $ a \in \mathcal{A} $ in \eqref{resolve} yields that
 		
 		\begin{equation*}
-			- \epsilon \leq \frac{1}{h} \int\limits^{t_0 + h}_{t_0} \hat{g}(t, x^{\alpha}_{x_0}(t)) dt \ .
+			- \epsilon \leq \frac{1}{h} \int\limits^{t_0 + h}_{t_0} \hat{g}(t, x^{\alpha}_{x_0}(t)) \ dt \ .
 		\end{equation*}
 		
 		Note how the integrand does not depend anymore on the function values of $ \alpha $, but only on its induced trajectory.
 		
-		Apply the mean value theorem to rewrite latter inequality as
+		Apply the mean value theorem to rewrite latter inequality to
 		
 		\begin{equation*}
 			- \epsilon \leq \hat{g}(\xi, x^{\alpha}_{x_0}(\xi)) \ ,
@@ -133,7 +133,7 @@
 		\begin{equation*}
 			-\epsilon \leq \hat{g}(t_0, x_0) = -v_t(t_0, x_0) + H(t_0, x_0, -D_x v(t_0, x_0)) \ ,
 		\end{equation*}
-		and since $ \epsilon $ was arbitrary, our proof for \eqref{value_supersolution} would be complete. This is actually the case, as the trajectories $ \{ x^{\alpha}_{x_0} \} $ are equicontinuous in $ t_0 $. To see this, use assumptions \eqref{bounded} and \eqref{Lipschitz} satisfied by the dynamics $ b $, to derive that
+		and since $ \epsilon $ was arbitrary, our proof for \eqref{value_supersolution} would be complete. This is actually the case, as the trajectories $ \{ x^{\alpha}_{x_0} \} $ are equicontinuous in $ t_0 $. To see this, use the assumptions \eqref{bounded} and \eqref{Lipschitz} about the dynamics $ b $, to derive that
 		
 		\begin{equation}
 			\label{Gronwall_condition}
