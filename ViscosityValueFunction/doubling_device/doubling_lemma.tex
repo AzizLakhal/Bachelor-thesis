@@ -48,9 +48,9 @@
 	 	\begin{proof}
 	 		We follow Barles' proof of Lemma 5.2 in \cite[p.~69]{barles}.
 	 		
-	 		Note that modifying $ \varphi $ by an additive constant neither changes the location of its extrema nor its total derivative. We might therefore assume in the following that $ M \coloneqq (w - \varphi)(t_0, x_0)  $ is strictly positive.
+	 	 Modifying $ \varphi $ by an additive constant neither changes the location of its extrema nor its total derivative. We might therefore assume in the following that $ M \coloneqq (w - \varphi)(t_0, x_0)  $ is strictly positive.
 	 		
-	 		To show claim (\ref{distance convergence}), use that
+	 		We show claim (\ref{distance convergence}). As
 	 		
 	 		\begin{equation}
 	 			\label{larger maximum}
@@ -100,14 +100,14 @@
 	 			\overlinedPair{t}{x}, \ \overlinedPair{s}{y} &\to (t_0, x_0) \ .
 	 		\end{align*}
 	 		
-	 		We argue that the vectors $ p $ and $ q $ are sub-and superdifferentials. Note $ \overlinedPair{t}{x} $ and $ \overlinedPair{s}{y} $ are interior points of $ \overline{B}_{R / 2}(t_0, x_0) $ for sufficiently small $ \varepsilon $ and $ \alpha $, since $ \overlinedPair{t}{x} $ and $ \overlinedPair{s}{y} $ converge to $ (t_0, x_0) $. The mappings $ \Phi(\cdot, \cdot, \overline{s}, \overline{y}) = u - \varphi_1 $ and $ \Phi(\overline{t}, \overline{x}, \cdot, \cdot) =  v - \varphi_2 $ defined over $ \openInterval{0}{T} \times \mathbb{R}^N $, where
+	 		We argue that the vectors $ p $ and $ q $ are sub-and superdifferentials. The points $ \overlinedPair{t}{x} $ and $ \overlinedPair{s}{y} $ are interior points of $ \overline{B}_{R / 2}(t_0, x_0) $ for sufficiently small $ \varepsilon $ and $ \alpha $, since $ \overlinedPair{t}{x} $ and $ \overlinedPair{s}{y} $ converge to $ (t_0, x_0) $. The mappings $ \Phi(\cdot, \cdot, \overline{s}, \overline{y}) = u - \varphi_1 $ and $ \Phi(\overline{t}, \overline{x}, \cdot, \cdot) =  v - \varphi_2 $ defined over $ \openInterval{0}{T} \times \mathbb{R}^N $, where
 	 		
 	 		\begin{align*}
 	 			\varphi_1(t, x)  &\coloneqq \varphi(t, x) + \frac{\lvert x - \overline{y} \rvert^2}{2 \varepsilon} + \frac{\lvert t - \overline{s} \rvert^2}{2 \alpha} + v\overlinedPair{s}{y} \\
 	 			\varphi_2(s, y) &\coloneqq - \frac{\lvert \overline{x} - y \rvert^2}{2 \varepsilon} - \frac{\lvert \overline{x} - s \rvert^2}{2 \alpha} + u\overlinedPair{t}{x} - \varphi\overlinedPair{t}{x} \ ,
 	 		\end{align*}
 	 		
-	 		therefore attain a local maximum in $ \overlinedPair{t}{x} $ and a local minimum in $ \overlinedPair{s}{y} $, respectively. Observing that $ p = D\varphi_1\overlinedPair{t}{x} $ and $ q = D\varphi_2\overlinedPair{s}{y} $ completes the proof of claim (\ref{maximizer convergence}).
+	 		therefore attain a local maximum in $ \overlinedPair{t}{x} $ and a local minimum in $ \overlinedPair{s}{y} $, respectively. As $ p = D\varphi_1\overlinedPair{t}{x} $ and $ q = D\varphi_2\overlinedPair{s}{y} $ the proof of claim (\ref{maximizer convergence}) is complete.
 	 		
 	 		Prove claim (\ref{fast convergence}) by using inequality \eqref{larger maximum}, which implies that
 	 		
@@ -115,6 +115,6 @@
 	 			 \frac{\lvert \overline{x} - \overline{y} \rvert^2}{2 \varepsilon} + \frac{\lvert \overline{t} - \overline{s} \rvert^2}{2 \alpha} \leq \left[(u - \varphi)\overlinedPair{t}{x} - v\overlinedPair{s}{y} \right] - M \ .
 	 		\end{equation*}
 	 		
-	 		For the subnet mentioned in claim (\ref{maximizer convergence}), the right-hand-side converges to zero, as $ \varepsilon, \alpha $ tend towards zero. Hence, claim (\ref{fast convergence}) holds which completes the proof.
+	 		For the subnet mentioned in claim (\ref{maximizer convergence}), the right-hand-side converges to zero, as $ \varepsilon, \alpha $ tend to zero. Hence, claim (\ref{fast convergence}) holds which completes the proof.
 	\end{proof}
 \end{lemma}

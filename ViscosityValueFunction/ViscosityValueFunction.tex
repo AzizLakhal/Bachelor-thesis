@@ -35,7 +35,7 @@
 		Analogously, a vector $ p \in \mathbb{R}^N $ is termed a \emph{subdifferential} of $ u $ in $ x_0 $, if there exists a smooth function $ \varphi \in C^{1}(\Omega) $, s.t. $ u - \varphi $ attains a local \emph{minimum} in $ x_0 $, and $ p = D \varphi(x_0) $. The set of all subdifferentials is denoted by $ D^{-}u(x_0) $.
 	\end{definition}
 
-	For viscosity solutions to be of interest to us, we have to check that the value function is a viscosity solution of \eqref{HJB}.
+	Viscosity solutions would not be of interest to us, if the value function was not a viscosity solution of \eqref{HJB}.
 	
 	\begin{theorem}
 		\label{viscosity solution HJB}
@@ -44,9 +44,9 @@
 		\begin{proof}
 			The proof of theorem \ref{classical solution HJB} only requires minor modifications.
 			
-			We have already stated that $ v $ is known to be locally Lipschitz-continuous, and consequently continuous under the given assumptions.
+			We have already stated that $ v $ is locally Lipschitz-continuous, and consequently continuous under the given assumptions.
 			
-			In order to show that $ v $ is a viscosity subsolution of \eqref{HJB}, note that
+			To show that $ v $ is a viscosity subsolution of \eqref{HJB}, note that
 			
 			\begin{equation*}
 				\varphi(t, x) - \varphi(t_0, x_0) \geq v(t, x) - v(t_0, x_0) \ ,
@@ -60,7 +60,7 @@
 			\end{equation*}
 			Now proceed as in theorem \ref{classical solution HJB} to show that $ v $ is viscosity subsolution of \eqref{HJB}.
 			
-			We proceed in a similar manner when proving $ v $ a supersolution of \eqref{HJB}. However, an additional technical detail has to be taken into account. Recall the proof of $ v $ being a supersolution, when smooth. There, we have considered a whole family of trajectories $ x_{x_0}^{\alpha} $, all satisfying the same initial condition $ x(t_0) = x_0 $, w.r.t. to different controls $ \alpha = \alpha(h) $. Once again we seek to replace the left-hand side of \eqref{diff_quotient_super}, by
+			We proceed in a similar manner when proving that $ v $ a supersolution of \eqref{HJB}. However, an additional technical detail has to be taken into account. Recall the proof of $ v $ being a supersolution, when smooth. There, we have considered a whole family of trajectories $ x_{x_0}^{\alpha} $, all satisfying the same initial condition $ x(t_0) = x_0 $, w.r.t. to different controls $ \alpha = \alpha(h) $. Once again we seek to replace the left-hand side of \eqref{diff_quotient_super}, by
 
 			\begin{equation*}
 				\frac{\varphi(t_0 + h, x^{\alpha}_{x_0}(t_0 + h)) - \varphi(t_0, x_0)}{h} \ ,
@@ -106,12 +106,12 @@
 		-w_t - C \lvert D_x w \rvert \leq 0 \ ,
 	\end{equation*}
 	
-	and secondly, comparing $ w $ to strict supersolutions of the same equation. Latter step simply relies on lemma \ref{extension lemma} which has already been extended to continuous viscosity subsolutions in lemma \ref{extension lemma viscosity}. In contrast, adapting the first step entails a major issue. 
+	and secondly, comparing $ w $ to strict supersolutions of the same equation. Latter step was based on lemma \ref{extension lemma} which has already been extended to continuous viscosity subsolutions in lemma \ref{extension lemma viscosity}. In contrast, adapting the first step entails a major issue. 
 
 	\subsection{A naive approach}
 		\label{naive}
 		
-		We want to deduce that $ w \coloneqq u - v $ is a viscosity subsolution of \eqref{diff-PDE}, provided that $ u $ and $ v $ are viscosity sub-and supersolutions of
+		We wish to show that $ w \coloneqq u - v $ is a viscosity subsolution of \eqref{diff-PDE}, provided that $ u $ and $ v $ are viscosity sub-and supersolutions of
 		
 		\begin{equation*}
 				-u_t + H(t, x, -D_x u) = 0 \ ,
@@ -160,7 +160,7 @@
 	
 		 \subimport{doubling_device/}{doubling_motivation}
 		 
-		 We now want to borrow the idea of theorem \ref{density} to prove the difference $ w $, a viscosity subsolution of \eqref{diff-PDE}. This involves approximating a given superdifferential of $ w $ at some point, as well as the point itself. Consequently; we require the Hamiltonian to be forgiving for approximation errors. That is, we assume
+		 We now borrow the idea of theorem \ref{density} to prove the difference $ w $, a viscosity subsolution of \eqref{diff-PDE}. This involves approximating a given superdifferential of $ w $ at some point, as well as the point itself. Consequently; we require the Hamiltonian to be forgiving for approximation errors. That is, we assume
 		 
 		 \begin{equation}
 		 \tag{H2}
@@ -169,11 +169,11 @@
 		 \end{equation}
 		 
 		 where $ \omega : \left[0, \infty \right)^2 \to \left[0, \infty \right) $ describes some modulus of continuity. As assumption \eqref{eqn:H2} 
-		 might seem far-fetched, we show in \ref{state hamiltonian}, that the Hamiltonian, associated with our control problem, satisfies \eqref{eqn:H2} on account of the Lipschitz-conditions imposed upon the problem parameters (cf. \cite[p.~167]{zhou}). We are finally in a position to formulate theorem's \ref{smooth_loc} viscosity counterpart.
+		 might seem far-fetched, we show in \ref{state hamiltonian} that the Hamiltonian, associated with our control problem, satisfies \eqref{eqn:H2} on account of the Lipschitz-conditions imposed upon the problem parameters (cf. \cite[p.~167]{zhou}). We are finally in a position to state theorem's \ref{smooth_loc} viscosity counterpart.
 		 
 		 \subimport{./}{viscosity_loc}
 		 
-		 We have already invoked, but not yet proved lemma \ref{doubling device}, which is no less important. We immediately catch up on its proof.
+		 We have already invoked, but not yet proved lemma \ref{doubling device}, which is no less important. We catch up on its proof without further ado.
 		 
 		 \subimport{doubling_device/}{doubling_lemma}
 		 
@@ -183,7 +183,7 @@
 		  
 		  \begin{corollary}
 		  	\label{Viscosity Uniqueness}
-		  	Corollary \ref{Smooth Uniqueness} also applies to viscosity sub-and supersolutions, if the Hamiltonian $ H : \left[ 0, T \right] \times \mathbb{R}^{N} \times \mathbb{R}^{N+1} $ is continuous and satisfies \eqref{eqn:H2}.
+		  	Corollary \ref{Smooth Uniqueness} also applies to viscosity sub-and supersolutions, when the Hamiltonian $ H : \left[ 0, T \right] \times \mathbb{R}^{N} \times \mathbb{R}^{N+1} $ is additionally continuous and satisfies \eqref{eqn:H2}.
 		  	
 		  	\begin{proof}
 		  		The proof of corollary \ref{Smooth Uniqueness} only relied on the local comparison of sub-and supersolutions provided by theorem \ref{smooth_loc}. 

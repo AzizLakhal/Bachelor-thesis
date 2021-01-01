@@ -21,14 +21,14 @@
 		  		
 		  		Consider an arbitrary point $ (t_0, x_0) \in \left( 0, T \right) \times B_R(z_0) $, and let $ \varphi : \left( 0, T \right) \times B_R(z_0) \to \mathbb{R} $ be a smooth function, s.t. $ w - \varphi $ admits a local maximum in $ (t_0, x_0) $. W.l.o.g, we assume $ (t_0, x_0) $ to be a \emph{strict} local maximizer.
 		  		
-		  		Following theorem \ref{density}, the idea is to approximate the point $ (t_0, x_0) $ by points $ \overlinedPair{t}{x} $ and $ \overlinedPair{s}{y} $ having, respectively, non-empty super-and subdifferential.
+		  		Following the proof of theorem \ref{density}, the idea is to approximate the point $ (t_0, x_0) $ by points $ \overlinedPair{t}{x} $ and $ \overlinedPair{s}{y} $ having, respectively, non-empty super-and subdifferential.
 		  		
 		  		Given such two points, and some differentials $ p \in D^{+} u \overlinedPair{t}{x} $ and $ q \in D^{-} v \overlinedPair{s}{y} $, derive from the sub-and supersolution inequalities satisfied by $ u $ and $ v $, that
 		  		
 		  		\begin{equation*}
 		  		-(p_t - q_s) \leq \lvert H(\overline{t}, \overline{x}, -p_x) - H(\overline{s}, \overline{y}, -q_y) \rvert \ .
 		  		\end{equation*}
-		  		In order to benefit from the Lipschitz-condition \eqref{eqn:H1} satisfied by $ H $, vary the arguments of $ H $ on the right-hand-side in an iterative manner, applying the triangle inequality. We deduce that
+		  		To benefit from the Lipschitz-condition \eqref{eqn:H1} satisfied by $ H $, vary the arguments of $ H $ on the right-hand-side in an iterative manner, applying the triangle inequality. This yields
 		  		
 		  		\begin{equation*}
 		  		\begin{split}
@@ -50,7 +50,7 @@
 		  		\end{split}
 		  		\end{equation}
 		  		
-		  		Considering equation \eqref{idea}, our selection of the differentials should ensure $ p - q $ tends towards the given superdifferential of $ w $, as $ \overlinedPair{t}{x} $ and $ \overlinedPair{s}{y} $ approach $ (t_0, x_0) $.
+		  		Considering equation \eqref{idea}, our selection of the differentials should ensure $ p - q $ tends towards the given superdifferential of $ w $, as $ \overlinedPair{t}{x} $ and $ \overlinedPair{s}{y} $ both converge to $ (t_0, x_0) $.
 		  		
 		  		Let $ \overlinedPair{t}{x} $ and $ \overlinedPair{s}{y} $ now specifically denote the points constructed in lemma \ref{doubling device}, the lemma being appended to the current proof. According to claim (\ref{maximizer convergence}) from latter lemma, the same points $ \overlinedPair{t}{x} $ and $ \overlinedPair{s}{y} $ respectively admit the super-and subdifferentials
 		  		
@@ -67,7 +67,7 @@
 		  			- H \left( \overline{s}, \overline{y}, - \left( \frac{\overline{x} - \overline{y}}{\varepsilon} \right) \right) \right\rvert \ .
 		  		\end{equation*}
 		  		
-		  		Applying the inequality \eqref{idea} with the concrete values of $ p $ and $ q $, gives
+		  		Applying the inequality \eqref{idea} using the specific values of $ p $ and $ q $ gives
 		  		
 		  		\begin{equation}
 		  		\label{final step}

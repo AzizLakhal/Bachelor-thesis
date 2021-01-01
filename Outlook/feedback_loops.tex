@@ -1,6 +1,6 @@
 \section{Open feedback loops}
 
-It is quite intuitive that the greedy approach of minimizing the running costs at each instant of time might be suboptimal, as heavy costs possibly arising in the future, are neglected. Knowing the value function, it turns out we can instead greedily minimize an alternative \say{local} cost function, which also takes into account long-term costs.
+Greedily minimizing the running costs at each instant of time might be suboptimal, as heavy costs possibly arising in the future, are neglected. If the value function is known, it turns out we can instead greedily minimize an alternative \say{local} cost function, which also takes into account long-term costs.
 
 To be more explicit, consider the control problem over time span $ \closedInterval{0}{T} $ with initial state $ x_0 $. In view of the DPP \eqref{dpp}, an admissible control $ \alpha^* \in \controlspace $ with associated trajectory $ x^* $, is optimal, if and only if,
 \begin{equation*}
@@ -11,7 +11,7 @@ holds for all $ t \in \closedInterval{0}{T} $. Put in other words, $ \alpha^* $ 
 	g : \closedInterval{0}{T} &\to \mathbb{R} \\
 	t &\mapsto \int\limits_{0}^{t} f(t, x^{*}(t), \alpha^{*}(t)) \  dt + v(t, x^{*}(t)) \ ,
 \end{align*}
-is constant. If the value function is also smooth, we can derive the function $ g $ over $ \openInterval{0}{T} $. Recall the definition of
+is constant. If the value function is also smooth, we can differentiate the function $ g $ over $ \openInterval{0}{T} $. Recall the definition of
 
 \begin{equation*}
 	H^a(t, x, p) \coloneqq p^T b(t, x, p) - f(t, x, p) \ ,
@@ -23,32 +23,32 @@ As $ g $ is constant, we get $ g^{\prime}(t) = 0 $ for a.e. $ t > 0 $, and expli
 	v_t(t, x^{*}(t)) = H^{\alpha^{*}(t)}(t, x^{*}(t), -D_x v(t, x^{*}(t))) \ .
 \end{equation}
 
-On the other hand, $ v $ is known to satisfy \eqref{HJB}, in view of theorem \ref{classical solution HJB}. Therefore
+In view of theorem \ref{classical solution HJB}, the value function, on the other hand, satisfies \eqref{HJB}. Therefore
 
 \begin{equation}
 	\label{supremum Hamiltonian}
 	v_t(t, x^{*}(t)) = H(t, x^{*}(t), -D_x v(t, x^{*}(t)) \ ,
 \end{equation}
 
-where $ H $ denotes the pointwise supremum of all $ H^{a} $, over all inputs $ a \in \mathcal{A} $. By combining equations \eqref{control Hamiltonian} and \eqref{supremum Hamiltonian}, we get
+where $ H $ denotes the pointwise supremum of all $ H^{a} $, over all inputs $ a \in \mathcal{A} $. By combining the equations \eqref{control Hamiltonian} and \eqref{supremum Hamiltonian}, we get that
 \begin{equation}
 \label{control maximizer}
 	H^{\alpha^{*}(t)}(t, x^{*}(t), -D_x v(t, x^{*}(t))) = H(t, x^{*}(t), -D_x v(t, x^{*}(t)) \ .
 \end{equation}
 
-Equation \eqref{control maximizer} tells us, that $ \alpha^* $ and $ x^* $ form an optimal control-trajectory pair, if and only if, at a.e. instant of time $ 0 < t < T $, the input $ \alpha^{*}(t) $ maximizes the function
+Equation \eqref{control maximizer} reads $ \alpha^* $ and $ x^* $ form an optimal control-trajectory pair, if and only if, at almost every instant of time $ 0 < t < T $, the input $ \alpha^{*}(t) $ maximizes the function
 
 \begin{equation*}
 	a \mapsto H^{a}(t, x^{*}(t), -D_x v(t, x^{*}(t))) \ .
 \end{equation*}
 
-Owing to the latter, necessary and sufficient, optimality condition, we can construct such a control-trajectory pair as follows. Firstly, we construct an \emph{optimal feedback map}. That is, we construct a mapping $ S : \openInterval{0}{T} \times \mathbb{R}^N \to \mathcal{A} $, satisfying
+Owing to the latter necessary and sufficient optimality condition, we can construct such a control-trajectory pair as follows. Firstly, we determine an \emph{optimal feedback map}. That is, we determine a mapping $ S : \openInterval{0}{T} \times \mathbb{R}^N \to \mathcal{A} $, satisfying
 
 \begin{equation*}
 	S(t, x) \in \argmax_{a \in \mathcal{A}} H^{a}(t, x, -D_x v(t, x)) \ ,
 \end{equation*}
 
-for any $ t \in \openInterval{0}{T} $ and $ x \in \mathbb{R}^N $. Naturally, this requires the value function to be known. We elaborate in paragraph \ref{importance uniqueness}, how the computation of the value function relies on uniqueness guarantees of the terminal value problem, as provided by our global comparison result. Then, we infer an optimal controlled trajectory $ x^{*} $ by solving the IVP
+for any $ t \in \openInterval{0}{T} $ and $ x \in \mathbb{R}^N $. Naturally, we must know the value function in advance. We elaborate in paragraph \ref{importance uniqueness}, how computing the value function involves uniqueness guarantees regarding the terminal value problem, as provided by our global comparison result. Then, we infer an optimal controlled trajectory $ x^{*} $ by solving the IVP
 
 \begin{equation}
 \label{feedback IVP}
@@ -58,9 +58,9 @@ for any $ t \in \openInterval{0}{T} $ and $ x \in \mathbb{R}^N $. Naturally, thi
 	\end{cases}
 \end{equation}
 
-Finally, we obtain an optimal control by defining $ \alpha^{*} = S(\cdot, x^{*}) $. 
+Finally, we obtain an optimal control by setting $ \alpha^{*} = S(\cdot, x^{*}) $. 
 
-While finding an optimal control seems within easy reach, each of the steps listed above proves quite challenging to implement.
+While finding an optimal control seems within easy reach, each of the steps, listed above, proves quite challenging to implement.
 
 To begin with, determining the value function, i.e. solving the terminal value problem \eqref{HJB} is a formidable task. On one hand \say{\dots \ it seems impossible to solve such an equation directly} \cite{zhou}. On the other hand, \say{solving a partial differential equation [numerically] in \dots \ large dimension[s] is a very complicated task, easily beyond the possibilities of the last generation computers}, Falcone \cite{bardi2008optimal} reports.
 
@@ -70,8 +70,8 @@ There is, in addition, the task of constructing a feedback map, which involves m
 	a \mapsto H^{a}(t, x, -D_x v(t, x)) \ .
 \end{equation*}
 
-w.r.t. $ a \in \mathcal{A} $, for every fixed parameters $ t > 0 $ and $ x \in \mathbb{R}^N $. Depending on the nature of $ H^{a} $ and the considered input space, this might result in a highly non-trivial optimization problem. Bardi and Capuzzo-Dolcetta \cite{bardi2008optimal} also point out, one has to impose some regularity constraints upon the feedback map, to guarantee the IVP \eqref{feedback IVP} admits a solution.
+w.r.t. $ a \in \mathcal{A} $, for every fixed parameters $ t > 0 $ and $ x \in \mathbb{R}^N $. Depending on $ H^{a} $ and the considered input space, this might result in a highly non-trivial optimization problem. Bardi and Capuzzo-Dolcetta \cite{bardi2008optimal} also point out, one has to impose some regularity constraints upon the feedback map, to guarantee the IVP \eqref{feedback IVP} admits a solution.
 
-Note all those problems already arise, when dealing with a smooth value function. \say{If the value function is merely continuous,  \ldots \ the problem of finding sufficient conditions in this form is open to our knowledge} \cite{bardi2008optimal}.
+Worryingly, all those problems already arise when a \emph{smooth} value function is considered. \say{If the value function is merely continuous,  \ldots \ the problem of finding sufficient conditions in this form is open to our knowledge} \cite{bardi2008optimal}.
 
 
