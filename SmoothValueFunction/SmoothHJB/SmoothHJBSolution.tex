@@ -1,7 +1,7 @@
 
 \section{From functional to differential equation}
 
-We aim to derive a differential equation satisfied by the value function, starting from the DPP \eqref{dpp_general}. Before doing so, we want to make some assumptions ensuring the well-definedness of the objects appearing in our control problem. We assume:
+We aim to derive a differential equation satisfied by the value function, starting from the DPP \eqref{dpp_general}. Before doing so, we want to make some assumptions ensuring the well-definiteness of our control problem. We assume:
 
 	\begin{itemize}
 		\item
@@ -25,6 +25,6 @@ We aim to derive a differential equation satisfied by the value function, starti
 
 Under these conditions, the prerequisites for  Caratheodory's existence and uniqueness theorem (cf. \cite[Theorem 1.45 p.~25]{roubivcek}) are satisfied, and therefore any control indeed induces a unique, absolutely continuous, state trajectory. Furthermore, it is ensured, that the running costs along a given trajectory are integrable over a finite time span. Finally, the value function is known to be finite valued and at least locally Lipschitz-continuous (cf. \cite[Inequality (2.36) from Theorem 2.5 p.~165]{zhou}), as shown in \ref{value lipschitz}. Latter assertion relies on Gronwall-type-arguments, applied to a given controlled trajectory.
 
-As the DPP \eqref{dpp_general} relates the function values of $ v $ along controlled trajectories, we want to study the variations of $ v $ along those. Provided the problem parameters do not exhibit variations too volatile, and more importantly, provided that $ v $ is smooth, our analysis reveals the value  function to be a solution to some terminal value problem.
+As the DPP \eqref{dpp_general} relates the function values of $ v $ along controlled trajectories, we want to study the variations of $ v $ along them. Provided the problem parameters do not exhibit variations too volatile, and more importantly, provided that $ v $ is smooth, our analysis reveals the value  function to be a solution to some terminal value problem.
 
 	\subimport{./}{DiffEq}

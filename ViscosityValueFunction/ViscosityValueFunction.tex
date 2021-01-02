@@ -35,7 +35,7 @@
 		Analogously, a vector $ p \in \mathbb{R}^N $ is termed a \emph{subdifferential} of $ u $ in $ x_0 $, if there exists a smooth function $ \varphi \in C^{1}(\Omega) $, s.t. $ u - \varphi $ attains a local \emph{minimum} in $ x_0 $, and $ p = D \varphi(x_0) $. The set of all subdifferentials is denoted by $ D^{-}u(x_0) $.
 	\end{definition}
 
-	Viscosity solutions would not be of interest to us, if the value function was not a viscosity solution of \eqref{HJB}.
+	Viscosity solutions would not be of interest to us, if the value function were not a viscosity solution of \eqref{HJB}.
 	
 	\begin{theorem}
 		\label{viscosity solution HJB}
@@ -60,7 +60,7 @@
 			\end{equation*}
 			Now proceed as in theorem \ref{classical solution HJB} to show that $ v $ is viscosity subsolution of \eqref{HJB}.
 			
-			We proceed in a similar manner when proving that $ v $ a supersolution of \eqref{HJB}. However, an additional technical detail has to be taken into account. Recall the proof of $ v $ being a supersolution, when smooth. There, we have considered a whole family of trajectories $ x_{x_0}^{\alpha} $, all satisfying the same initial condition $ x(t_0) = x_0 $, w.r.t. to different controls $ \alpha = \alpha(h) $. Once again we seek to replace the left-hand side of \eqref{diff_quotient_super}, by
+			We proceed in a similar manner when proving that $ v $ a supersolution of \eqref{HJB}. However, an additional technical detail has to be taken into account. Recall the proof of $ v $ being a supersolution, when it is smooth. There, we have considered a whole family of trajectories $ x_{x_0}^{\alpha} $, all satisfying the same initial condition $ x(t_0) = x_0 $, w.r.t. to different controls $ \alpha = \alpha(h) $. Once again we seek to replace the left-hand side of \eqref{diff_quotient_super}, by
 
 			\begin{equation*}
 				\frac{\varphi(t_0 + h, x^{\alpha}_{x_0}(t_0 + h)) - \varphi(t_0, x_0)}{h} \ ,
@@ -150,7 +150,7 @@
 			\limsup\limits_{h \searrow 0} \frac{f( 0 + h) - f(0)}{h} = \infty \ ,
 		\end{equation*}
 		
-		contradicting the differentiability of $ \varphi $ in zero. An analogous argument shows that $ D^{-}f(0) $ is empty.
+		contradicting the differentiability of $ \varphi $ at zero. An analogous argument shows that $ D^{-}f(0) $ is empty.
 		
 		On the other hand, the function $ f - f = \hat{0} $ admits a superdifferential in zero, namely its classical derivative.
 		
@@ -160,7 +160,7 @@
 	
 		 \subimport{doubling_device/}{doubling_motivation}
 		 
-		 We now borrow the idea of theorem \ref{density} to prove the difference $ w $, a viscosity subsolution of \eqref{diff-PDE}. This involves approximating a given superdifferential of $ w $ at some point, as well as the point itself. Consequently; we require the Hamiltonian to be forgiving for approximation errors. That is, we assume
+		 We now borrow the idea of theorem \ref{density} to prove the difference $ w $ is a viscosity subsolution of \eqref{diff-PDE}. This involves approximating a given superdifferential of $ w $ at some point, as well as the point itself. Consequently; we require the Hamiltonian to be forgiving for approximation errors. That is, we assume
 		 
 		 \begin{equation}
 		 \tag{H2}

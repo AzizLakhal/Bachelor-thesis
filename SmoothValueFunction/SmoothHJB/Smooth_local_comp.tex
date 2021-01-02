@@ -18,10 +18,10 @@
 				\label{diff-PDE}
 				-w_t - C \lvert D_x w \rvert \leq 0 \ .
 			\end{equation}
-			If additionally the subsolution $ u $ is lesser or equal to the supersolution $ v $ on $ \{ T \} \times \overline{B}_R (z_0) $, then the same applies to the whole region $ \mathcal{C}_{z_0, R} $.
+			If additionally the subsolution $ u $ is smaller or equal to the supersolution $ v $ on $ \{ T \} \times \overline{B}_R (z_0) $, then the same applies to the whole region $ \mathcal{C}_{z_0, R} $.
 			
 			\begin{proof}
-				We begin the proof by showing that the difference $ w $ satisfies \eqref{diff-PDE}. Since $ u $ and $ v $ are respectively sub-and supersolutions, we have by definition
+				We begin the proof by showing that the difference $ w $ satisfies \eqref{diff-PDE}. Since $ u $ and $ v $ are respectively sub- and supersolutions, we have by definition
 				
 				\begin{equation*}
 					-u_t + H(t, x, -D_x u) \leq 0 \leq -v_t + H(t, x, -D_x v) .
@@ -56,11 +56,11 @@
 					\end{cases}
 				\end{align*}
 				
-				as described in \cite[p.~73]{barles}. We may assume w.l.o.g. that $ M \geq 0 $, otherwise there is nothing to prove. As shown in \ref{smoothness_supersolutions}, the function $ \varphi_{\delta} $ is indeed a smooth, strict supersolution of \eqref{diff-PDE} over $ \left(t_{\delta}, T \right) \times B_R(z_0) $. Furthermore, its differential $ D \varphi_{\delta} $ continuously extends to $ \left[t_{\delta}, T \right) \times B_R(z_0) $, maintaining the respective supersolution condition. We are now in a position to invoke lemma \ref{extension lemma}, excluding the possibility of $ w - \phi_{\delta} $ attaining a local maximum in $ \left[t_{\delta}, T \right) \times B_R (z_0) $. Suppose for the sake of contradiction, the function $ w - \phi_{\delta} $ attained a local maximum in $ (t^{*}, x^{*}) \in \left[t_{\delta}, T \right) \times B_R (z_0) $. This would imply by lemma \ref{extension lemma} that
+				as described in \cite[p.~73]{barles}. We may assume without loss of generality that $ M \geq 0 $, otherwise there is nothing to prove. As shown in \ref{smoothness_supersolutions}, the function $ \varphi_{\delta} $ is indeed a smooth, strict supersolution of \eqref{diff-PDE} over $ \left(t_{\delta}, T \right) \times B_R(z_0) $. Furthermore, its differential $ D \varphi_{\delta} $ continuously extends to $ \left[t_{\delta}, T \right) \times B_R(z_0) $, maintaining the respective supersolution condition. We are now in a position to invoke lemma \ref{extension lemma}, excluding the possibility of $ w - \phi_{\delta} $ attaining a local maximum in $ \left[t_{\delta}, T \right) \times B_R (z_0) $. Suppose for the sake of contradiction, the function $ w - \phi_{\delta} $ attained a local maximum in $ (t^{*}, x^{*}) \in \left[t_{\delta}, T \right) \times B_R (z_0) $. This would imply by lemma \ref{extension lemma} that
 				\begin{equation*}
 					-(\varphi_{\delta})_t(t^*, x^*) - \lvert D_x \varphi_{\delta}(t^*, x^*) \rvert \leq 0 \ ,
 				\end{equation*}
-				contradicting the fact, that $ \varphi_{\delta} $ is \emph{strict} supersolution of \eqref{diff-PDE} over $ \left[t_{\delta}, T \right) \times B_R (z_0) $.
+				contradicting the fact, that $ \varphi_{\delta} $ is a \emph{strict} supersolution of \eqref{diff-PDE} over $ \left[t_{\delta}, T \right) \times B_R (z_0) $.
 				Global maxima of $ w - \varphi_{\delta} $, in particular, can therefore only occur at either $ \{T\} \times \overline{B}_R (z_0) $ or $ \left[t_{\delta}, T\right] \times \partial B_R(z_0) $. In either situation, we now deduce that such a maximum is non-positive, which implies $ w \leq \phi_{\delta} $ over $  \left[ t_{\delta}, T \right] \times \overline{B}_R (z_0) $. If the global maximum is attained in $ \{T\} \times \overline{B}_R (z_0) $, the boundary condition gives $ w \leq 0 $, while $ \varphi_{\delta} \geq 0 $, as $ \chi_{\delta} $ is non-decreasing. The first case has therefore been dealt with. Now suppose the global maximum is attained in $ \left[t_{\delta}, T\right] \times \partial B_R(z_0) $. The function $ \varphi_{\delta} $ constantly evaluates to $ M $ over $ \left[t_{\delta}, T\right] \times \partial B_R(z_0) $, while $ w \leq M $ holds by the definition of $ M $. This immediately implies that the considered maximum is non-positive. As a global maximum has to be attained over the compact set $ \left[t_{\delta}, T\right] \times \overline{B}_R (z_0)$, we conclude $ w - \varphi_{\delta} \leq 0$, i.e. $ w \leq \varphi_{\delta} $, on the whole domain $ \left[t_{\delta}, T\right] \times \overline{B}_R (z_0) $.
 				
 				We finally observe that $ \varphi_{\delta}(t, x) = 0 $ holds in any point $ (t, x) \in \left[t_{\delta}, T\right] \times \overline{B}_R(z_0)$, that satisfies the inequality

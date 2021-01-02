@@ -1,4 +1,4 @@
-\chapter{A very brief introduction to control problems} 
+\chapter{Control problems - a brief introduction} 
 
 	\paragraph{}
 	Control problems arise every time a system has to be manipulated in order to satisfy a particular objective. Naturally, they find numerous applications across a broad range of domains, going from finance and economics to actual rocket science. Aside from being a powerful toolbox for the pragmatic engineer, the diverse intersections with the different areas of mathematics also offer an aesthetic landscape for the dreamiest mathematician in his quest for intellectual distraction. 
@@ -26,7 +26,7 @@
 	
 	\section{The Dynamic Programming Principle (DPP)}
 	
-	We make in this section a quite intuitive but, nonetheless, fundamental observation which relates the control problems with different starting points and initial states to each other.
+	We make in this section a quite intuitive, nonetheless, fundamental observation which relates the control problems with different starting points and initial states to each other.
 	
 	We consider a system with initial state $ x_0 \in \mathbb{R}^N $ at time $ t_0 \geq 0 $. Following the standard procedure in optimization, we derive necessary optimality conditions. 
 	
@@ -36,7 +36,7 @@
 		v(t_0, x_0) \coloneqq \inf\limits_{\alpha \in \controlspace[t_0]} J(t_0, x_0, \alpha) \ ,
 	\end{equation*}
 	
-	then $ v(t_0, x_0) = J(t_0, x_0, \alpha^{*}) $ . As  $ \alpha^{*} $ transfers the system to the state $ x^{\alpha^{*}}_{x_0}(t_0 + h) $ at a latter point of time $ t_0 + h \geq t_0 $, we distinguish between the costs arisen over the time span $ \left[t_0, t_0 + h\right) $, and those arisen over $ \left[ t_0 + h, T \right] $. Doing so, yields that
+	then $ v(t_0, x_0) = J(t_0, x_0, \alpha^{*}) $ . As  $ \alpha^{*} $ transfers the system to the state $ x^{\alpha^{*}}_{x_0}(t_0 + h) $ at a latter point of time $ t_0 + h \geq t_0 $, we distinguish between the costs arisen over the time span $ \left[t_0, t_0 + h\right) $, and those arisen over $ \left[ t_0 + h, T \right] $. Doing it, yields 
 	
 	\begin{equation*}
 		\begin{split}
@@ -70,7 +70,7 @@
 		J(t_0 + h, x^{\alpha^{*}}_{x_0}(t_0 + h), \alpha^{*}_{|\left[t_0 + h, T\right]}) > J(t_0 + h, x^{\alpha^{*}}_{x_0}(t_0 + h), \beta) \ .
 	\end{equation*}
 	
-	Subsequently, we concatenate the controls $ \alpha^{*}_{\left[t_0, t_0 + h \right]} $ and $ \beta $ to obtain an admissible control which outdoes $ \alpha^{*} $ over the whole time span $ \left[t_0, T \right] $, which is of course a contradiction.
+	Subsequently, we concatenate the controls $ \alpha^{*}_{\mid \left[t_0, t_0 + h \right]} $ and $ \beta $ to obtain an admissible control which outdoes $ \alpha^{*} $ over the whole time span $ \left[t_0, T \right] $, which is of course a contradiction.
 	
 	Consequently, the function $ v : \left[ 0, T \right] \times \mathbb{R}^N \to  \mathbb{R}$, the so-called \emph{value function}, satisfies the functional equation
 	
@@ -88,7 +88,7 @@
 	As we do not want to rely on the existence of an optimal control, we rewrite the DPP to
 	\begin{equation}
 	\label{dpp_general}
-	v(t_0, x_0) = \inf\limits_{\alpha \in \controlspace} \bigg\{ \pathint{\alpha}{t_0}{t_0 + h} + v(t_0 + h, x^{\alpha}_{x_0}(t_0 + h)) \bigg\} \ .
+	v(t_0, x_0) = \inf\limits_{\alpha \in \controlspace[t_0]} \bigg\{ \pathint{\alpha}{t_0}{t_0 + h} + v(t_0 + h, x^{\alpha}_{x_0}(t_0 + h)) \bigg\} \ .
 	\end{equation}
 	
 	An exchange argument, similar to the one justifying \eqref{dpp}, shows \eqref{dpp_general} holds.

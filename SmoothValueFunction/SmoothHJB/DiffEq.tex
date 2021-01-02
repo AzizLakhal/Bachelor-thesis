@@ -18,7 +18,7 @@
 	
 	where $ H $ denotes the Hamiltonian of the control problem, given by the mapping $ (t, x, p) \mapsto \sup\limits_{a \in \mathcal{A}} \bigg\{ p^{T} b(t, x, a) - f(t, x, a) \bigg\} $.
 	\begin{proof}
-		Proceed in two steps, showing that $ v $ is a sub-and supersolution of \eqref{HJB} respectively. That is, $ v $ satisfies the inequalities:
+		Proceed in two steps, showing that $ v $ is a sub- and supersolution of \eqref{HJB} respectively. That is, $ v $ satisfies the inequalities:
 		\begin{equation}
 			\label{value_subsolution}
 			-v_t + H(t, x, -D_x v) \leq 0 \ ,
@@ -54,13 +54,13 @@
 			\frac{v(t_0 + h, x^{\overline{a}}_{x_0}(t_0 + h)) - v(t_0, x_0)}{h} \geq - \frac{1}{h} \pathint{\overline{a}}{t_0}{t_0 + h} \ ,
 		\end{equation}
 		
-		which, using the definition of $ v^{\overline{a}}_{x_0} $, can be rewritten to:
+		which, using the definition of $ v^{\overline{a}}_{x_0} $, can be rewritten as:
 		
 		\begin{equation*}
 			\frac{v^{\overline{a}}_{x_0}(t_0 + h) - v^{\overline{a}}_{x_0}(t_0)}{h} \geq \frac{1}{h} \pathint{\overline{a}}{t_0}{t_0 + h} \ .
 		\end{equation*}
 		
-		Passing to the limit $ h \searrow 0 $, yields
+		Passing to the limit $ h \searrow 0 $, yields since $ f $ is continuous,
 		
 		\begin{equation*}
 			\dot{v}^{\overline{a}}_{x_0}(t_0) \geq - f(t_0, x_0, a) \ ,
@@ -99,7 +99,7 @@
 			\frac{v^{\alpha}_{x_0}(t_0 + h) - v^{\alpha}_{x_0}(t_0)}{h} \leq - \frac{1}{h} \pathint{\alpha}{t_0}{t_0 + h} + \epsilon \ .
 		\end{equation}
 		
-		Note that the considered control $ \alpha $ depends on $ h $, while the relationship between different controls is unknown. In view of these discouraging circumstances, we avoid the question of whether the present difference quotients converge uniformly as $ h $ tends to zero. Instead, we want to resolve the dependency from $ \alpha $. To this end, apply the fundamental theorem of calculus to the left-hand-side of \eqref{problematic} and subtract the resulting integral from both sides to obtain that
+		Note that the considered control $ \alpha $ depends on $ h $, while the relationship between different controls is unknown. In view of these discouraging circumstances, we avoid the question of whether the present difference quotients converge uniformly as $ h $ tends to zero. Instead, we want to resolve the dependency on $ \alpha $. To this end, apply the fundamental theorem of calculus to the left-hand-side of \eqref{problematic} and subtract the resulting integral from both sides to obtain that
 		
 		\begin{equation}
 			\label{resolve}
@@ -120,7 +120,7 @@
 			- \epsilon \leq \frac{1}{h} \int\limits^{t_0 + h}_{t_0} \hat{g}(t, x^{\alpha}_{x_0}(t)) \ dt \ .
 		\end{equation*}
 		
-		Note how the integrand does not depend anymore on the function values of $ \alpha $, but only on its induced trajectory.
+		Note how the integrand does no longer directly depend on the function values of $ \alpha $, but only on its induced trajectory.
 		
 		Apply the mean value theorem to rewrite latter inequality to
 		

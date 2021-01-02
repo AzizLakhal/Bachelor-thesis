@@ -11,7 +11,7 @@
 	-w_t - C \lvert D_x w \rvert \leq 0 \ .
 	\end{equation*}
 	
-	If $ H $ is additionally continuous, and \eqref{eqn:H2} holds, while the subsolution $ u $ is lesser or equal to the supersolution $ v $ on $ \{ T \} \times \overline{B}_R (z_0) $, then the same applies to the whole region $ \mathcal{C}_{z_0, R} $, defined in \ref{regions}.
+	If $ H $ is additionally continuous, and \eqref{eqn:H2} holds, while the subsolution $ u $ is smaller or equal to the supersolution $ v $ on $ \{ T \} \times \overline{B}_R (z_0) $, then the same applies to the whole region $ \mathcal{C}_{z_0, R} $, defined in \ref{regions}.
 		  	\begin{proof}
 		  		We show that $ w $ is a viscosity subsolution of \eqref{diff-PDE}, namely:
 		  		
@@ -23,7 +23,7 @@
 		  		
 		  		Following the proof of theorem \ref{density}, the idea is to approximate the point $ (t_0, x_0) $ by points $ \overlinedPair{t}{x} $ and $ \overlinedPair{s}{y} $ having, respectively, non-empty super-and subdifferential.
 		  		
-		  		Given such two points, and some differentials $ p \in D^{+} u \overlinedPair{t}{x} $ and $ q \in D^{-} v \overlinedPair{s}{y} $, derive from the sub-and supersolution inequalities satisfied by $ u $ and $ v $, that
+		  		Given such two points, and some differentials $ p \in D^{+} u \overlinedPair{t}{x} $ and $ q \in D^{-} v \overlinedPair{s}{y} $, denote by $ p_t $ and $ q_t $ their \say{time} components, and by $ p_x $ and $ q_y $ their \say{state} components. Derive from the sub- and supersolution inequalities satisfied by $ u $ and $ v $, that
 		  		
 		  		\begin{equation*}
 		  		-(p_t - q_s) \leq \lvert H(\overline{t}, \overline{x}, -p_x) - H(\overline{s}, \overline{y}, -q_y) \rvert \ .
@@ -46,7 +46,7 @@
 		  		\lvert H(\overline{t}, \overline{x}, -p_x) - H(\overline{s}, \overline{y}, -q_y) \rvert \leq \
 		  		&\lvert H(\overline{t}, \overline{x}, -p_x) - H(\overline{s}, \overline{x}, -p_x) \rvert \\
 		  		+&\lvert H(\overline{s}, \overline{x}, -p_x) - H(\overline{s}, \overline{y}, -p_x) \rvert \\
-		  		+& C \lvert p_x - q_s \rvert \ .
+		  		+& C \lvert p_x - q_y \rvert \ .
 		  		\end{split}
 		  		\end{equation}
 		  		
