@@ -12,9 +12,9 @@ for some constant $ K > 0 $.
 First, we provide an upper bound for the difference of two trajectories, which on the one hand have possibly different starting conditions, but on the other, are induced by some common control $ \alpha $. That is, for two trajectories $ \trajectory{t_0}{x_0} $, $ \trajectory{\xi}{\eta} $ with respective starting conditions $ \trajectory{t_0}{x_0}(t_0) = x_0 $, $ \trajectory{\xi}{\eta}(\xi) = \eta $, we have
 \begin{equation}
 	\label{general gronwall}
-	\normof{\trajectory{t_0}{x_0}(t) - \trajectory{\xi}{\eta}(t)} \leq K \left[\normof{\eta - x_0} + (1 + \max(\normof{x_0}, \normof{\eta})) \cdot \normof{\xi - t_0} \right] \ ,
+	\normof{\trajectory{t_0}{x_0}(t) - \trajectory{\xi}{\eta}(t)} \leq K^{\prime} \left[\normof{\eta - x_0} + (1 + \max(\normof{x_0}, \normof{\eta})) \cdot \normof{\xi - t_0} \right] \ ,
 \end{equation}
-for some constant $ K > 0 $, and all $ t \in \left[0, T\right] $.
+for some constant $ K^{\prime} > 0 $, and all $ t \in \left[0, T\right] $.
 
 Recall the trajectories are both described by the dynamics $ b(\cdot, \cdot, \alpha(\cdot)) $, and consequently
 \begin{align*}
@@ -65,18 +65,57 @@ and the Gronwall-type-inequality (2.36), found in \cite[p.~42]{teschl2012ordinar
 	\normof{\trajectory{t_0}{x_0}(t) - \trajectory{\xi}{\eta}(t)} \leq \left[ \normof{\eta - x_0} + L \exp(LT) \left(1 + \normof{x_0} \right) (\xi - t_0) \right] \exp(LT) \ .
 \end{multline*}
 
-Set $ K \coloneqq \max \left(\exp(LT), L \exp^2(LT) \right) $ to obtain \eqref{general gronwall}, the desired inequality.
+Set $ K^{\prime} \coloneqq \max \left(\exp(LT), L \exp^2(LT) \right) $ to obtain \eqref{general gronwall}, the desired inequality.
 
 We now derive the estimate \eqref{loc lipschitz}. With this end in view, we compare the total costs associated with the trajectories $ \trajectory{t_0}{x_0} $ and $ \trajectory{\xi}{\eta} $, in other words, we consider
 
 \begin{equation*}
 	\normof{J(t_0, x_0, \alpha) - J(\xi, \eta, \alpha)} \ .
 \end{equation*}
+Because
+\begin{align*}
+	\normof{J(t_0, x_0, \alpha) - J(\xi, \eta, \alpha)} \leq &\normof{J(t_0, x_0, \alpha) - J(t_0, \eta, \alpha)} \\ 
+	+ &\normof{J(t_0, \eta, \alpha) - J(\xi, \eta, \alpha)} \ ,
+\end{align*}
+we may study the variations with respect to different initial states and the variations with respect to different starting times separately.
 
-The estimate \eqref{Lipschitz}, satisfied by both, the running costs $ f $ and terminal costs $ h $, yields
-
+We have
+\begin{align*}
+	\normof{J(t_0, x_0, \alpha) - J(t_0, \eta, \alpha)} \leq &\int\limits_{t_0}^{T} \normof{f(t, \trajectory{t_0}{x_0}(t), \alpha(t)) - f(t, \trajectory{t_0}{\eta}(t), \alpha(t))} dt \\
+	&+ \normof{h(\trajectory{t_0}{x_0}(T) - h(\trajectory{t_0}{\eta}(T))}
+	\ ,
+\end{align*}
+and assumption \eqref{Lipschitz}, imposed upon $ f $ and $ h $, gives
 \begin{equation*}
-	\normof{J(t_0, x_0, \alpha) - J(\xi, \eta, \alpha)} \leq K \left[\normof{\eta - x_0} + (1 + \max(\normof{x_0}, \normof{\eta})) \cdot \normof{\xi - t_0} \right] \ .
+	 \int\limits_{t_0}^{T} \normof{f(t, \trajectory{t_0}{x_0}(t), \alpha(t)) - f(t, \trajectory{t_0}{\eta}(t), \alpha(t))} \leq \int\limits_{t_0}^{T} L \normof{\trajectory{t_0}{x_0}(t) - \trajectory{t_0}{\eta}(t)}\ ,
 \end{equation*}
+and
+\begin{equation*}
+	\normof{h(\trajectory{t_0}{x_0}(T) - h(\trajectory{t_0}{\xi}(T))} \leq L \normof{\trajectory{t_0}{x_0}(T) - \trajectory{t_0}{\xi}(T)} \ ,
+\end{equation*}
+respectively.
+Using \eqref{general gronwall}, we obtain the upper estimates
+\begin{equation*}
+	\int\limits_{t_0}^{T} \normof{f(t, \trajectory{t_0}{x_0}(t), \alpha(t)) - f(t, \trajectory{t_0}{\eta}(t), \alpha(t))} \leq K^{\prime\prime} \normof{\eta - x_0} \ ,
+\end{equation*}
+and 
+\begin{equation*}
+	\normof{h(\trajectory{t_0}{x_0}(T) - h(\trajectory{t_0}{\xi}(T))} \leq K^{\prime} \normof{\eta - t_0} \ ,
+\end{equation*}
+where $ K^{\prime\prime} \coloneqq LTK^{\prime} $. We set $ K_x \coloneqq \max(K^{\prime\prime}, K^{\prime}) $ and conclude
+\begin{equation*}
+	\normof{J(t_0, x_0, \alpha) - J(t_0, \eta, \alpha)} \leq K_{x} \normof{\eta - x_0} \ .
+\end{equation*}
+Similarly, we derive the estimate
+\begin{equation*}
+	\normof{J(t_0, \eta, \alpha) - J(\xi, \eta, \alpha)} \leq K_t \left(1 + \max(\normof{x_0}, \normof{\eta})) \right) \cdot \normof{\xi - t_0} \ ,
+\end{equation*}
+for some constant $ K_t \geq 0 $.
+
+Altogether,
+\begin{equation*}
+	\normof{J(t_0, x_0, \alpha) - J(\xi, \eta, \alpha)} \leq K \left[\normof{\eta - x_0} + (1 + \max(\normof{x_0}, \normof{\eta})) \cdot \normof{\xi - t_0} \right] \ ,
+\end{equation*}
+as we set $ K \coloneqq \max(K_x, K_t) $.
 
 We justify the passage to the infimum over all admissible controls in a similar manner, as we have justified the passage to the supremum in the proof of \ref{Hamiltonian gradient}. Doing so, we immediately obtain \eqref{loc lipschitz}, which completes the proof.

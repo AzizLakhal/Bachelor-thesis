@@ -11,10 +11,10 @@ The example in subsection \ref{naive} deters us from decomposing a superdifferen
 			is dense in $ \Omega $. The same applies when $ D^{+}u(x) $ is replaced by $ D^{-}u(x) $.
 			
 			\begin{proof}
-				We restate the proof of Lemma 1.8 in \cite[p.~30]{bardi2008optimal}. Let $ \overline{x} \in \Omega $ and consider the smooth function $ \varphi_{\varepsilon}(x) = \lvert x - \overline{x} \rvert^2 /  \varepsilon $. For any $ \varepsilon > 0 $, the function $ u - \varphi_{\varepsilon} $ attains its maximum over $ \overline{B} = \overline{B}_R(\overline{x}) $, in some point $ x_{\varepsilon} $. It is
+				We follow the proof of Lemma 1.8 in \cite[p.~30]{bardi2008optimal}. Let $ \overline{x} \in \Omega $ and consider the smooth function $ \varphi_{\varepsilon}(x) = \lvert x - \overline{x} \rvert^2 /  \varepsilon $. For any $ \varepsilon > 0 $, the function $ u - \varphi_{\varepsilon} $ attains its maximum over $ \overline{B} = \overline{B}_R(\overline{x}) $, in some point $ x_{\varepsilon} $. It is
 				
 				\begin{equation*}
-					\varphi_{\varepsilon}(x_{\varepsilon}) \geq \varphi_{\varepsilon}(\overline{x}) = u(\overline{x}) \ ,
+					(u - \varphi_{\varepsilon})(x_{\varepsilon}) \geq (u - \varphi_{\varepsilon})(\overline{x}) = u(\overline{x}) \ ,
 				\end{equation*}
 				
 				and therefore
@@ -29,7 +29,7 @@ The example in subsection \ref{naive} deters us from decomposing a superdifferen
 	
 	\begin{remark}
 		\label{special_differentials}
-		The proof of theorem \ref{density} actually shows that in any vicinity of $ \overline{x} $, there is a point $ x_{\varepsilon} $, which admits a sub-(super)differential of the form $ \lvert x_{\varepsilon} - \overline{x} \rvert / \varepsilon $.
+		The proof of theorem \ref{density} actually shows that in any vicinity of $ \overline{x} $, there is a point $ x_{\varepsilon} $, which admits a superdifferential of the form $ \normof{x_{\varepsilon} - \overline{x}} / \varepsilon $. Similarly, we conclude that in any vicinity of $ \overline{x} $, there is a point $ y_{\varepsilon} $, which admits a subdifferential of the form $ - \normof{y_{\varepsilon} - \overline{x}} / \varepsilon $.
 	\end{remark}
 	
 		

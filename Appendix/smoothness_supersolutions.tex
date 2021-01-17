@@ -28,14 +28,17 @@ for some constant $ M $. As the euclidian norm is known to be smooth in $ \mathb
 	D \varphi_{\delta}(t_0, x_0) = \chi_{\delta}^{\prime}\left(\lvert x_0 - z_0 \rvert + C(T - t_0)\right)\left(- C, \frac{x_0 - z_0}{\lvert x_0 - z_0 \rvert}\right) - \left(\delta, 0 \right) \ .
 \end{equation*}
 
-We now consider the particular case $ x_0 = z_0 $. In order to prove that $ \varphi_{\delta} $ is continuously differentiable in $ (t_0, z_0) $, it is sufficient to show the continuous differentiability of $ \varphi_{\delta} $ w.r.t. to the state variables $ x_i $, where $ i = 1, \ldots, N $. Computing the respective difference quotient gives
+We now consider the particular case $ x_0 = z_0 $. We first show that $ \varphi_{\delta} $ is partially differentiable. The partial differentiability with respect to time is trivial. We now prove the partial differentiability w.r.t. the state variables $ x_i $, where $ i = 1, \ldots, N $.
+
+Computing the respective difference quotient gives
 \begin{equation*}
 	\frac{\varphi_{\delta}(t_0, z_0 + h e_i) - \varphi_{\delta}(t_0, z_0)}{h} = \frac{\chi_{\delta}(\lvert h \rvert + C(T - t_0)) - \chi_{\delta}(C(T - t_0))}{h} \ .
 \end{equation*}
 
-As $ t_0 > t_{\delta} $, the argument $ C(T - t_0) $ is strictly smaller then $ R - \delta $. The same applies to $ \lvert h \rvert + C(T - t_0) $ for sufficiently small $ h $, and consequently the difference quotient evaluates to zero, by definition of $ \chi_{\delta} $. We conclude that $ \varphi_{\delta} $ is also differentiable in every point $ (t_0, z_0) \in \left(t_{\delta}, T \right) \times B_R (z_0) $.
+As $ t_0 > t_{\delta} $, the argument $ C(T - t_0) $ is strictly smaller then $ R - \delta $. The same applies to $ \lvert h \rvert + C(T - t_0) $ for sufficiently small $ h $, and consequently the difference quotient evaluates to zero, by definition of $ \chi_{\delta} $. We conclude that $ \varphi_{\delta} $ is also partially differentiable in every point $ (t_0, z_0) \in \left(t_{\delta}, T \right) \times B_R (z_0) $.
 
-It remains to show that $ \varphi_{\delta} $ is even \emph{continuously} differentiable in $ (t_0, z_0) $. Note that for $ (t, x)  \in \left(t_{\delta}, T\right) \times B_R (z_0) $, with $ x \neq z_0 $, the total derivative of $ \varphi_{\delta} $ in $ (t, x) $ rewrites to
+It remains to show that the partial derivatives are also continuous in points of the form $ (t_0, z_0) $, which implies the continuous differentiability of $ \varphi_{\delta} $ over $ \openInterval{t_{\delta}}{T} \times B_R(z_0) $.
+Note that for $ (t, x)  \in \left(t_{\delta}, T\right) \times B_R (z_0) $, with $ x \neq z_0 $, the total derivative of $ \varphi_{\delta} $ in $ (t, x) $ rewrites to
 \begin{equation*}
 	D \varphi_{\delta} (t, x) = \chi_{\delta}^{\prime}(g(t, x))f(x) - \left(\delta, 0 \right)
 \end{equation*}
@@ -59,9 +62,9 @@ As $ \chi_{\delta} $ is constant over the open interval $ \left(- \infty, R - \d
 	\lim\limits_{(t, x) \to (t_0, z_0), \ x \neq z_0} D \varphi_{\delta}(t, x) = \chi_{\delta}^{\prime}(g(t, x))f(x) \to \left(\delta, 0 \right) = D \varphi_{\delta}(t_0, z_0) \ .
 \end{equation*}
 
-Consequently, the function $ \varphi_{\delta} $ is continuously differentiable in all points $ (t_0, z_0) $, with $ t_0 \in \left(t_{\delta}, T \right) $. We have already discussed the continuous differentiability of $ \varphi_{\delta} $ in points $ (t_0, x_0) \in \left(t_{\delta}, T \right) \times B_R (z_0) $ with $ x_0 \neq z_0 $. We therefore conclude that $ \varphi_{\delta} $ is continuously differentiable over the whole domain $ \left(t_{\delta}, T \right) \times B_R (z_0) $. By the same argument we get that $ D \varphi_{\delta} $ continuously extends to $ \left[t_{\delta}, T \right) \times B_R (z_0) $, with
+Consequently, the function $ \varphi_{\delta} $ is continuously partially differentiable in all points $ (t_0, z_0) $, with $ t_0 \in \left(t_{\delta}, T \right) $. We have already discussed the continuous differentiability of $ \varphi_{\delta} $ in points $ (t_0, x_0) \in \left(t_{\delta}, T \right) \times B_R (z_0) $ with $ x_0 \neq z_0 $. We therefore conclude that $ \varphi_{\delta} $ is continuously differentiable over the whole domain $ \left(t_{\delta}, T \right) \times B_R (z_0) $. Observing $ \chi_{\delta}^{\prime}(R - \delta) = 0 $, as $ \chi_{\delta} $ is \emph{continuously} differentiable, we get that $ D \varphi_{\delta} $ continuously extends to $ \left[t_{\delta}, T \right) \times B_R (z_0) $, with
 
 \begin{gather*}
-	D \varphi_{\delta}(t_{\delta}, z_0) = \left(- \delta, 0 \right) \\
+	D \varphi_{\delta}(t_{\delta}, z_0) = \left(- \delta, 0 \right) \text{ for } x= z_0 \text{, and }\\
 	D \varphi_{\delta}(t_{\delta}, x) = \chi_{\delta}^{\prime}\left(\lvert x - z_0 \rvert + C(T - t_{\delta})\right)\left(- C, \frac{x - z_0}{\lvert x - z_0 \rvert}\right) - \left(\delta, 0 \right) \text{ for } x \neq z_0 \ .
 \end{gather*}

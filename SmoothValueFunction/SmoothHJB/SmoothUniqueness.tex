@@ -44,9 +44,13 @@
 			\label{varying_Lipschitz}
 			\lvert H(t, x, p) - H(t, x, q) \rvert \leq L \left(1 + \lvert x \rvert \right) \lvert p - q \rvert \ ,
 		\end{equation}
-		for all $ x \in \mathbb{R}^{N} $, as stated in \cite[p.~167]{zhou} and shown in \ref{Hamiltonian gradient}. The most obvious Lipschitz-constant from inequality \eqref{eqn:H1} is now given by $ C = L (1 + \lvert z_0 \lvert + R) $, considering the domain $ \left(0, T \right) \times B_R(z_0) $.
+		for all $ x \in \mathbb{R}^{N} $, as stated in \cite[p.~167]{zhou} and shown in \ref{Hamiltonian gradient}. The most obvious Lipschitz-constant from inequality \eqref{eqn:H1} is now given by
+		\begin{equation*}
+			C = C(z_0) \coloneqq L (1 + \lvert z_0 \lvert + R) \ ,
+		\end{equation*}
+		considering the domain $ \left(0, T \right) \times B_R(z_0) $.
 		
-		If the radius $ R $ remains constant, the time interval spanned by $ \mathcal{C}_{z_0, R} $ tends to zero as the norm of $ z_0 $ increases. The proof of the following corollary consists in choosing a suitable radius $ R $ for each $ z_0 $, in order to cover the whole domain.
+		If the radius $ R $ remains constant, the length of the time interval spanned by $ \mathcal{C}_{z_0, R} $ tends to zero as the norm of $ z_0 $ increases. The proof of the following corollary consists in choosing a suitable radius $ R $ for each $ z_0 $, in order to cover the whole domain.
 		
 		\subimport{./}{Global_comp}
 		

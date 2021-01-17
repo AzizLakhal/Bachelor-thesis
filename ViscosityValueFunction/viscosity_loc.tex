@@ -5,18 +5,18 @@
 	\begin{equation*}
 	-u_t + H(t, x, -D_x u) = 0 \ .
 	\end{equation*}
-	If $ H : \Omega \times \mathbb{R}^{N} \to \mathbb{R} $ satisfies \eqref{eqn:H1}, then $ w \coloneqq u - v $ satisfies
+	If $ H : \Omega \times \mathbb{R}^{N} \to \mathbb{R} $ is continuous and satisfies \eqref{eqn:H1} as well as \eqref{eqn:H2}, then
 	
 	\begin{equation*}
-	-w_t - C \lvert D_x w \rvert \leq 0 \ .
+	-\varphi_t(x_0) - C \lvert D_x \varphi(x_0) \rvert \leq 0 
 	\end{equation*}
 	
-	If $ H $ is additionally continuous, and \eqref{eqn:H2} holds, while the subsolution $ u $ is smaller or equal to the supersolution $ v $ on $ \{ T \} \times \overline{B}_R (z_0) $, then the same applies to the whole region $ \mathcal{C}_{z_0, R} $, defined in \ref{regions}.
+	holds for any test function $ \varphi \in C^{1}(\Omega) $, whenever $ w - \varphi $ attains a local minimum in $ x_0 $, and where $ w \coloneqq u - v $. If the subsolution $ u $ is smaller or equal to the supersolution $ v $ on $ \{ T \} \times \overline{B}_R (z_0) $, then the same applies to the whole region $ \mathcal{C}_{z_0, R} $, defined in \ref{regions}.
 		  	\begin{proof}
 		  		We show that $ w $ is a viscosity subsolution of \eqref{diff-PDE}, namely:
 		  		
 		  		\begin{equation*}
-		  			-w_t - C \lvert D_x w \rvert \leq 0 \ .
+		  			-\psi_t - C \lvert D_x \psi \rvert = 0 \ .
 		  		\end{equation*}
 		  		
 		  		Consider an arbitrary point $ (t_0, x_0) \in \left( 0, T \right) \times B_R(z_0) $, and let $ \varphi : \left( 0, T \right) \times B_R(z_0) \to \mathbb{R} $ be a smooth function, s.t. $ w - \varphi $ admits a local maximum in $ (t_0, x_0) $. W.l.o.g, we assume $ (t_0, x_0) $ to be a \emph{strict} local maximizer.
@@ -52,7 +52,36 @@
 		  		
 		  		Considering equation \eqref{idea}, our selection of the differentials should ensure $ p - q $ tends towards the given superdifferential of $ w $, as $ \overlinedPair{t}{x} $ and $ \overlinedPair{s}{y} $ both converge to $ (t_0, x_0) $.
 		  		
-		  		Let $ \overlinedPair{t}{x} $ and $ \overlinedPair{s}{y} $ now specifically denote the points constructed in lemma \ref{doubling device}, the lemma being appended to the current proof. According to claim (\ref{maximizer convergence}) from latter lemma, the same points $ \overlinedPair{t}{x} $ and $ \overlinedPair{s}{y} $ respectively admit the super-and subdifferentials
+		  		Let $ \overlinedPair{t}{x} = \left( \overline{t}(\varepsilon, \alpha), \overline{x}(\varepsilon, \alpha) \right) $ and $ \overlinedPair{s}{y} = \left(\overline{s}(\varepsilon, \alpha), \overline{y}(\varepsilon, \alpha) \right) $ now specifically denote the points constructed in lemma \ref{doubling device}, the lemma being appended to the current proof. The points $ \overlinedPair{t}{x} $ and $ \overlinedPair{s}{y} $ satisfy the following properties:
+		  		
+		  		\begin{enumerate}[(i)]
+		  			\item
+		  			\begin{align*}
+		  			\lvert \overline{x} - \overline{y} \rvert &\to 0 \hbox{ as } \varepsilon \searrow 0, \hbox{ uniformly w.r.t } \  \alpha \\
+		  			\lvert \overline{t} - \overline{s} \rvert &\to 0 \hbox{ as } \alpha \searrow 0, \hbox{ uniformly w.r.t } \ \varepsilon 
+		  			\end{align*}
+		  			
+		  			\item
+		  			$ (u - \varphi)\overlinedPair{t}{x} - v\overlinedPair{s}{y} \to (w - \varphi)(t_0, x_0) $ and the components $ \overlinedPair{t}{x} $ and $ \overlinedPair{s}{y} $ of the maximizers converge towards $ (t_0, x_0) $ as $ \varepsilon, \alpha \searrow 0 $ for some subnet of $ (\overline{t}, \overline{x}, \overline{s}, \overline{y})_{\varepsilon, \alpha} $. 
+		  			For the same subnet, the vectors $ p $ and $ q $, with
+		  			
+		  			\begin{align*}
+		  			p &= \left( \frac{\overline{t} - \overline{s}}{\alpha}, \frac{\overline{x} - \overline{y}}{\varepsilon} \right) + D\varphi\overlinedPair{t}{x} \\
+		  			q &= \left( \frac{\overline{t} - \overline{s}}{\alpha}, \frac{\overline{x} - \overline{y}}{\varepsilon} \right)
+		  			\end{align*}
+		  			
+		  			respectively belong to $ D^{+}u\overlinedPair{t}{x} $ and $ D^{-}v\overlinedPair{s}{y} $, for sufficiently small $ \varepsilon $ and $ \alpha $.
+		  			
+		  			\item
+		  			For the subnet mentioned in claim (\ref{maximizer convergence}), we even have that
+		  			\begin{align*}
+		  			\frac{\lvert \overline{x} - \overline{y} \rvert^2}{\varepsilon} &\to 0 \\
+		  			\frac{\lvert \overline{t} - \overline{s} \rvert^2}{\alpha} &\to 0 
+		  			\end{align*} 
+		  			as $ \varepsilon, \alpha \searrow 0 $.
+		  		\end{enumerate}
+		  		
+		  		By abusing of notation, we denote by $ \overlinedPair{t}{x} $ and $ \overlinedPair{s}{y} $ the subnet from claim (\ref{fast convergence}). According to claim (\ref{maximizer convergence}) from latter lemma, the same points $ \overlinedPair{t}{x} $ and $ \overlinedPair{s}{y} $ respectively admit the super-and subdifferentials
 		  		
 		  		\begin{align*}
 		  				p &= \left( \frac{\overline{t} - \overline{s}}{\alpha}, \frac{\overline{x} - \overline{y}}{\varepsilon} \right) + D\varphi\overlinedPair{t}{x} \ , \text{ and} \\
@@ -81,7 +110,7 @@
 		  		
 		  		Since $ \overlinedPair{t}{x} $ and $ \overlinedPair{s}{y} $ converge to $ (t_0, x_0) $, as $ \varepsilon $ and $ \alpha $ tend to zero, the points $ \overlinedPair{t}{x} $ and $ \overlinedPair{s}{y} $ are bounded for sufficiently small $ \varepsilon $ and $ \alpha $, and then so is $ D_x \varphi\overlinedPair{t}{x} $.
 		  		
-		  		For fixed $ \varepsilon $, the arguments of $ H $, appearing in the first difference 
+		  		For such sufficiently small $ \varepsilon $, the arguments of $ H $, appearing in the first difference 
 		  		
 		  		\begin{equation*}
 		  			\lvert H(\overline{t}, \overline{x}, -p_x) - H(\overline{s}, \overline{x}, -p_x) \rvert 
