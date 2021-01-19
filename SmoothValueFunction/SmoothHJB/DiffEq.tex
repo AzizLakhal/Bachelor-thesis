@@ -79,31 +79,31 @@
 		
 		by taking the supremum over $ a \in \mathcal{A} $. Latter inequality is obviously equivalent to \eqref{value_subsolution}.
 		
-		Now for the more delicate proof of inequality \eqref{value_supersolution}. Fix again an arbitrary $ (t_0, x_0) \in \left( 0 , T \right) \times \mathbb{R}^N $. By the DPP \eqref{dpp_general}, there exists for any $ \epsilon, h > 0 $, some control $ \alpha = \alpha(\epsilon, h) $, such that
+		Now for the more delicate proof of inequality \eqref{value_supersolution}. Fix again an arbitrary $ (t_0, x_0) \in \left( 0 , T \right) \times \mathbb{R}^N $. By the DPP \eqref{dpp_general}, there exists for any $ \varepsilon, h > 0 $, some control $ \alpha = \alpha(\varepsilon, h) $, such that
 		
 		\begin{equation*}
-			v(t_0, x_0) \geq \Bigg\{ \pathint{\alpha}{t_0}{t_0 + h} + v(t_0 + h, x^{\alpha}_{x_0}(t_0 + h)) \Bigg\} - \epsilon h \ .
+			v(t_0, x_0) \geq \Bigg\{ \pathint{\alpha}{t_0}{t_0 + h} + v(t_0 + h, x^{\alpha}_{x_0}(t_0 + h)) \Bigg\} - \varepsilon h \ .
 		\end{equation*}
 		
 		Isolate the terms corresponding to $ v $ on the left-hand-side, and divide both sides by $ -1 / h < 0 $, to obtain that
 		
 		\begin{equation}
 			\label{diff_quotient_super}
-			\frac{v(t_0 + h, x^{\alpha}_{x_0}(t_0 + h)) - v(t_0, x_0)}{h} \leq - \frac{1}{h} \pathint{\alpha}{t_0}{t_0 + h} + \epsilon \ .
+			\frac{v(t_0 + h, x^{\alpha}_{x_0}(t_0 + h)) - v(t_0, x_0)}{h} \leq - \frac{1}{h} \pathint{\alpha}{t_0}{t_0 + h} + \varepsilon \ .
 		\end{equation}
 		
 		Use again the definition of $ v^{\alpha}_{x_0} $ to rewrite \eqref{diff_quotient_super} as:
 		
 		\begin{equation}
 		\label{problematic}
-			\frac{v^{\alpha}_{x_0}(t_0 + h) - v^{\alpha}_{x_0}(t_0)}{h} \leq - \frac{1}{h} \pathint{\alpha}{t_0}{t_0 + h} + \epsilon \ .
+			\frac{v^{\alpha}_{x_0}(t_0 + h) - v^{\alpha}_{x_0}(t_0)}{h} \leq - \frac{1}{h} \pathint{\alpha}{t_0}{t_0 + h} + \varepsilon \ .
 		\end{equation}
 		
 		Note that the considered control $ \alpha $ depends on $ h $, while the relationship between different controls is unknown. In view of these discouraging circumstances, we avoid the question of whether the present difference quotients converge uniformly as $ h $ tends to zero. Instead, we want to resolve the dependency on $ \alpha $. To this end, apply the fundamental theorem of calculus to the left-hand-side of \eqref{problematic} and subtract the resulting integral from both sides to obtain that
 		
 		\begin{equation}
 			\label{resolve}
-			- \epsilon \leq \frac{1}{h} \int\limits^{t_0 + h}_{t_0} g(t, x^{\alpha}_{x_0}(t), \alpha(t)) \ dt \ ,
+			- \varepsilon \leq \frac{1}{h} \int\limits^{t_0 + h}_{t_0} g(t, x^{\alpha}_{x_0}(t), \alpha(t)) \ dt \ ,
 		\end{equation}
 		
 		where $ g $, defined by $ g(t, x, a) = - v_t(t, x) + H^{a}(t, x, -D_x v(t, x)) $, is continuous, as $ b $ and $ f $ are uniformly continuous. It is easy to deduce the equicontinuity of $ \{ H^{a} \}_{a \in \mathcal{A}}  $ from the uniform continuity of $ f $ and $ b $ and condition \eqref{Lipschitz}, imposed upon them. Consequently $ H $ and the function $ \hat{g} $, defined by
@@ -117,7 +117,7 @@
 		Taking the supremum over $ a \in \mathcal{A} $ in \eqref{resolve} yields that
 		
 		\begin{equation*}
-			- \epsilon \leq \frac{1}{h} \int\limits^{t_0 + h}_{t_0} \hat{g}(t, x^{\alpha}_{x_0}(t)) \ dt \ .
+			- \varepsilon \leq \frac{1}{h} \int\limits^{t_0 + h}_{t_0} \hat{g}(t, x^{\alpha}_{x_0}(t)) \ dt \ .
 		\end{equation*}
 		
 		Note how the integrand does no longer directly depend on the function values of $ \alpha $, but only on its induced trajectory.
@@ -125,15 +125,15 @@
 		Apply the mean value theorem to rewrite latter inequality to
 		
 		\begin{equation*}
-			- \epsilon \leq \hat{g}(\xi, x^{\alpha}_{x_0}(\xi)) \ ,
+			- \varepsilon \leq \hat{g}(\xi, x^{\alpha}_{x_0}(\xi)) \ ,
 		\end{equation*}
 		
-		with $ \xi = \xi(\epsilon, h) \in \left( t_0, t_0 + h \right) $. If we show that $ \hat{g}(\xi, x^{\alpha}_{x_0}(\xi)) $ converges towards $ \hat{g}(t_0, x_0) $, as $ h $ tends to zero, we also get that
+		with $ \xi = \xi(\varepsilon, h) \in \left( t_0, t_0 + h \right) $. If we show that $ \hat{g}(\xi, x^{\alpha}_{x_0}(\xi)) $ converges towards $ \hat{g}(t_0, x_0) $, as $ h $ tends to zero, we also get that
 		
 		\begin{equation*}
-			-\epsilon \leq \hat{g}(t_0, x_0) = -v_t(t_0, x_0) + H(t_0, x_0, -D_x v(t_0, x_0)) \ ,
+			-\varepsilon \leq \hat{g}(t_0, x_0) = -v_t(t_0, x_0) + H(t_0, x_0, -D_x v(t_0, x_0)) \ ,
 		\end{equation*}
-		and since $ \epsilon $ was arbitrary, our proof for \eqref{value_supersolution} would be complete. This is actually the case, as the trajectories $ \{ x^{\alpha}_{x_0} \} $ are equicontinuous in $ t_0 $. To see this, use the assumptions \eqref{bounded} and \eqref{Lipschitz} about the dynamics $ b $, to derive that
+		and since $ \varepsilon $ was arbitrary, our proof for \eqref{value_supersolution} would be complete. This is actually the case, as the trajectories $ x^{\alpha}_{x_0} $ are equicontinuous in $ t_0 $. To see this, use the assumptions \eqref{bounded} and \eqref{Lipschitz} about the dynamics $ b $, to derive that
 		
 		\begin{equation}
 			\label{Gronwall_condition}
@@ -145,7 +145,7 @@
 		\label{trajectory equicontinuous}
 				\lvert x^{\alpha}_{x_0} (\xi) - x^{\alpha}_{x_0} (t_0) \rvert \leq L(1 + \lvert x_0 \rvert)(\xi - t_0) \exp(L(\xi - t_0)) \ ,
 		\end{equation}
-		and the trajectories $ \{ x^{\alpha}_{x_0} \} $ are indeed equicontinuous in $ t_0 $, which, according to our previous remark, brings our proof of \eqref{value_supersolution} to an end.
+		and the trajectories $ x^{\alpha}_{x_0} $ are indeed equicontinuous in $ t_0 $, which, according to our previous remark, brings our proof of \eqref{value_supersolution} to an end.
 		
 		The terminal condition $ v(T, \cdot) = h $, follows immediately from the definition of $ v $.
 	\end{proof}

@@ -1,0 +1,93 @@
+\begin{example}
+	\label{simple viscosity}
+	Recall the control problem from section \ref{non-smooth} and its associated value function
+	\begin{equation*}
+		v : \left[0, T\right] \times \mathbb{R} \to \mathbb{R}, \ (t_0, x_0) \mapsto \max(0, \normof{x_0} - (T - t_0)) \ .
+	\end{equation*}
+	The value function $ v $ is known to solve the Hamilton-Jacobi-Bellman type PDE \eqref{example PDE} of the form
+	\begin{equation*}
+		-u_t + H(t, x, -D_x u) = 0 \ ,
+	\end{equation*}
+	almost everywhere, with
+	\begin{equation*}
+		H : \left[0, T\right] \times \mathbb{R} \times \mathbb{R} \to \mathbb{R}, \ (t, x, p) \mapsto \sup\limits_{a \in \closedInterval{-1}{1}} a \cdot p = \normof{p} \ ,
+	\end{equation*}
+	being the corresponding Hamiltonian of our control problem.
+	We shall see $ v $ is even a viscosity solution.
+	
+	We follow the proof of theorem \ref{classical solution HJB}, and proceed in two steps, showing $ v $ is a viscosity sub- and supersolution of \eqref{example PDE}, respectively.
+	
+	We first prove $ v $ is a viscosity subsolution. To this end, consider $ (t_0, x_0) \in \openInterval{0}{T} \times \mathbb{R} $ and a smooth test function $ \varphi $, s.t. $ v - \varphi $ attains a local maximum in $ (t_0, x_0) $. Having zero running costs, we obtain from the DPP \eqref{dpp_general}
+	\begin{equation*}
+		v(t_0, x_0) \leq v(t_0 + h, x_{\overline{a}}(t_0 + h)) \ ,
+	\end{equation*}
+	for any $ h \geq 0 $ and any constant control $ \overline{a} \equiv a $. As $ (t_0, x_0) $ is a local maximum of $ v - \varphi $, we have
+	\begin{equation*}
+		\varphi(t, x) - \varphi(t_0, x_0) \geq v(t, x) - v(t_0, x_0) \ ,
+	\end{equation*}
+	for points $ (t, x) $ sufficiently close to $ (t_0, x_0) $. Since the trajectory $ \simpleTrajectory{x_0}{\overline{a}} $ is continuous, we have
+	\begin{equation*}
+		\frac{\varphi(t_0 + h, \simpleTrajectory{x_0}{\overline{a}}(t_0 + h)) - \varphi(t_0, x_0)}{h} \geq \frac{v(t_0 + h, \simpleTrajectory{x_0}{\overline{a}}(t_0 + h)) - v(t_0, x_0)}{h} \ ,
+	\end{equation*}
+	for sufficiently small $ h > 0 $. It follows that
+	\begin{equation*}
+		\frac{\varphi(t_0 + h, \simpleTrajectory{x_0}{\overline{a}}(t_0 + h)) - \varphi(t_0, x_0)}{h} \geq 0 
+	\end{equation*}
+	for such $ h $. The chain rule justifies a passage to the limit $ h \searrow 0 $, which yields
+	\begin{equation*}
+	\varphi_t(t_0, x_0) + a D_x \varphi(t_0, x_0) \geq 0 \ ,
+	\end{equation*}
+	considering the dynamics of $ \simpleTrajectory{x_0}{\overline{a}} $. As the constant control was arbitrary, we conclude that
+	\begin{equation*}
+		- \varphi_t(t_0, x_0) + \normof{D_x \varphi(t_0, x_0)} \leq 0 \ ,
+	\end{equation*}
+	and that $ v $ is a viscosity subsolution of \eqref{example PDE}.
+	
+	We next show $ v $ is viscosity supersolution of \eqref{example PDE}.
+	
+	To this end, consider $ (t_0, x_0) \in \openInterval{0}{T} \times \mathbb{R} $ and a smooth test function $ \varphi $, s.t. $ v - \varphi $ attains a local minimum in $ (t_0, x_0) $. Fix $ \varepsilon > 0 $. According to the DPP \eqref{dpp_general}, there exists for every $ h > 0 $, a control $ \alpha = \alpha(h) $, such that
+	\begin{equation*}
+		v(t_0, x_0) > v(t_0 + h, \simpleTrajectory{x_0}{\alpha}) - \varepsilon h \ .
+	\end{equation*}
+	Since $ (t_0, x_0) $ is a local minimum of $ (t_0, x_0) $,
+	\begin{equation*}
+		v(t_0 + h, \simpleTrajectory{x_0}{\alpha}(t_0  + h)) - v(t_0, x_0) \geq \varphi(t_0 + h, \simpleTrajectory{x_0}{\alpha}(t_0  + h)) - \varphi(t_0, x_0) \ ,
+	\end{equation*}
+	whenever $ \left(t_0 + h, \simpleTrajectory{x_0}{\alpha}(t_0  + h)\right) $ is sufficiently close to $ (t_0, x_0) $. As $ \alpha $ depends on $ h $, we convince ourselves the trajectories $ \simpleTrajectory{x_0}{\alpha} = \simpleTrajectory{x_0}{\alpha(h)} $ are equicontinuous in $ t_0 $. Every trajectory $ \simpleTrajectory{x_0}{\alpha} $ is described by the dynamics $ \alpha $. Therefore
+	\begin{equation*}
+		\normof{\simpleTrajectory{x_0}{\alpha}(t) - \simpleTrajectory{x_0}{\alpha}(t_0)} \leq \int\limits_{t_0}^{t} \normof{\alpha(t)} dt \leq (t - t_0) \ ,
+	\end{equation*}
+	which implies the trajectories are equicontinuous in $ t_0 $. It follows that
+	\begin{equation*}
+		\frac{\varphi(t_0 + h, \simpleTrajectory{x_0}{\alpha}(t_0 + h)) - \varphi(t_0, x_0)}{h} < \varepsilon \ ,
+	\end{equation*}
+	i.e.
+	\begin{equation*}
+		\frac{\varphi(t_0, x_0) - \varphi(t_0 + h, \simpleTrajectory{x_0}{\alpha}(t_0 + h))}{h} > -\varepsilon
+	\end{equation*}
+	for sufficiently small $ h $. Define $ \varphi_{x_0}^{\alpha} : t \mapsto \varphi(t, \simpleTrajectory{x_0}{\alpha}(t)) $ with derivative
+	\begin{equation*}
+		\dot{\varphi}_{x_0}^{\alpha} : t \mapsto \varphi_t(t, \simpleTrajectory{x_0}{\alpha}(t)) + H^{\alpha(t)}(t, \simpleTrajectory{x_0}{\alpha}(t), D_x \varphi(t, \simpleTrajectory{x_0}{\alpha}(t)) \ ,
+	\end{equation*}
+	where
+	\begin{equation*}
+		H^a (t, x, p) \coloneqq a \cdot p \ .
+	\end{equation*}
+	The fundamental theorem of calculus now gives
+	\begin{equation*}
+		\frac{1}{h} \int\limits_{t_0}^{t_0 + h} -\varphi_t(t, \simpleTrajectory{x_0}{\alpha}(t)) + H^{\alpha(t)}(t, \simpleTrajectory{x_0}{\alpha}(t), -D_x \varphi(t, \simpleTrajectory{x_0}{\alpha}(t)) dt > - \varepsilon \ .
+	\end{equation*}
+	We can rewrite $ H $ as the pointwise supremum over all $ \{H^{a}\}_{a \in \closedInterval{-1}{1}} $, and therefore
+	\begin{equation*}
+		\frac{1}{h} \int\limits_{t_0}^{t_0 + h} -\varphi_t(t, \simpleTrajectory{x_0}{\alpha}(t)) + H(t, \simpleTrajectory{x_0}{\alpha}(t), -D_x \varphi(t, \simpleTrajectory{x_0}{\alpha}(t)) dt > - \varepsilon \ .
+	\end{equation*}
+	By the mean value theorem, there is a $ \xi = \xi(h) \in \openInterval{t_0}{t_0} $, such that
+	\begin{equation*}
+		-\varphi_t(\xi, \simpleTrajectory{x_0}{\alpha}(\xi)) + H(\xi, \simpleTrajectory{x_0}{\alpha}(\xi), -D_x \varphi(\xi, \simpleTrajectory{x_0}{\alpha}(\xi)) dt > - \varepsilon \ .
+	\end{equation*}
+	Since $ \varphi $ is smooth and the trajectories $ \simpleTrajectory{x_0}{\alpha} $ are equicontinuous in $ t_0 $, a passage to the limit $ h \searrow 0 $ implies that
+	\begin{equation*}
+		- \varphi_t (t_0, x_0) + H(t_0, x_0, - D_x \varphi(t_0, x_0)) > - \varepsilon \ .
+	\end{equation*}
+	As $ \varepsilon $ was arbitrary, $ v $ is indeed a supersolution of \eqref{example PDE}, and the proof is complete.
+\end{example}

@@ -1,0 +1,24 @@
+\begin{example}
+	Recall the control problem from section \ref{non-smooth} and its associated value function
+	\begin{equation*}
+	v : \left[0, T\right] \times \mathbb{R} \to \mathbb{R}, \ (t_0, x_0) \mapsto \max(0, \normof{x_0} - (T - t_0)) \ .
+	\end{equation*}
+	The value function $ v $ is known to solve the Hamilton-Jacobi-Bellman type PDE \eqref{example PDE} of the form
+	\begin{equation*}
+	-u_t + H(t, x, -D_x u) = 0 \ ,
+	\end{equation*}
+	almost everywhere, with
+	\begin{equation*}
+	H : \left[0, T\right] \times \mathbb{R} \times \mathbb{R} \to \mathbb{R}, \ (t, x, p) \mapsto \sup\limits_{a \in \closedInterval{-1}{1}} a \cdot p = \normof{p} \ ,
+	\end{equation*}
+	being the corresponding Hamiltonian of our control problem. Unfortunately, the function $ f : (t_0, x_0) \mapsto \normof{x_0} - (T - t_0) $ also solves \eqref{example PDE} almost everywhere. On the other hand, we shall see that $ f $ is not a viscosity supersolution, and therefore not a viscosity solution of \eqref{example PDE}.
+	
+	Since $ f $ is convex, its subdifferentials coincide with its subdifferentials in the sense of convex analysis \cite[see exercise 1.3, p~32]{bardi2008optimal}. Hence
+	\begin{equation*}
+		D^{-}f(t_0, 0) = \{1\} \times \overline{B}_{1}(0) \ ,
+	\end{equation*}
+	for any $ t_0 \in \openInterval{0}{T} $. Clearly, some subdifferentials of $ f $ in $ (t_0, 0) $ do not satisfy the respective supersolution condition
+	\begin{equation*}
+		-u_t + \normof{D_x u} \geq 0 \ .
+	\end{equation*}
+\end{example}

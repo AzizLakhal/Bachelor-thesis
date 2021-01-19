@@ -47,7 +47,11 @@
 		According to \cite[lemma 1.7, p.~29]{bardi2008optimal} definition \ref{semidifferentials} coincides with the usual definition. The latter proves more convenient when deriving rules of calculus within our new framework \cite[cf. p.~37 et sqq]{bardi2008optimal}. As we are primarily interested in the comparison with smooth functions, we stick with definition \ref{semidifferentials}.
 	\end{remark}
 
-	Viscosity solutions would not be of interest to us, if the value function were not a viscosity solution of \eqref{HJB}.
+	Viscosity solutions would not be of interest to us, if the value function were not a viscosity solution of \eqref{HJB}. We return to our example from section \ref{non-smooth} and check everything is in order.
+	
+	\subimport{./}{example_solution}
+	
+	It is not a coincidence that the proof, given in example \ref{simple viscosity}, is very similar to the proof of theorem \ref{classical solution HJB}.
 	
 	\begin{theorem}
 		\label{viscosity solution HJB}
@@ -236,4 +240,7 @@
 	  		As stated in theorem \ref{classical solution HJB}, the uniform continuity of $ f $ and $ b $, and condition \eqref{Lipschitz}, imposed upon them, imply the continuity of $ H $. Furthermore, we derived in \ref{Hamiltonian gradient} and \ref{state hamiltonian}, estimates of the form \eqref{varying_Lipschitz} and \eqref{eqn:H2}, respectively. Consequently, the assumptions made in corollary \ref{Viscosity Uniqueness} hold for the Hamiltonian of our control problem. On the other hand, corollary \ref{Viscosity Uniqueness} immediately implies $ v $ is the \emph{unique} viscosity solution to the terminal value problem.
 	  	\end{proof}
 	  \end{theorem}
-		  
+  
+	We illustrate theorem \ref{value characterization} with a final example.
+	
+	\subimport{./}{uniqueness_example}	  

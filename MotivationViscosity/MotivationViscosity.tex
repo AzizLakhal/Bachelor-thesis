@@ -3,7 +3,7 @@
 	
 	\label{non-smooth}
 	
-	We want to put the practicability of our results to the test. More precisely, we want to check whether or not it is sensible to assume the value function being smooth. We therefore consider the very simple control problem, starting in $ (t_0, x_0) \in \left[ 0 , T \right] \times \mathbb{R}^N $, with elementary dynamics
+	We want to put the practicability of our results to the test. More precisely, we want to check whether or not it is sensible to assume the value function being smooth. We therefore consider the very simple control problem, starting in $ (t_0, x_0) \in \left[ 0 , T \right] \times \mathbb{R} $, with elementary dynamics
 	
 	\begin{equation*}
 		\dot{x} = \alpha \ ,
@@ -33,8 +33,9 @@
 	
 	Recall that under the assumptions imposed upon our problem parameters, the value function is at least known to be locally Lipschitz-continuous. Therefore, the value function is differentiable almost everywhere, by Rademacher's theorem found in \cite{evans}. Consequently, it is enticing to reformulate the PDE \eqref{HJB} in the so-called \emph{generalized sense}, meaning we require solutions to be locally Lipschitz-continuous and to satisfy \eqref{HJB} almost everywhere. Our simple example still reveals itself problematic in this case, as the associated PDE \eqref{HJB}, now given by
 	
-	\begin{equation*}
+	\begin{equation}
+	\label{example PDE}
 		-u_t + \lvert u_x \rvert = 0 \ ,
-	\end{equation*}
+	\end{equation}
 	
 	admits the functions $ v $ and $ (t_0, x_0) \mapsto \lvert x_0 \rvert - (T - t_0) $ as generalized solutions, both satisfying the terminal condition $ u(T, \cdot) = h $, as noted by Barles \cite{barles}. Another sense of solution is therefore needed, if we insist on our characterizing the value function as the unique solution to the terminal value problem.
