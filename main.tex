@@ -29,6 +29,7 @@
 \usepackage{url}
 \usepackage{ragged2e}
 \usepackage{ellipsis}
+\usepackage{pdfpages}
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
@@ -72,7 +73,7 @@
 
 %%%%%%%%%%%%%%%%% Hier wird der Titel erstellt %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\Panzahl    {1}                   %% number of authors (up to 5 authors supp.)
+\Panzahl    {3}                   %% number of authors (up to 5 authors supp.)
 \Pautor     {Mohamed Aziz Lakhal}       %% name of 1st author
 
 %% address of 1st author
@@ -86,9 +87,23 @@
 
 
 \Pjahr      {2020}               %% year of publ.
-\Pnummer    {???}                 %% preprint no. (ask "Preprintbeauftragten")
 
 \Pdatum     {\today}             %% date of submission to journal, default: today 
+
+\Pcoautor   {Prof. Dr. Christian Bender}   %% name of 2nd author 
+\Pcoanschrift {Saarland University \\ Department of Mathematics \\
+	P.O. Box 15 11 50   \\ 66041 Saarbr\"ucken \\
+	Germany}
+\Pcoepost   {bender@math.uni-sb.de}     %% email  of 2nd author
+
+
+
+%%--<>------------- 3rd AUTHOR --------------
+\qPautor     {Prof. Dr. Martin Fuchs}     %% name of 3rd author
+\qPanschrift { Saarland University\\  Department of Mathematics\\
+	P.O. Box 15 11 50 \\  66041 Saarbr\"ucken\\
+	Germany}
+\qPepost     {fuchs@math.uni-sb.de}   %% email of 3rd author
 
 
 
@@ -97,6 +112,10 @@
 \Ptitelseite                 %% generates the title pages 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\includepdf[pages=-]{./Selbstaendigkeitserklaerung_signed.pdf}
+
+\includepdf[pages=-]{./Uebereinstimmung_signed.pdf}
 
 \tableofcontents
 

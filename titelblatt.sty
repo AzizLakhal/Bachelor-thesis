@@ -85,7 +85,7 @@
 %
 %  %%%%%%% AutorInnen :  3 %%%%%%%%%%%%%%%%%%%
 \ifnum\PPanzahl=3
-  \def\pAutor     {\PPautor, \PPcoautor\ and \qPPautor}
+  \def\pAutor     {\PPautor, \\ \vspace{5mm} First marker: \PPcoautor\ \\ \vspace{7.5mm} Second marker: \qPPautor}
   \def\pAnschrift {
        ~\vspace{1.0cm}
     \begin{center}
@@ -168,8 +168,6 @@
 \end{figure}
 {\Huge \sf Fachrichtung 6.1 -- Mathematik }\\[2cm]
 
-{\Large Preprint Nr. \PPnummer \hfill} \\[1.5cm]
-
 { \Large  \bf \PPtitel} \\[1cm]
 
 { \Large \pAutor }\\[5.2cm]
@@ -193,15 +191,14 @@
 % \fi
 \newpage
 \begin{center}
-{\sf Fachrichtung 6.1 -- Mathematik \hfill Preprint No. \PPnummer}\\ 
-{\sf Universit\"at des Saarlandes \hfill submitted: \PPdatum}\\ 
+{\sf Fachrichtung 6.1 -- Mathematik \hfill submitted: \PPdatum}\\ 
+\raggedright{\sf Universit\"at des Saarlandes \hfill}\\ 
 \hrulefill\\[2ex]
-{ \Large \bf \PPtitel}\\[4mm]
+\centering{ \Large \bf \PPtitel}\\[4mm]
 \pAnschrift
 % \vfill
 % \hrulefill\\[1mm]
-% submitted: \PPdatum \\[1mm]
-% \textbf{Preprint No. \PPnummer}\\[1mm] 
+% submitted: \PPdatum \\[1mm] 
 % Saarbr\"ucken \PPjahr
 \end{center}
 
